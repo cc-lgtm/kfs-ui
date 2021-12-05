@@ -1,0 +1,54 @@
+.button {
+  width: 100%;
+  padding: 10px 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 18px;
+  user-select: none;
+  border: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+.cc-button {
+  width: 150px;
+  background: #fff;
+  box-sizing: border-box;
+  margin: 10px;
+  box-shadow: 1px 2px 6px #ccc;
+  overflow: hidden;
+  border-radius: var(--round);
+  &-normal {
+    @extend .button;
+    background: #2ecc71;
+    &:hover {
+      background: #f6f6f6;
+      color: #2ecc71;
+      box-shadow: 1px 2px 6px #2ecc71;
+    }
+  }
+  &-error {
+    @extend .button;
+    background: #e74c3c;
+    &:hover {
+      background: #f6f6f6;
+      color: #e74c3c;
+      box-shadow: 1px 2px 6px #e74c3c;
+    }
+  }
+  &-warn {
+    @extend .button;
+    background: #f39c12;
+    &:hover {
+      background: #f6f6f6;
+      color: #f39c12;
+      box-shadow: 1px 2px 6px #f39c12;
+    }
+  }
+  &-isLoading {
+    @extend .button;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: not-allowed;
+  }
+}
