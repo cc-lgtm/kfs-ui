@@ -1,0 +1,33 @@
+.cc-input {
+  width: 250px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid #1e90ff;
+  margin: 10px;
+  .left-icon {
+    width: 20px;
+    height: 20px;
+  }
+  input {
+    width: 180px;
+    height: 40px;
+    border: none;
+    outline: none;
+    display: flex;
+    flex: 1;
+    padding: 0 10px;
+    color: #1e90ff;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .right-icon {
+    width: 20px;
+    height: 20px;
+
+    &:active {
+      box-shadow: 1px 2px 6px #7bed9f;
+    }
+  }
+}
