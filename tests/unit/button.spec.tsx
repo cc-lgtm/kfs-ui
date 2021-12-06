@@ -1,3 +1,4 @@
+import { defineComponent, ref } from 'vue'
 import { mount } from '@vue/test-utils'
 import CcButton from '../../src/packages/button/index'
 
@@ -23,21 +24,24 @@ test('test button error', () => {
   expect(error.text()).toBe("111")
 })
 
-const clickBtn = {
-  template:
-  '<CcButton @click="onClick">111</CcButton>',
-  methods: {
-    onClick() {
-      console.log('test')
+const clickBtn = defineComponent({
+  setup(props, { emit }) {
+    const count = ref<number>(0)
+    const onClick = () => {
+      emit('click')
     }
+
+    return () => (
+      <CcButton onClick={onClick}></CcButton>
+    )
   }
-}
+})
 
 test('test button click event', () => {
   const wraper = mount(clickBtn)
 
   wraper.find('button').trigger('click')
 
-  expect(wraper)
+  expect(wraper.emitted()).toHaveProperty('click')
 })
 

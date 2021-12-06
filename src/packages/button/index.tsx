@@ -54,7 +54,7 @@ const CcButton = defineComponent({
 
     const renderLoading = () => {
       return props.isLoading
-      ? (<cc-loading />)
+      ? <cc-loading type="loadEffect" />
       : props.value
     }
 
