@@ -1,10 +1,10 @@
 <template>
   <div>
-    <cc-button @click="onClick" :isLoading="isLoading"></cc-button>
+    <cc-button @click="onClick" :isLoading="isLoading" value="test"></cc-button>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from 'vue'
 import CcButton from './packages/button/index.tsx'
 
