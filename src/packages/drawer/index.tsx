@@ -9,7 +9,7 @@ import {
 import './index.scss'
 import close_icon from './../assets/close.svg';
 
-type drawerPosition = 'left' | 'top' | 'right' | 'bottom'
+type drawerPosition = 'left' | 'right'
 
 const CcDrawer = defineComponent({
   name: 'cc-drawer',
@@ -39,15 +39,15 @@ const CcDrawer = defineComponent({
         '[object, Array]': 'array',
         '[object, Object]': 'object'
       }
-      const currentType = ref<string | null>(null)
+      const currentType = ref<string>('')
       Object.keys(typeMap).forEach((type, _) => {
         if (valueType === type) {
           currentType.value = typeMap[type]
-        } else {
-          currentType.value = null
         }
       })
-      if (!props.content) throw Error('类型必须为 string | array | object');
+      if ((['string', 'array', 'object'].includes(currentType.value as string))) {
+        throw Error('类型必须为 string | array | object');
+      }
       if (currentType.value === 'string') return props.content;
       // if (currentType.value === 'array' || currentType.value === 'object') {
       // }
@@ -67,10 +67,16 @@ const CcDrawer = defineComponent({
       if (position === 'left') {
         positionStyle['--position_top'] = 0
         positionStyle['--position_left'] = 0
+        positionStyle['--mask_top'] = 0
+        positionStyle['--mask_left'] = 100 + '%'
+        positionStyle['--animation_name'] = 'FadeInL'
       }
       if (position === 'right') {
         positionStyle['--position_top'] = 0
         positionStyle['--position_right'] = 0
+        positionStyle['--mask_top'] = 0
+        positionStyle['--mask_right'] = 100 + '%'
+        positionStyle['--animation_name'] = 'FadeInR'
       }
       return positionStyle
     }
