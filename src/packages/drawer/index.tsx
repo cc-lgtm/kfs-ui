@@ -1,9 +1,12 @@
 import {
+  computed,
+  CSSProperties,
   defineComponent,
   PropType,
   ref
 } from 'vue'
 import './index.scss'
+import close_icon from './../assets/close.svg';
 
 type drawerPosition = 'left' | 'top' | 'right' | 'bottom'
 
@@ -14,6 +17,10 @@ const CcDrawer = defineComponent({
       type: String as PropType<drawerPosition>,
       default: 'left'
     },
+    showDrawer: {
+      type: Boolean,
+      default: false
+    },
     title: {
       type: String,
       default: 'title'
@@ -23,7 +30,6 @@ const CcDrawer = defineComponent({
       default: 'content'
     }
   },
-  emits: ['close'],
   setup(props, { emit, slots }) {
     const renderContent = () => {
       const valueType = Object.prototype.toString.call(props.content)
@@ -40,18 +46,44 @@ const CcDrawer = defineComponent({
           currentType.value = null
         }
       })
-      if (currentType.value === null) return '类型必须为 string | array | object';
+      if (!props.content) throw Error('类型必须为 string | array | object');
       if (currentType.value === 'string') return props.content;
-      if (currentType.value === 'array' || currentType.value === 'object') {
+      // if (currentType.value === 'array' || currentType.value === 'object') {
+      // }
+    }
+
+    const getScorllW = () => {
+      const w = ref<string>(document.body.scrollWidth + 'px')
+      window.onresize = () => {
+        w.value = document.body.scrollWidth + 'px'
+      }
+      return w.value
+    }
+
+    const styles = computed(() => {
+      const style: CSSProperties & {[propname: string]: any} = {
+        '--shadow': getScorllW()
+      }
+      return style
+    })
+
+    const onClose = () => {
+      showDrawer.value = false
+    }
+
+    const showDrawer = ref<boolean>(true)
+    const clickMask = (e: Event) => {
+      const el = document.querySelector('.cc-drawer-box')
+      if (el) {
+        if (!el.contains(e.target as Node)) {
+          showDrawer.value = false
+        }
       }
     }
 
-    const onClose = (e: Event) => {
-      emit('close', e)
-    }
-
     return () => (
-      <div class="cc-drawer">
+      (props.showDrawer && showDrawer.value) &&
+      <div class="cc-drawer" style={styles.value} onClick={clickMask}>
         <div class='cc-drawer-box'>
           <span class='title'>{ props.title }</span>
           <div class='content'>
@@ -59,8 +91,9 @@ const CcDrawer = defineComponent({
               renderContent()
             }
           </div>
+          <img src={close_icon} alt="close" onClick={onClose} />
         </div>
-        { slots.default?.() }
+        {slots.default?.()}
       </div>
     )
   }

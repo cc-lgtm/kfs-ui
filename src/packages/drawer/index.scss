@@ -1,3 +1,63 @@
 .cc-drawer {
+  width: 30%;
+  min-height: 100vh;
+  max-height: max-content;
+  background: #fff;
+  box-shadow: 1px 2px 6px #ccc;
+  position: fixed;
+  top: 0;
+  animation: FadeIn 0.2s linear;
 
+  &::after {
+    content: '';
+    min-height: 100vh;
+    max-height: max-content;
+    width: calc(var(--shadow) - 100%);
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
+
+  &-box {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    max-height: max-content;
+    justify-content: center;
+    padding: 20px 0;
+    position: relative;
+  }
+
+  .title {
+    font-size: 28px;
+    letter-spacing: 0.95px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 40px;
+  }
+
+  img {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    cursor: pointer;
+  } 
+}
+
+@keyframes FadeIn{
+  0% {transform: translateX(-100%);}
+  20% {transform:translateX(-80%)}
+  60% {transform:translateX(-40%)}
+  80% {transform:translateX(-20%)}
+  100% {transform:translateX(0%)}
+}
+
+@keyframes FadeOut{
+  0% {transform: scale(1)}
+  20% {transform:scale(0.975)}
+  60% {transform:scale(0.95)}
+  80% {transform:scale(0.925)}
+  100% {transform:scale(0.9)}
 }
