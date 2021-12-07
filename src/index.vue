@@ -5,6 +5,7 @@
     <CcInput :leftIcon="icon" :rightIcon="icon" />
     <CcTips tips="this is a tips"></CcTips>
     <CcDrawer  :showDrawer="showDrawer" />
+    <CcPopup :showPopup="true" content="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" />
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import CcCard from './packages/card/index'
 import CcInput from './packages/input/index'
 import CcTips from './packages/tips/index'
 import CcDrawer from './packages/drawer/index'
+import CcPopup from './packages/popup/index.tsx'
 import icon from './assets/logo.png'
 
 export default defineComponent({
@@ -23,7 +25,8 @@ export default defineComponent({
     CcCard,
     CcInput,
     CcTips,
-    CcDrawer
+    CcDrawer,
+    CcPopup
   },
   setup() {
     const isLoading = ref(false)

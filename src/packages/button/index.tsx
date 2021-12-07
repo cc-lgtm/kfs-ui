@@ -12,6 +12,9 @@ const CcButton = defineComponent({
   name: "cc-button",
   components: {CcLoading},
   props: {
+    class: {
+      type: String
+    },
     type: {
       type: String as PropType<ButtonType>,
       default: "normal"
@@ -40,6 +43,7 @@ const CcButton = defineComponent({
       const classes = []
       props.type && classes.push(`cc-button-${props.type}`)
       props.isLoading && classes.push('cc-button-isLoading')
+      props.class && classes.push(props.class)
 
       return classes.join(' ')
     }
