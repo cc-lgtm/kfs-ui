@@ -4,8 +4,8 @@
     <CcCard :icon="icon"></CcCard>
     <CcInput :leftIcon="icon" :rightIcon="icon" />
     <CcTips tips="this is a tips"></CcTips>
-    <CcDrawer  :showDrawer="showDrawer" />
-    <CcPopup :showPopup="true" content="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" />
+    <CcDrawer />
+    <CcPopup v-if="showPopup" content="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" />
   </div>
 </template>
 
@@ -30,10 +30,12 @@ export default defineComponent({
   },
   setup() {
     const isLoading = ref(false)
+    const showPopup = ref<boolean>(false)
     const showDrawer = ref<boolean>(false)
     const onClick = () => {
       isLoading.value = true
       showDrawer.value = true
+      showPopup.value = true
     }
 
     const onClose = (status: boolean) => {
@@ -43,6 +45,7 @@ export default defineComponent({
     return {
       isLoading,
       showDrawer,
+      showPopup,
       onClick,
       onClose,
       icon

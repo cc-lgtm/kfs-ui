@@ -18,10 +18,6 @@ const CcPopup = defineComponent({
       type: String as PropType<PopupType>,
       default: 'message'
     },
-    showPopup: {
-      type: Boolean,
-      default: false
-    },
     buttons: {
       type: [] as PropType<Buttons>,
       default: ['confirm']
@@ -37,7 +33,7 @@ const CcPopup = defineComponent({
   },
   emits: ['close', 'confirm'],
   setup(props, { emit, slots }) {
-    const showPopup = ref<boolean>(props.showPopup)
+    const showPopup = ref<boolean>(true)
     const onClose = (e: Event) => {
       showPopup.value = false
       emit('close', e)
