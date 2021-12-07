@@ -3,6 +3,7 @@ import {
   CSSProperties,
   defineComponent,
   PropType,
+  reactive,
   ref
 } from 'vue'
 import './index.scss'
@@ -15,7 +16,7 @@ const CcDrawer = defineComponent({
   props: {
     position: {
       type: String as PropType<drawerPosition>,
-      default: 'left'
+      default: 'right'
     },
     showDrawer: {
       type: Boolean,
@@ -60,11 +61,25 @@ const CcDrawer = defineComponent({
       return w.value
     }
 
+    const positionStyle = () => {
+      const position = props.position
+      const positionStyle: CSSProperties & {[propname: string]: any} = reactive({})
+      if (position === 'left') {
+        positionStyle['--position_top'] = 0
+        positionStyle['--position_left'] = 0
+      }
+      if (position === 'right') {
+        positionStyle['--position_top'] = 0
+        positionStyle['--position_right'] = 0
+      }
+      return positionStyle
+    }
+
     const styles = computed(() => {
       const style: CSSProperties & {[propname: string]: any} = {
         '--shadow': getScorllW()
       }
-      return style
+      return Object.assign(style, positionStyle())
     })
 
     const onClose = () => {

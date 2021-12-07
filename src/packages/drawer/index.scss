@@ -5,7 +5,10 @@
   background: #fff;
   box-shadow: 1px 2px 6px #ccc;
   position: fixed;
-  top: 0;
+  top: var(--position_top);
+  left: var(--position_left);
+  right: var(--position_right);
+  bottom: var(--position_bottom);
   animation: FadeIn 0.2s linear;
 
   &::after {
@@ -47,7 +50,7 @@
 }
 
 @keyframes FadeIn{
-  0% {transform: translateX(-100%);}
+  0% {transform: translateX(-100%)}
   20% {transform:translateX(-80%)}
   60% {transform:translateX(-40%)}
   80% {transform:translateX(-20%)}
@@ -55,9 +58,9 @@
 }
 
 @keyframes FadeOut{
-  0% {transform: scale(1)}
-  20% {transform:scale(0.975)}
-  60% {transform:scale(0.95)}
-  80% {transform:scale(0.925)}
-  100% {transform:scale(0.9)}
+  0% {transform: translateX(100%)}
+  20% {transform:translateX(80%)}
+  60% {transform:translateX(40%)}
+  80% {transform:translateX(20%)}
+  100% {transform:translateX(0%)}
 }
