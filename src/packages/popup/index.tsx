@@ -6,21 +6,17 @@ import {
 import './index.scss'
 import close_icon from './../assets/close.svg'
 import CcButton from '../button/index';
+import CcInput from '../input';
 
 type PopupType = 'message' | 'confirm' | 'upload'
-type Buttons = [] | ['close'] | ['confirm'] | ['close', 'confirm']
 
 const CcPopup = defineComponent({
   name: 'cc-popup',
-  components: { CcButton },
+components: { CcButton, CcInput },
   props: {
     type: {
       type: String as PropType<PopupType>,
-      default: 'message'
-    },
-    buttons: {
-      type: [] as PropType<Buttons>,
-      default: ['confirm']
+      default: 'upload  '
     },
     title: {
       type: String,
@@ -44,6 +40,18 @@ const CcPopup = defineComponent({
       emit('confirm', e)
     }
 
+    const renderType = () => {
+      if (props.type === 'confirm') {
+        return (
+          <div class="content">{ props.content }</div>
+        )
+      } else {
+        return (
+          <CcInput leftText="上传信息" className="input" />
+        )
+      }
+    }
+
     return () => (
       showPopup.value &&
       <div class="cc-popup">
@@ -52,9 +60,9 @@ const CcPopup = defineComponent({
             <span class="title">{ props.title }</span>
             <img src={close_icon} alt="close" onClick={onClose} />
           </div>
-          <div class="content">{ props.content }</div>
+          { renderType() }
           <div class="btns">
-            <CcButton value="取消" class="close" onClick={onClose} />
+            { props.type !== 'message' && <CcButton value="取消" class="close" onClick={onClose} /> }
             <CcButton value="确认" onClick={onConfirm} />
           </div>
         </div>

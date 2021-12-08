@@ -22,10 +22,25 @@ const CcInput = defineComponent({
     tips: {
       type: String,
       default: '请输入...'
+    },
+    leftText: {
+      type: String,
+      default: 'leftText'
+    },
+    className: {
+      type: String
     }
   },
   emits: ['input', 'click'],
   setup(props, { slots, emit }) {
+
+    const styles = () => {
+      const classes = []
+      classes.push('cc-input')
+      props.className && classes.push(props.className)
+
+      return classes.join(' ')
+    }
 
     const onInput = (e: Event) => {
       emit('input', e)
@@ -36,7 +51,8 @@ const CcInput = defineComponent({
     }
 
     return () => (
-      <div class="cc-input" onInput={onInput}>
+      <div class={styles()} onInput={onInput}>
+        { props.leftText && <span class="title">{ props.leftText }</span> }
         {
           props.leftIcon && <img src={props.leftIcon} alt="left-icon" class="left-icon" />
         }

@@ -1,14 +1,20 @@
 .cc-input {
-  width: 250px;
+  width: max-content;
   height: 50px;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   border-bottom: 1px solid #1e90ff;
-  margin: 10px;
+  margin: 10px 0;
   .left-icon {
     width: 20px;
     height: 20px;
+  }
+  .title {
+    font-size: 18px !important;
+    letter-spacing: 0.38px;
+    color: #1e90ff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   input {
     width: 180px;
