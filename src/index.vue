@@ -18,7 +18,7 @@ import CcTips from './packages/tips/index'
 import CcDrawer from './packages/drawer/index'
 import CcPopup from './packages/popup/index.tsx'
 import icon from './assets/logo.png'
-import Message from './packages/message/index.js'
+import Message from './packages/message/index'
 
 
 export default defineComponent({

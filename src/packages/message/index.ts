@@ -1,16 +1,16 @@
 // 实现使用函数调用xtx-message组件的逻辑
-import { createVNode, render } from 'vue'
+import { createVNode, render, ref } from 'vue'
 import XtxMessage from './index.vue'
 
 // 准备dom容器
-const div = document.createElement('div')
+const div: HTMLDivElement = document.createElement('div')
 div.setAttribute('class', 'xtx-message-container')
 document.body.appendChild(div)
 // 定时器标识
-let timer = null
+const timer = ref<number | any>(null)
 
 // 导出使用方法
-export default ({ type, text }) => {
+export default ({ type, text }: {[propname: string]: any}) => {
  // 实现：根据xtx-message.vue渲染消息提示
  // 1. 导入组件
  // 2. 根据组件创建虚拟节点
@@ -20,7 +20,7 @@ export default ({ type, text }) => {
  render(vnode, div)
  // 5. 开启定时，移出DOM容器内容
  clearTimeout(timer)
- timer = setTimeout(() => {
+ timer.value = setTimeout(() => {
    render(null, div)
  }, 2000)
 }
