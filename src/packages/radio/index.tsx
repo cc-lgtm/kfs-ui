@@ -4,8 +4,17 @@ import {
 import './index.scss'
 
 const CcRadio = defineComponent({
-  name: 'cc-radio'
+  name: 'cc-radio',
+  props: {
+
+  },
+  setup(props, { emit, slots }) {
+
+    return () => (
+      <div class="cc-radio">
+      </div>
+    )
+  }
 })
 
 export default CcRadio;
-  
