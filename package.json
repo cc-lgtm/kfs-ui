@@ -1,8 +1,10 @@
 {
   "name": "v3-components",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "./lib",
   "scripts": {
+    "lib": "vue-cli-service build --target lib --name my_v3_components --dest lib src/packages/index.ts",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
