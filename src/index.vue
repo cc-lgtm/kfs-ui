@@ -18,6 +18,8 @@ import CcTips from './packages/tips/index'
 import CcDrawer from './packages/drawer/index'
 import CcPopup from './packages/popup/index.tsx'
 import icon from './assets/logo.png'
+import Message from './packages/message/index.js'
+
 
 export default defineComponent({
   components: {
@@ -37,6 +39,8 @@ export default defineComponent({
       showDrawer.value = true
       showPopup.value = true
     }
+
+    Message({ type: 'success', text: 'test' })
 
     const onClose = (status: boolean) => {
       showDrawer.value = status
