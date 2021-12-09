@@ -1,0 +1,19 @@
+.cc-rate {
+  width: max-content;
+  img {
+    margin: 2px;
+
+    &:hover {
+      animation: star_hover .8s linear;
+    }
+  }
+}
+
+@keyframes star_hover {
+  to {
+    transform: scale(1.1);
+  }
+  form {
+    transform: scale(1);
+  }
+}

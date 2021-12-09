@@ -6,7 +6,7 @@
     <CcTips tips="this is a tips"></CcTips>
     <CcDrawer />
     <CcPopup v-if="showPopup" content="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" />
-    <CcRadio></CcRadio>
+    <CcRate />
   </div>
 </template>
 
@@ -20,7 +20,7 @@ import CcDrawer from './packages/drawer/index'
 import CcPopup from './packages/popup/index.tsx'
 import icon from './assets/logo.png'
 import Message from './packages/message/index'
-import CcRadio from './packages/radio/index'
+import CcRate from './packages/rate/index'
 
 
 export default defineComponent({
@@ -31,7 +31,7 @@ export default defineComponent({
     CcTips,
     CcDrawer,
     CcPopup,
-    CcRadio
+    CcRate
   },
   setup() {
     const isLoading = ref(false)
