@@ -1,0 +1,64 @@
+.cc-date_picker {
+  position: relative;
+  margin: 5px;
+  .date_box {
+    display: flex;
+    width: max-content;
+    padding: 8px;
+    padding-right: 80px;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1.5px solid #f1f2f6;
+    transition: 1s;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #a4b0be;
+      transition: 1s;
+    }
+    .date_icon {
+      width: 15px;
+      height: 15px;
+    }
+    .tips {
+      font-size: 14px;
+      margin-left: 10px;
+      color: #dfe4ea;
+    }
+  }
+  .picker_box {
+    width: 350px;
+    height: 400px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 1px 2px 6px #ccc;
+    margin-top: 10px;
+    position: absolute;
+    left: 0;
+    top: var(--top);
+    animation: transform .1s ease-in-out;
+
+    &:before {
+      content:'';
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: var(--beforeBottom);
+      left: 20px;
+      border: 10px solid #ccc;
+      border-color: var(--borderColor);
+    }
+  }
+}
+
+@keyframes transform {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

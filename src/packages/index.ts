@@ -5,13 +5,17 @@ import Input from './input';
 import Loading from './loading';
 import Popup from './popup'
 import Drawer from './drawer'
+import Tips from './tips'
+import Rate from './rate'
 const components = [
   Button,
   Card,
   Input,
   Loading,
   Popup,
-  Drawer
+  Drawer,
+  Tips,
+  Rate
 ];
 const install = (app:App) => {
   components.map((component:any) => {
@@ -30,7 +34,9 @@ export {
   Input,
   Loading,
   Popup,
-  Drawer
+  Drawer,
+  Tips,
+  Rate
 };
 
 export default {

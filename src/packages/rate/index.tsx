@@ -112,7 +112,7 @@ const CcRate = defineComponent({
     })
 
     const renderScore = computed(() => {
-        if (props.value) return props.value
+        if (props.value) return (+props.value).toFixed(1)
         return currentState.value === 0
         ? ''
         : currentState.value.toFixed(1)

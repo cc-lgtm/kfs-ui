@@ -7,6 +7,7 @@
     <CcDrawer />
     <CcPopup v-if="showPopup" content="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" />
     <CcRate showScore disabled value="5" />
+    <CcDatePicker />
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import CcPopup from './packages/popup/index.tsx'
 import icon from './assets/logo.png'
 import Message from './packages/message/index'
 import CcRate from './packages/rate/index'
+import CcDatePicker from './packages/datepicker/index'
 
 
 export default defineComponent({
@@ -31,7 +33,8 @@ export default defineComponent({
     CcTips,
     CcDrawer,
     CcPopup,
-    CcRate
+    CcRate,
+    CcDatePicker
   },
   setup() {
     const isLoading = ref(false)
