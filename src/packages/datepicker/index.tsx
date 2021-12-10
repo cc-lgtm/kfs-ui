@@ -3,8 +3,7 @@ import {
   PropType,
   ref,
   computed,
-  CSSProperties,
-  watch
+  CSSProperties
 } from 'vue'
 import './index.scss'
 import date_icon from './../assets/date.svg'
@@ -77,6 +76,8 @@ const CcDatePicker = defineComponent({
 
     const year = ref<string>('')
     const month = ref<string>('')
+    const day = ref<string>('')
+    const week = ref<number>(0)
     const leftY = '<<'
     const leftM = '<'
     const rightY = '>>'
@@ -86,7 +87,45 @@ const CcDatePicker = defineComponent({
       const date = new Date()
       year.value = date.getFullYear() + ''
       month.value = date.getMonth() + 1 + ''
+      day.value = date.getDate() + ''
+      week.value = date.getDay()
     })()
+
+    const renderDays = computed(() => {
+      const days = [] as Array<number>
+      const bigM = [1, 3, 5, 7, 8, 10, 12]
+      const smallM = [4, 6, 9, 11]
+      const flatM = [2];
+      if (flatM.includes(+month.value)) {
+        let day = 28
+        if (+year.value % 4 === 0) day = 29
+        addDays(day, days)
+      }
+      if (bigM.includes(+month.value)) addDays(31, days)
+      if (smallM.includes(+month.value)) addDays(30, days)
+      return days
+    })
+
+    const addDays = (days: number, tragetArr: Array<number>) => {
+      for (let i = 1; i <= days; i++) {
+        tragetArr.push(i)
+      }
+    }
+
+    const dayStyle = (num: number) => {
+      const classes = []
+      classes.push('day');
+      +day.value === num && classes.push('current')
+
+      return classes.join(' ')
+    }
+    
+    const onClickDay = (index: number, day: number) => {
+      const el = document.getElementById(`${index}day`)
+      if (index + 1 === day) {
+        el?.classList.add('click')
+      }
+    }
   
     return () => (
       <div class="cc-date_picker" onClick={onClick} ref={datePicker} style={positionStyle.value}>
@@ -111,7 +150,13 @@ const CcDatePicker = defineComponent({
             <span>五</span>
             <span>六</span>
           </div>
-          <div class="content">{}</div>
+          <div class="content">
+          {
+            renderDays.value.map((d, index) => (
+              <span id={index + 'day'} class={dayStyle(index + 1)} onClick={() => onClickDay(index, d)}>{d}</span>
+            ))
+          }
+          </div>
           <div class="btns">
             <span>此刻</span>
             <CcButton value="确定" />
