@@ -38,6 +38,58 @@
     top: var(--top);
     animation: transform .1s ease-in-out;
 
+    .top {
+      display: flex;
+      height: 50px;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        margin: 0 5px;
+        font-size: 20px;
+        cursor: pointer;
+        color: #1e90ff;
+      }
+
+      .date {
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+        padding: 0 10px;
+        cursor: default;
+        color:#2f3542;
+      }
+    }
+
+    .days {
+      font-size: 16px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      display: flex;
+      justify-content: space-around;
+      padding: 5px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .btns {
+      height: max-content;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border-top: 1px solid #ccc;
+
+      span {
+        font-size: 16px;
+        color: #1e90ff;
+        cursor: pointer;
+      }
+    }
+
+    .content {
+      height: 260px;
+    }
+
     &:before {
       content:'';
       width: 0;
