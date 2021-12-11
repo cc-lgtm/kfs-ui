@@ -87,7 +87,7 @@
     }
 
     .content {
-      height: 260px;
+      height: max-content;
       display: flex;
       width: 350px;
       flex-wrap: wrap;
@@ -99,6 +99,7 @@
         height: 40px;
         line-height: 40px;
         text-align: center;
+        user-select: none;
 
         &:hover {
           color: #1e90ff;
@@ -107,6 +108,10 @@
       }
       .current {
         color: #1e90ff;
+      }
+
+      .isPre_isNext {
+        color: #bdc3c7;
       }
 
       .click {

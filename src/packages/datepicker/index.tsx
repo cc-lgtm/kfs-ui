@@ -3,7 +3,8 @@ import {
   PropType,
   ref,
   computed,
-  CSSProperties
+  CSSProperties,
+  reactive
 } from 'vue'
 import './index.scss'
 import date_icon from './../assets/date.svg'
@@ -74,25 +75,45 @@ const CcDatePicker = defineComponent({
       }
     }
 
-    const year = ref<string>('')
-    const month = ref<string>('')
-    const day = ref<string>('')
-    const week = ref<number>(0)
+    const year = ref<number>(0)
+    const month = ref<number>(0)
+    const day = ref<number>(0)
+    const weekDay = ref<number>(0)
     const leftY = '<<'
     const leftM = '<'
     const rightY = '>>'
     const rightM = '>';
 
+    const subYear = () => year.value--
+    const addYear = () => year.value++
+    const subMonth = () => {
+      if (month.value === 1) {
+        year.value--
+        month.value = 12
+        return
+      }
+      month.value--
+    }
+    const addMonth = () => {
+      days.fill({'day': 0, 'isClick': false})
+      if (month.value === 12) {
+        year.value++
+        month.value = 1
+        return
+      }
+      month.value++
+    }
+
     (() => {
       const date = new Date()
-      year.value = date.getFullYear() + ''
-      month.value = date.getMonth() + 1 + ''
-      day.value = date.getDate() + ''
-      week.value = date.getDay()
+      year.value = date.getFullYear()
+      month.value = date.getMonth() + 1
+      day.value = date.getDate()
+      weekDay.value = date.getDay()
     })()
 
+    const days = reactive<Array<{[propname: string]: any}>>([])
     const renderDays = computed(() => {
-      const days = [] as Array<number>
       const bigM = [1, 3, 5, 7, 8, 10, 12]
       const smallM = [4, 6, 9, 11]
       const flatM = [2];
@@ -106,16 +127,37 @@ const CcDatePicker = defineComponent({
       return days
     })
 
-    const addDays = (days: number, tragetArr: Array<number>) => {
+    const addDays = (days: number, tragetArr: Array<{[propname: string]: any}>) => {
+      const flagDay = 31 - ((day.value % 7) + weekDay.value - 7);
+      let d = 0
+      if (days === 31) d = 30;
+      if (days === 30) d = 31;
+      if (days === 28 || days === 29) d = days
+      for (d; d > flagDay; d--) {
+        tragetArr.unshift({'day': d, 'isClick': false, 'isPre': true})
+      }
       for (let i = 1; i <= days; i++) {
-        tragetArr.push(i)
+        const day = {
+          'day': i,
+          'isClick': false
+        }
+        tragetArr.push(day)
+      }
+      const filterArr = tragetArr.filter(item => item.day !== 0)
+      if (filterArr.length < 42) {
+        for (let i = 1; i <= 42 - filterArr.length; i++) {
+          tragetArr.push({'day': i, 'isClick': false, 'isNext': true})
+        }
       }
     }
 
-    const dayStyle = (num: number) => {
+    const dayStyle = (day: {[propname: string]: any}, num: number) => {
       const classes = []
       classes.push('day');
       +day.value === num && classes.push('current')
+      if (day.isPre || day.isNext) {
+        classes.push('isPre_isNext')
+      }
 
       return classes.join(' ')
     }
@@ -123,7 +165,8 @@ const CcDatePicker = defineComponent({
     const onClickDay = (index: number, day: number) => {
       const el = document.getElementById(`${index}day`)
       if (index + 1 === day) {
-        el?.classList.add('click')
+        days[index].isClick = true
+        el!.classList.add('click')
       }
     }
   
@@ -135,11 +178,11 @@ const CcDatePicker = defineComponent({
         </div>
         { showPicker.value && <div class="picker_box">
           <div class="top">
-            <span>{leftY}</span>
-            <span>{leftM}</span>
+            <span onClick={subYear}>{leftY}</span>
+            <span onClick={subMonth}>{leftM}</span>
             <span class="date">{ year.value } 年 { month.value } 月</span>
-            <span>{rightM}</span>
-            <span>{rightY}</span>
+            <span onClick={addMonth}>{rightM}</span>
+            <span onClick={addYear}>{rightY}</span>
           </div>
           <div class="days">
             <span>日</span>
@@ -152,8 +195,13 @@ const CcDatePicker = defineComponent({
           </div>
           <div class="content">
           {
-            renderDays.value.map((d, index) => (
-              <span id={index + 'day'} class={dayStyle(index + 1)} onClick={() => onClickDay(index, d)}>{d}</span>
+            renderDays.value.map((day, index) => (
+              day.day === 0 ? '' :
+              <span
+                id={index + 'day'}
+                class={dayStyle(day, index + 1)}
+                onClick={() => onClickDay(index, day.day)}
+              >{day.day}</span>
             ))
           }
           </div>
