@@ -6,7 +6,7 @@
     <CcTips tips="this is a tips"></CcTips>
     <CcDrawer />
     <CcPopup v-if="showPopup" content="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" />
-    <CcRate showScore disabled value="5" />
+    <CcRate />
     <CcDatePicker />
   </div>
 </template>

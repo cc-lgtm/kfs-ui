@@ -3,7 +3,6 @@ import Button from './button';
 import Card from './card';
 import Input from './input';
 import Loading from './loading';
-import Popup from './popup'
 import Drawer from './drawer'
 import Tips from './tips'
 import Rate from './rate'
@@ -12,7 +11,6 @@ const components = [
   Card,
   Input,
   Loading,
-  Popup,
   Drawer,
   Tips,
   Rate
@@ -33,7 +31,6 @@ export {
   Card,
   Input,
   Loading,
-  Popup,
   Drawer,
   Tips,
   Rate

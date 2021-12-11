@@ -28,10 +28,10 @@
   }
   .picker_box {
     width: 350px;
-    height: 400px;
+    height: max-content;
     background: #fff;
     border: 1px solid #ccc;
-    box-shadow: 1px 2px 6px #ccc;
+    box-shadow: 1px 2px 3px #ccc;
     margin-top: 10px;
     position: absolute;
     left: 0;

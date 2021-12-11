@@ -52,11 +52,11 @@ const CcDatePicker = defineComponent({
 
     const positionStyle = computed(() => {
       const style: CSSProperties & {[propname: string]: any} = {
-        '--top': position.value === 'top' ? -425 + 'px' : 40 + 'px',
+        '--top': position.value === 'top' ? -408 + 'px' : 40 + 'px',
         '--borderColor': position.value === 'top'
           ? 'rgb(240, 238, 238) transparent transparent'
           : 'transparent transparent rgb(240, 238, 238)',
-        '--beforeBottom': position.value === 'top' ? -20 + 'px' : 400 + 'px'
+        '--beforeBottom': position.value === 'top' ? -20 + 'px' : 384 + 'px'
       }
 
       return style
