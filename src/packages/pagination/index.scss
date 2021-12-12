@@ -10,7 +10,6 @@
     margin: 0 10px;
   }
   .jumper {
-    margin: 0 20px;
     display: flex;
     align-items: center
     span {
@@ -36,6 +35,13 @@
     text-align: center;
     line-height: 25px;
   }
+  .is_end {
+    cursor: not-allowed;
+    color: #ccc;
+    &:hover {
+      color: #ccc;
+    }
+  }
   .change_pager {
     font-size: 18px;
     font-weight: 400;
@@ -43,13 +49,6 @@
     cursor: pointer;
     &:hover {
       color: #3498db;
-    }
-  }
-  .is_end {
-    cursor: not-allowed;
-    color: #ccc;
-    &:hover {
-      color: #ccc;
     }
   }
   .pagers {

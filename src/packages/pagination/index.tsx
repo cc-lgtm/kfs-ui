@@ -1,10 +1,11 @@
 import {
   computed,
   defineComponent,
-  ref
+  ref,
+  watch
 } from 'vue'
 import './index.scss'
-import message from '@/packages/message/index'
+import message from '@/packages/message/index';
 
 const CcPagination = defineComponent({
   name: 'cc-pagination',
@@ -74,8 +75,11 @@ const CcPagination = defineComponent({
         currentPage.value += 1
         emit('nextClick', currentPage.value)
       }
-      emit('currentChange', currentPage.value)
     }
+
+    watch(currentPage, () => {
+      emit('currentChange', currentPage.value)
+    })
 
     const renderPager = () => {
       const pagerArray: Array<PagerType> = []
@@ -98,38 +102,39 @@ const CcPagination = defineComponent({
       }
       return classes.join(' ')
     }
-
-    const pre = ref<HTMLDivElement>()
-    const next = ref<HTMLDivElement>()
-    const changePagerStyle = computed(() => {
-      const classes = ['change_pager'] as Array<string>
+    const pre_isEnd = computed(() => {
+      const classes = ['change_pager']
       props.background && classes.push('background')
-      if (currentPage.value === 1) pre.value?.classList.add('is_end')
-      if (currentPage.value === computePager.value) next.value?.classList.add('is_end')
-
+      currentPage.value === 1 && classes.push('is_end')
+      return classes.join(' ')
+    })
+    const next_isEnd = computed(() => {
+      const classes = ['change_pager']
+      props.background && classes.push('background')
+      currentPage.value === computePager.value && classes.push('is_end')
       return classes.join(' ')
     })
 
-    const layout = () => {
-      const layouts = props.layout.split(', ')
-      const layouts_default = ['total', 'prev', 'pager', 'next', 'jumper']
-      
+    const total = () => {
+      return (
+        <div
+          class="total"
+        >共 { props.total } 条
+        </div>
+      )
     }
 
-    const inputV = ref<number>(currentPage.value)
-    const onInput = (e: Event) => {
-      const value = (e.target as unknown as HTMLInputElement).value
-      if (+value < 1) currentPage.value = 1;
-      if (+value > computePager.value) currentPage.value = computePager.value;
-      typeof value === 'number'
-      ? currentPage.value = value
-      : message({type:'error', text:'请输入数字'})
+    const prev = () => {
+      return (
+        <div
+          class={pre_isEnd.value}
+          onClick={() => currentChange('pre')}
+        >{renderPre()}</div>
+      )
     }
 
-    return () => (
-      <div class="cc-pagination">
-        <div class="total">共 { props.total } 条</div>
-        <div class={changePagerStyle.value} ref={pre} onClick={() => currentChange('pre')}>{renderPre()}</div>
+    const pager = () => {
+      return (
         <div class="pagers">
           {
             renderPager().map((pager, index) => (
@@ -141,12 +146,83 @@ const CcPagination = defineComponent({
             ))
           }
         </div>
-        <div class={changePagerStyle.value} ref={next} onClick={() => currentChange('next')}>{renderNext()}</div>
+      )
+    }
+
+    const next = () => {
+      return (
+        <div
+          class={next_isEnd.value}
+          onClick={() => currentChange('next')}
+        >{renderNext()}</div>
+      )
+    }
+
+    const jumper = () => {
+      return (
         <div class="jumper">
           <span>前往</span>
-          <input type="text" value={inputV.value} onInput={onInput} />
+          <input
+            type="text"
+            value={inputV.value}
+            onInput={onInput}
+            onKeydown={onKeydown}
+          />
           <span>页</span>
         </div>
+      )
+    }
+
+    const slot = () => <>{slots.default?.()}</>
+
+    type FnType = () => JSX.Element
+
+    const layout = () => {
+      const layouts = props.layout.split(', ')
+      const layoutFn: Array<FnType> = []
+      const layout_default = ['total', 'prev', 'pager', 'next', 'jumper']
+      layouts.forEach((layout, index) => {
+        if (layout === 'total') layoutFn.splice(index, 0, total)
+        if (layout === 'prev') layoutFn.splice(index, 0, prev)
+        if (layout === 'pager') layoutFn.splice(index, 0, pager)
+        if (layout === 'next') layoutFn.splice(index, 0, next)
+        if (layout === 'jumper') layoutFn.splice(index, 0, jumper)
+      })
+      layoutFn.push(slot)
+      return layoutFn.map(fn => fn())
+    }
+
+    const inputV = ref<number>()
+    const onInput = (e: Event) => {
+      const value = (e.target as unknown as HTMLInputElement).value
+      if (value !== '' && typeof +value !== 'number') {
+        message({
+          type: 'error',
+          text: '请输入数字'
+        })
+      }
+      if (+value < 1) {
+        inputV.value = 1
+        return;
+      };
+      if (+value > computePager.value) {
+        inputV.value = computePager.value
+        return;
+      }
+      inputV.value = +value
+    }
+
+    const onKeydown = (e: KeyboardEvent) => {
+      if (e && e.code === 'Enter') {
+        currentPage.value = inputV.value as number
+      }
+    }
+
+    return () => (
+      <div class="cc-pagination">
+        {
+          layout()
+        }
       </div>
     )
   }

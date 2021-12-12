@@ -8,7 +8,12 @@
     <CcPopup v-if="showPopup" content="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" />
     <CcRate />
     <CcDatePicker />
-    <CcPagination :total="100" background />
+    <CcPagination
+      :total="100"
+      @currentChange="onChange"
+      background
+      layout="jumper, total, prev, pager, next"
+    />
   </div>
 </template>
 
@@ -49,6 +54,10 @@ export default defineComponent({
       showPopup.value = true
     }
 
+    const onChange = (v: number) => {
+      console.log(v)
+    }
+
     Message({ type: 'success', text: 'test' })
 
     const onClose = (status: boolean) => {
@@ -61,6 +70,7 @@ export default defineComponent({
       showPopup,
       onClick,
       onClose,
+      onChange,
       icon
     }
   }
