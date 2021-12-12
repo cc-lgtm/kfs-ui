@@ -45,3 +45,33 @@ test('test button click event', () => {
   expect(wraper.emitted()).toHaveProperty('click')
 })
 
+const MessageComponent = {
+  template: `<CcButton value="" @click="handerClick">{{ msg }}{{ count }}</CcButton>`,
+  props: ['msg'],
+  data() {
+    return {
+      count: 0
+    }
+  }
+}
+
+test('test button slots', () => {
+  const wraper = mount(MessageComponent, {
+    props: {
+      msg: 'hello button'
+    }
+  })
+  expect(wraper.text()).toContain('hello button0')
+})
+
+test('test button click', () => {
+  const wraper = mount(MessageComponent, {
+    props: {
+      msg: 'hello button'
+    }
+  })
+
+  wraper.trigger('click')
+  expect(wraper.emitted()).toHaveProperty('click')
+})
+

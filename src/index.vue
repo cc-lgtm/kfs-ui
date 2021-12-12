@@ -8,6 +8,7 @@
     <CcPopup v-if="showPopup" content="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" />
     <CcRate />
     <CcDatePicker />
+    <CcPagination :total="100" />
   </div>
 </template>
 
@@ -23,6 +24,7 @@ import icon from './assets/logo.png'
 import Message from './packages/message/index'
 import CcRate from './packages/rate/index'
 import CcDatePicker from './packages/datepicker/index'
+import CcPagination from './packages/pagination/index'
 
 
 export default defineComponent({
@@ -34,7 +36,8 @@ export default defineComponent({
     CcDrawer,
     CcPopup,
     CcRate,
-    CcDatePicker
+    CcDatePicker,
+    CcPagination
   },
   setup() {
     const isLoading = ref(false)

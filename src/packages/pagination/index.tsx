@@ -1,5 +1,7 @@
 import {
-  defineComponent
+  computed,
+  defineComponent,
+  ref
 } from 'vue'
 import './index.scss'
 
@@ -15,7 +17,8 @@ const CcPagination = defineComponent({
       default: 10
     },
     total: {
-      type: Number
+      type: Number,
+      required: true
     },
     prevText: {
       type: String
@@ -34,6 +37,19 @@ const CcPagination = defineComponent({
   },
   emits: ['sizeChange', 'currentChange', 'prevClick', 'nextClick'],
   setup(props, { emit, slots }) {
+
+    const renderPre = () => {
+      console.log('1')
+    }
+
+    const renderNext = () => {
+      console.log('2')
+    }
+
+    const pagers = ref<number>(0)
+    const renderPager = computed(() => {
+      return Math.ceil(props.total / props.pageSize)
+    })
 
     return () => (
       <div class="cc-pagination">
