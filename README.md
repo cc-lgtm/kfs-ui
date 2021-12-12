@@ -9,6 +9,7 @@
 * Message
 * Rate
 * Tips
+* Pagination
 * DatePicker ---开发中
 
 ## npm地址
