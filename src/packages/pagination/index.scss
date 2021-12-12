@@ -4,6 +4,38 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  .total {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0 10px;
+  }
+  .jumper {
+    margin: 0 20px;
+    display: flex;
+    align-items: center
+    span {
+      display: block;
+      font-size: 18px;
+      margin: 0 5px;
+      color: rgb(34, 32, 32);
+    }
+    input {
+      width: 30px;
+      height: 25px;
+      border: 1px solid #2980b9;
+      border-radius: 3px;
+      outline: none;
+      margin: 0 5px;
+      text-align: center;
+    }
+  }
+  .background {
+    width: 25px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    line-height: 25px;
+  }
   .change_pager {
     font-size: 18px;
     font-weight: 400;
@@ -22,9 +54,11 @@
   }
   .pagers {
     padding: 0 10px;
+    display: flex;
     .pager {
+      display: block;
       margin: 0 10px;
-      font-weight: 600;
+      font-weight: 500;
       cursor: pointer;
       &:hover {
         color: #3498db;
@@ -32,6 +66,10 @@
     }
     .currentPager {
       color: #3498db;
+    }
+    .currentBg {
+      background: rgba(#2980b9, 0.3);
+      color: #fff;
     }
   }
 }

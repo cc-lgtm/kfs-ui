@@ -4,6 +4,7 @@ import {
   ref
 } from 'vue'
 import './index.scss'
+import message from '@/packages/message/index'
 
 const CcPagination = defineComponent({
   name: 'cc-pagination',
@@ -32,10 +33,10 @@ const CcPagination = defineComponent({
     },
     layout: {
       type: String,
-      default: 'prev, pager, next, jumper, ->, total'
+      default: 'total, prev, pager, next, jumper'
     }
   },
-  emits: ['sizeChange', 'currentChange', 'prevClick', 'nextClick'],
+  emits: ['currentChange', 'prevClick', 'nextClick'],
   setup(props, { emit, slots }) {
 
     const renderPre = () => {
@@ -89,7 +90,12 @@ const CcPagination = defineComponent({
 
     const currentStyle = (index: number) => {
       const classes = ['pager'] as Array<string>
-      currentPage.value === (index + 1) && classes.push('currentPager')
+      props.background && classes.push('background')
+      if (currentPage.value === (index + 1)) {
+        props.background
+        ? classes.push('currentBg')
+        : classes.push('currentPager')
+      }
       return classes.join(' ')
     }
 
@@ -97,14 +103,32 @@ const CcPagination = defineComponent({
     const next = ref<HTMLDivElement>()
     const changePagerStyle = computed(() => {
       const classes = ['change_pager'] as Array<string>
+      props.background && classes.push('background')
       if (currentPage.value === 1) pre.value?.classList.add('is_end')
       if (currentPage.value === computePager.value) next.value?.classList.add('is_end')
 
       return classes.join(' ')
     })
 
+    const layout = () => {
+      const layouts = props.layout.split(', ')
+      const layouts_default = ['total', 'prev', 'pager', 'next', 'jumper']
+      
+    }
+
+    const inputV = ref<number>(currentPage.value)
+    const onInput = (e: Event) => {
+      const value = (e.target as unknown as HTMLInputElement).value
+      if (+value < 1) currentPage.value = 1;
+      if (+value > computePager.value) currentPage.value = computePager.value;
+      typeof value === 'number'
+      ? currentPage.value = value
+      : message({type:'error', text:'请输入数字'})
+    }
+
     return () => (
       <div class="cc-pagination">
+        <div class="total">共 { props.total } 条</div>
         <div class={changePagerStyle.value} ref={pre} onClick={() => currentChange('pre')}>{renderPre()}</div>
         <div class="pagers">
           {
@@ -118,6 +142,11 @@ const CcPagination = defineComponent({
           }
         </div>
         <div class={changePagerStyle.value} ref={next} onClick={() => currentChange('next')}>{renderNext()}</div>
+        <div class="jumper">
+          <span>前往</span>
+          <input type="text" value={inputV.value} onInput={onInput} />
+          <span>页</span>
+        </div>
       </div>
     )
   }

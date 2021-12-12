@@ -8,7 +8,7 @@
     <CcPopup v-if="showPopup" content="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" />
     <CcRate />
     <CcDatePicker />
-    <CcPagination :total="100" />
+    <CcPagination :total="100" background />
   </div>
 </template>
 
