@@ -1,0 +1,37 @@
+.cc-pagination {
+  width: max-content;
+  padding: 5px 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  .change_pager {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+    &:hover {
+      color: #3498db;
+    }
+  }
+  .is_end {
+    cursor: not-allowed;
+    color: #ccc;
+    &:hover {
+      color: #ccc;
+    }
+  }
+  .pagers {
+    padding: 0 10px;
+    .pager {
+      margin: 0 10px;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        color: #3498db;
+      }
+    }
+    .currentPager {
+      color: #3498db;
+    }
+  }
+}

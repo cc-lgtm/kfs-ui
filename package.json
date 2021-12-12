@@ -10,10 +10,12 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test": "jest",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "cross-env": "^7.0.3",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0"
   },

@@ -199,6 +199,7 @@ const CcDatePicker = defineComponent({
               day.day === 0 ? '' :
               <span
                 id={index + 'day'}
+                key={index + 'day'}
                 class={dayStyle(day, index + 1)}
                 onClick={() => onClickDay(index, day.day)}
               >{day.day}</span>
