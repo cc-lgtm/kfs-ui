@@ -54,16 +54,16 @@ const CcPagination = defineComponent({
 
     type PagerType = {
       pager: number,
-      currentChange: (current: number) => void
+      currentChange?: (current: number) => void
     }
 
     const currentPage = ref<number>(props.currentPage)
 
-    type currentType = number | 'pre' | 'next'
+    type currentType = number | 'pre' | 'next' | '...'
 
     const currentChange = (current: currentType) => {
       if (current !== 'pre' && current !== 'next') {
-        currentPage.value = current
+        currentPage.value = current as number
       }
       if (current === 'pre') {
         if (currentPage.value === 1) return;
@@ -81,6 +81,13 @@ const CcPagination = defineComponent({
       emit('currentChange', currentPage.value)
     })
 
+    // const renderOmit = (pagerArray: Array<PagerType>) => {
+    //   pagerArray.splice(3, 0, {
+    //     pager: 0
+    //   })
+    //   pagerArray.splice(4, computePager.value - 6)
+    // }
+
     const renderPager = () => {
       const pagerArray: Array<PagerType> = []
       for (let pager = 1; pager <= computePager.value; pager++) {
@@ -89,6 +96,7 @@ const CcPagination = defineComponent({
           currentChange: (current) => currentChange(current)
         })
       }
+      // if (computePager.value > 7) renderOmit(pagerArray)
       return pagerArray
     }
 
@@ -141,8 +149,11 @@ const CcPagination = defineComponent({
               <span
                 class={currentStyle(index)}
                 key={'change_pager' + index}
-                onClick={() => pager.currentChange(pager.pager)}
-              >{pager.pager}</span>
+                onClick={() => pager.currentChange?.(pager.pager)}
+              >{pager.pager
+                ? pager.pager
+                : '...'
+              }</span>
             ))
           }
         </div>
@@ -180,7 +191,6 @@ const CcPagination = defineComponent({
     const layout = () => {
       const layouts = props.layout.split(', ')
       const layoutFn: Array<FnType> = []
-      const layout_default = ['total', 'prev', 'pager', 'next', 'jumper']
       layouts.forEach((layout, index) => {
         if (layout === 'total') layoutFn.splice(index, 0, total)
         if (layout === 'prev') layoutFn.splice(index, 0, prev)
