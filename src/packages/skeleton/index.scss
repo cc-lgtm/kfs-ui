@@ -1,0 +1,33 @@
+.cc-skeleton {
+  overflow: hidden;
+  .box {
+    position: relative;
+    overflow: hidden;
+  }
+  &-animated {
+    overflow: hidden;
+    &::before {
+      content: '';
+      width: calc(var(--bingW) * 2);
+      height: 10px;
+      transform: rotate(-45deg);
+      background: #fff;
+      position: absolute;
+      top: 10px;
+      left: 0;
+      animation: bing 1s infinite linear;
+    }
+  }
+}
+
+@keyframes bing {
+  0% {
+    margin-left: -3%;
+  }
+  50% {
+    margin-left: 0%;
+  }
+  100% {
+    margin-left: 3%;
+  }
+}

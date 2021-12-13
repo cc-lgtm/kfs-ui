@@ -34,35 +34,36 @@ const CcSkeleton = defineComponent({
 
     const skeletonRows = reactive<SkeletonRowsType[]>([])
 
+    const classes = computed(() => {
+      const classes = []
+      props.animated && classes.push('cc-skeleton-animated')
+
+      return classes.join(' ')
+    })
+
     const rowsToArray = () => {
       if (props.rows && props.rowsWidth) {
         for (let row = 1; row <= props.rows; row++) {
           const w = computed(() => {
             return {
-              'width': props.rowsWidth![row - 1]
+              'width': props.rowsWidth![row - 1],
+              '--bingW': props.rowsWidth![row - 1]
             }
           })
-          skeletonRows.push(() => <CcSkeletonItem variable="text" style={w.value} />)
+          skeletonRows.push(() => <div class="box"><CcSkeletonItem class={classes.value} variable="text" style={w.value} /></div>)
         }
       }
     }
     rowsToArray()
 
     const renderRows = () => {
-      if (props.rows === 0) return (<CcSkeletonItem variable="text" style="width: 50px" />)
+      if (props.rows === 0) return (<CcSkeletonItem class={classes.value} variable="text" style="width: 50px" />)
       return skeletonRows.map((fn) => fn())
     }
 
-    const classes = computed(() => {
-      const classname = ['cc-skeleton']
-      props.animated && classname.push('cc-skeleton-animated')
-      props.loading && classname.push('cc-skeleton-isLoading')
-      return classname.join(' ')
-    })
-
     return () => (
-      <div class={classes.value}>
-        { renderRows() }
+      <div class="cc-skeleton">
+        { props.loading && renderRows() }
       </div>
     )
   }
