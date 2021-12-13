@@ -4,6 +4,7 @@
 * Button
 * Card
 * Drawer
+* Popup
 * Input
 * Loading
 * Message
@@ -13,7 +14,7 @@
 * DatePicker ---开发中
 
 ## npm地址
-> [Configuration Reference](https://www.npmjs.com/package/uninterest).
+> [npm](https://www.npmjs.com/package/uninterest).
 
 ## tips
 此项目是自己学习vue3而写着玩的，没啥大用...
