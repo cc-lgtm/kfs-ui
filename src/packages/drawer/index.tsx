@@ -2,6 +2,7 @@ import {
   computed,
   CSSProperties,
   defineComponent,
+  onMounted,
   PropType,
   reactive,
   ref
@@ -18,10 +19,6 @@ const CcDrawer = defineComponent({
       type: String as PropType<drawerPosition>,
       default: 'right'
     },
-    showDrawer: {
-      type: Boolean,
-      default: false
-    },
     title: {
       type: String,
       default: 'title'
@@ -30,7 +27,8 @@ const CcDrawer = defineComponent({
       type: [String, Array, Object],
       default: 'content'
     }
-  },
+  },  
+  emits: ['opened', 'closed'],
   setup(props, { emit, slots }) {
     const renderContent = () => {
       const valueType = Object.prototype.toString.call(props.content)
@@ -90,9 +88,15 @@ const CcDrawer = defineComponent({
 
     const onClose = () => {
       showDrawer.value = false
+      emit('closed', showDrawer.value)
     }
 
-    const showDrawer = ref<boolean>(true)
+    onMounted(() => {
+      showDrawer.value = true
+      emit('opened', showDrawer.value)
+    })
+
+    const showDrawer = ref<boolean>(false)
     const clickMask = (e: Event) => {
       const el = document.querySelector('.cc-drawer-box')
       if (el) {
@@ -103,7 +107,7 @@ const CcDrawer = defineComponent({
     }
 
     return () => (
-      (props.showDrawer && showDrawer.value) &&
+      showDrawer.value &&
       <div class="cc-drawer" style={styles.value} onClick={clickMask}>
         <div class='cc-drawer-box'>
           <span class='title'>{ props.title }</span>

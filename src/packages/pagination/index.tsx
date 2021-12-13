@@ -96,7 +96,7 @@ const CcPagination = defineComponent({
           currentChange: (current) => currentChange(current)
         })
       }
-      // if (computePager.value > 7) renderOmit(pagerArray)
+      // if (computePager.value > 7) renderOmit(pagerArray) 
       return pagerArray
     }
 

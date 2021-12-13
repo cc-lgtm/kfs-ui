@@ -11,6 +11,9 @@ const CcTips = defineComponent({
   props: {
     tips: {
       type: String
+    },
+    class: {
+      type: String
     }
   },
   emits: ['hover', 'hoverout'],
@@ -35,8 +38,14 @@ const CcTips = defineComponent({
       return style
     })
 
+    const classes = computed(() => {
+      const classes = ['cc-tips']
+      props.class && classes.push(props.class)
+      return classes.join(' ')
+    })
+
     return () => (
-      <div class="cc-tips" onMouseover={onHover} onMouseout={onHoverOut}>
+      <div class={classes.value} onMouseover={onHover} onMouseout={onHoverOut}>
         { props.tips }
         { <div class="hover-tips" style={styles.value}>{ props.tips }</div> }
         { slots.default?.() }

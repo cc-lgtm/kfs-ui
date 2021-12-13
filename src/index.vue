@@ -1,6 +1,6 @@
 <template>
   <div>
-    <cc-button @click="onClick" :isLoading="isLoading" value="test"></cc-button>
+    <cc-button @click="onClick" disabled circle :isLoading="isLoading" value="test"></cc-button>
     <CcCard :icon="icon"></CcCard>
     <CcInput :leftIcon="icon" :rightIcon="icon" />
     <CcTips tips="this is a tips"></CcTips>
@@ -26,7 +26,7 @@ import CcTips from './packages/tips/index'
 import CcDrawer from './packages/drawer/index'
 import CcPopup from './packages/popup/index.tsx'
 import icon from './assets/logo.png'
-import Message from './packages/message/index'
+import Message from './packages/message/index.ts'
 import CcRate from './packages/rate/index'
 import CcDatePicker from './packages/datepicker/index'
 import CcPagination from './packages/pagination/index'

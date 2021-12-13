@@ -8,3 +8,4 @@ declare module '*.vue' {
 declare module '*.tsx'
 declare module '*.png'
 declare module '*.svg'
+declare module '*.ts'
