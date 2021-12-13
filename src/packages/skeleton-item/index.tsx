@@ -1,4 +1,5 @@
 import {
+  computed,
   defineComponent,
   PropType
 } from 'vue'
@@ -15,7 +16,12 @@ const CcSkeletonItem = defineComponent({
     }
   },
   setup(props) {
-
+    const skeletonItemClass = computed(() => {
+      return `cc-skeleton-item-${props.variable}`
+    })
+    return () => (
+      <div class={skeletonItemClass.value}></div>
+    )
   }
 })
 

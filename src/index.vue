@@ -4,7 +4,7 @@
     <CcCard :icon="icon"></CcCard>
     <CcInput :leftIcon="icon" :rightIcon="icon" />
     <CcTips tips="this is a tips"></CcTips>
-    <CcDrawer />
+    <CcDrawer v-if="false" />
     <CcPopup v-if="showPopup" content="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" />
     <CcRate />
     <CcDatePicker />
@@ -14,6 +14,7 @@
       background
       layout="jumper, total, prev, pager, next"
     />
+    <CcSkeleton :rowsWidth="['60px', '50px', '40px']" />
   </div>
 </template>
 
@@ -30,7 +31,7 @@ import Message from './packages/message/index.ts'
 import CcRate from './packages/rate/index'
 import CcDatePicker from './packages/datepicker/index'
 import CcPagination from './packages/pagination/index'
-
+import CcSkeleton from './packages/skeleton/index.tsx'
 
 export default defineComponent({
   components: {
@@ -42,7 +43,8 @@ export default defineComponent({
     CcPopup,
     CcRate,
     CcDatePicker,
-    CcPagination
+    CcPagination,
+    CcSkeleton
   },
   setup() {
     const isLoading = ref(false)
