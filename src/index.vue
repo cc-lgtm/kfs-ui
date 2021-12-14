@@ -14,7 +14,7 @@
       background
       layout="jumper, total, prev, pager, next"
     />
-    <CcSkeleton :rowsWidth="['60px', '50px', '40px']" loading animated>aaaaaaaaaaaaa</CcSkeleton>
+    <CcSkeleton loading animated></CcSkeleton>
   </div>
 </template>
 

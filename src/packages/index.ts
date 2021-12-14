@@ -1,4 +1,4 @@
-import { App } from 'vue';
+import { App, createApp } from 'vue';
 import Button from './button';
 import Card from './card';
 import Input from './input';
@@ -6,6 +6,9 @@ import Loading from './loading';
 import Drawer from './drawer'
 import Tips from './tips'
 import Rate from './rate'
+import Popup from './popup'
+import Message from './message/index.ts'
+import Pagination from './pagination'
 const components = [
   Button,
   Card,
@@ -13,12 +16,15 @@ const components = [
   Loading,
   Drawer,
   Tips,
-  Rate
+  Rate,
+  Popup,
+  Message,
+  Pagination
 ];
 const install = (app:App) => {
-  components.map((component:any) => {
-    if (component.install) {
-      app.use(component)
+  components.map((component: any) => {
+    if (component === Message) {
+      createApp(app).config.globalProperties.$message = Message
     } else if (component.name) {
       app.component(component.name , component)
     }
@@ -33,7 +39,10 @@ export {
   Loading,
   Drawer,
   Tips,
-  Rate
+  Rate,
+  Popup,
+  Message,
+  Pagination
 };
 
 export default {

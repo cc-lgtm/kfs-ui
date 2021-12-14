@@ -23,7 +23,7 @@ const CcSkeleton = defineComponent({
     },
     rows: {
       type: Number,
-      default: 3
+      default: 0
     },
     rowsWidth: {
       type: Array as PropType<RowsWidthType>
@@ -42,22 +42,22 @@ const CcSkeleton = defineComponent({
     })
 
     const rowsToArray = () => {
-      if (props.rows && props.rowsWidth) {
+      if (props.rows > 0 && props.rowsWidth) {
         for (let row = 1; row <= props.rows; row++) {
           const w = computed(() => {
             return {
               'width': props.rowsWidth![row - 1],
-              '--bingW': props.rowsWidth![row - 1]
+              '--bingW': props.rowsWidth![row - 1]  
             }
           })
-          skeletonRows.push(() => <div class="box"><CcSkeletonItem class={classes.value} variable="text" style={w.value} /></div>)
+          skeletonRows.push(() => <div class="box"><CcSkeletonItem class={classes.value} variable="button" style={w.value} /></div>)
         }
       }
     }
     rowsToArray()
 
     const renderRows = () => {
-      if (props.rows === 0) return (<CcSkeletonItem class={classes.value} variable="text" style="width: 50px" />)
+      if (props.rows === 0) return (<div class="div"><CcSkeletonItem class={classes.value} variable="rect" /></div>)
       return skeletonRows.map((fn) => fn())
     }
 
