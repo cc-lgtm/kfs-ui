@@ -44,18 +44,45 @@ const CcStepBar = defineComponent({
     const styles = computed(() => {
       const space = +props.space!
       const style: CSSProperties & {[propname: string]: any} = {
-        '--width': space * slot_arr!.length + 'px'
+        '--width': space * (slot_arr!.length - 1) + 'px'
       }
       return style
     })
+
+    const lineStyle = (index: number) => {
+      const style = {
+        '--line': +props.space! - 12 + 'px'
+      } as CSSProperties
+
+      if (index === 0) Object.assign(style, {
+        '--show': 'none'
+      })
+
+      return style
+    }
+
+    const borderStyle = (index: number) => {
+      if (index + 1 === slot_arr?.length) return {
+        '--border': '2px solid #bdc3c7'
+      } as CSSProperties
+      if (props.active === index + 1) return {
+        'border': '2px solid #3498db'
+      }
+      return {
+        '--border': '2px solid #000'
+      } as CSSProperties
+    }
+
     const renderItem = () => {
       return slot_arr!.map((slot, index) => (
         <div
           class="box"
           key={index}
+          style={borderStyle(index)}
         >
-        { slot }
-        <span>{index + 1}</span>
+          { slot }
+          <span class="index">{index + 1}</span>
+          <span class="line" style={lineStyle(index)} />
         </div>
       ))
     }

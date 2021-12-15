@@ -2,15 +2,29 @@
   width: var(--width);
   display: flex;
   justify-content: space-between;
+  margin: 10px;
   .box {
     position: relative;
-    span {
+    border-radius: 50%;
+    background: #fff;
+    border: var(--border);
+    .index {
       position: absolute;
-      top: 50%;
+      top: 12px;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 18px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .line {
+      width: var(--line);
+      height: 2px;
+      background: #bdc3c7;
+      position: absolute;
+      right: 24px;
+      top: 12px;
+      z-index: -999;
+      display: var(--show);
     }
   }
 }

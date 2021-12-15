@@ -16,10 +16,10 @@
     />
     <CcSkeleton loading animated></CcSkeleton>
 
-    <Steps :space="100">
-      <Step />
-      <Step />
-      <Step />
+    <Steps :space="200" :active="1">
+      <Step title="标题一" description="这是一个一个一个一个一个描述" />
+      <Step title="标题二"  />
+      <Step title="标题三" description="描述" />
     </Steps>
   </div>
 </template>
