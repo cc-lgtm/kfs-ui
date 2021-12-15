@@ -1,6 +1,6 @@
 {
   "name": "uninterest",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "自己写着玩的...",
   "private": false,
   "main": "./lib/uninterest.umd.min.js",
