@@ -62,11 +62,10 @@ const CcStepBar = defineComponent({
     }
 
     const borderStyle = (index: number) => {
-      if (index + 1 === slot_arr?.length) return {
-        '--border': '2px solid #bdc3c7'
-      } as CSSProperties
-      if (props.active === index + 1) return {
-        'border': '2px solid #3498db'
+      if (index + 1 <= props.active) {
+        return {
+          'border': '2px solid #3498db'
+        } as CSSProperties
       }
       return {
         '--border': '2px solid #000'
