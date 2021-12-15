@@ -1,0 +1,16 @@
+.cc-stepitem {
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+  .simple {
+    @extend .icon;
+    background: #fff;
+    border-radius: 50%;
+    border: 2px solid #000;
+    text-align: center;
+    line-height: 24px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+}

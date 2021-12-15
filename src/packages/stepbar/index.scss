@@ -1,0 +1,16 @@
+.cc-stepbar {
+  width: var(--width);
+  display: flex;
+  justify-content: space-between;
+  .box {
+    position: relative;
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  }
+}

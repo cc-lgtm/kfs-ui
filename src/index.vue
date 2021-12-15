@@ -15,6 +15,12 @@
       layout="jumper, total, prev, pager, next"
     />
     <CcSkeleton loading animated></CcSkeleton>
+
+    <Steps :space="100">
+      <Step />
+      <Step />
+      <Step />
+    </Steps>
   </div>
 </template>
 
@@ -32,6 +38,8 @@ import CcRate from './packages/rate/index'
 import CcDatePicker from './packages/datepicker/index'
 import CcPagination from './packages/pagination/index'
 import CcSkeleton from './packages/skeleton/index.tsx'
+import Steps from './packages/stepbar/index'
+import Step from './packages/stepitem/index'
 
 export default defineComponent({
   components: {
@@ -44,7 +52,9 @@ export default defineComponent({
     CcRate,
     CcDatePicker,
     CcPagination,
-    CcSkeleton
+    CcSkeleton,
+    Steps,
+    Step
   },
   setup() {
     const isLoading = ref(false)
