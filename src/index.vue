@@ -21,6 +21,12 @@
       <Step title="标题二"  />
       <Step title="标题三" description="描述" />
     </Steps>
+
+    <Select placeholder="test" v-model="val" style="marginTop: 150px" @change="select" size="large">
+      <Option label="js" value="0" />
+      <Option label="css" value="1" disabled />
+      <Option label="html" value="2" />
+    </Select>
   </div>
 </template>
 
@@ -40,6 +46,8 @@ import CcPagination from './packages/pagination/index'
 import CcSkeleton from './packages/skeleton/index.tsx'
 import Steps from './packages/stepbar/index'
 import Step from './packages/stepitem/index'
+import Select from './packages/select/index.tsx'
+import Option from './packages/option/index'
 
 export default defineComponent({
   components: {
@@ -54,7 +62,9 @@ export default defineComponent({
     CcPagination,
     CcSkeleton,
     Steps,
-    Step
+    Step,
+    Select,
+    Option
   },
   setup() {
     const isLoading = ref(false)
@@ -66,6 +76,10 @@ export default defineComponent({
       showPopup.value = true
     }
 
+    const select = (label: string) => {
+      console.log(label)
+    }
+
     const onChange = (v: number) => {
       console.log(v)
     }
@@ -75,6 +89,7 @@ export default defineComponent({
     const onClose = (status: boolean) => {
       showDrawer.value = status
     }
+    const val = ref([])
 
     return {
       isLoading,
@@ -83,7 +98,9 @@ export default defineComponent({
       onClick,
       onClose,
       onChange,
-      icon
+      select,
+      icon,
+      val
     }
   }
 })
