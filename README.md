@@ -11,6 +11,10 @@
 * Rate
 * Tips
 * Pagination
+* Option
+* Select
+* Steps
+* Step
 * DatePicker ---开发中
 
 ## npm地址

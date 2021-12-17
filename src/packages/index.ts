@@ -9,6 +9,10 @@ import Rate from './rate'
 import Popup from './popup'
 import Message from './message/index.ts'
 import Pagination from './pagination'
+import Option from './option'
+import Select from './select'
+import Steps from './stepbar'
+import Step from './stepitem'
 const components = [
   Button,
   Card,
@@ -19,7 +23,11 @@ const components = [
   Rate,
   Popup,
   Message,
-  Pagination
+  Pagination,
+  Option,
+  Select,
+  Steps,
+  Step
 ];
 const install = (app:App) => {
   components.map((component: any) => {
@@ -42,7 +50,11 @@ export {
   Rate,
   Popup,
   Message,
-  Pagination
+  Pagination,
+  Option,
+  Select,
+  Steps,
+  Step
 };
 
 export default {
