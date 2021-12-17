@@ -20,7 +20,7 @@ const CcSkeletonItem = defineComponent({
       return `cc-skeleton-item-${props.variable}`
     })
     return () => (
-      <div class="box">
+      <div class="cc-skeleton-item-box">
         <div class={skeletonItemClass.value}></div>
       </div>
     )

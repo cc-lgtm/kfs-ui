@@ -27,6 +27,12 @@
       <Option label="css" value="1" disabled />
       <Option label="html" value="2" />
     </Select>
+
+    <Swper>
+      <SwperItem>1</SwperItem>
+      <SwperItem>2</SwperItem>
+      <SwperItem>3</SwperItem>
+    </Swper>
   </div>
 </template>
 
@@ -48,6 +54,8 @@ import Steps from './packages/stepbar/index'
 import Step from './packages/stepitem/index'
 import Select from './packages/select/index.tsx'
 import Option from './packages/option/index'
+import Swper from './packages/carousel/index.tsx'
+import SwperItem from './packages/swperitem/index'
 
 export default defineComponent({
   components: {
@@ -64,7 +72,9 @@ export default defineComponent({
     Steps,
     Step,
     Select,
-    Option
+    Option,
+    SwperItem,
+    Swper
   },
   setup() {
     const isLoading = ref(false)

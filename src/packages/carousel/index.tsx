@@ -1,10 +1,12 @@
 import {
   defineComponent
 } from 'vue'
+import CcSwperItem from '@/packages/swperitem/index'
 import './index.scss'
 
 const CcSwper = defineComponent({
   name: 'cc-swper',
+  components: {CcSwperItem},
   props: {
     duration: {
       type: Number,
@@ -24,10 +26,21 @@ const CcSwper = defineComponent({
     }
   },
   emits: ['change'],
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
+    const slot_arr = slots.default?.()
+
+    const renderSwper = () => {
+      return slot_arr?.map((item, index) => (
+        <div class="cc-swper-box" key={index}>
+          { item }
+        </div>
+      ))
+    }
 
     return () => (
-      <div></div>
+      <div class="cc-swper">
+        {renderSwper()}
+      </div>
     )
   }
 })
