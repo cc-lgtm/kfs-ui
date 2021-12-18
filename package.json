@@ -9,15 +9,20 @@
     "lib": "vue-cli-service build --target lib --name uninterest --dest lib src/packages/index.ts",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "docs:dev": "vuepress dev docs/guide/getting-started.md",
+    "docs:build": "vuepress build docs",
     "test:unit": "vue-cli-service test:unit",
     "test": "jest",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vuepress/markdown": "2.0.0-beta.29",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.3",
-    "vue": "^3.0.0",
-    "vue-class-component": "^8.0.0-0"
+    "sass": "^1.44.0",
+    "vue": "3.2.23",
+    "vue-class-component": "^8.0.0-0",
+    "vue-server-renderer": "2.6.14"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",
@@ -40,7 +45,8 @@
     "prettier": "^2.2.1",
     "sass-loader": "^8.0.2",
     "typescript": "~4.1.5",
-    "vue-jest": "^5.0.0-0"
+    "vue-jest": "^5.0.0-0",
+    "vuepress": "^2.0.0-beta.29"
   },
   "eslintConfig": {
     "root": true,

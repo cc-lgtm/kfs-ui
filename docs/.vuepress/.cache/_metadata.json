@@ -1,0 +1,31 @@
+{
+  "hash": "e841bdcf",
+  "browserHash": "cd11b498",
+  "optimized": {
+    "@vuepress/shared": {
+      "file": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/.vuepress/.cache/@vuepress_shared.js",
+      "src": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/node_modules/@vuepress/shared/lib/esm/index.js",
+      "needsInterop": false
+    },
+    "vue": {
+      "file": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/.vuepress/.cache/vue.js",
+      "src": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/node_modules/@vuepress/bundler-vite/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "file": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/.vuepress/.cache/vue-router.js",
+      "src": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/node_modules/@vuepress/bundler-vite/node_modules/vue-router/dist/vue-router.esm-bundler.js",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "file": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/.vuepress/.cache/@vueuse_core.js",
+      "src": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/node_modules/@vuepress/theme-default/node_modules/@vueuse/core/index.mjs",
+      "needsInterop": false
+    },
+    "nprogress": {
+      "file": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/.vuepress/.cache/nprogress.js",
+      "src": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/node_modules/nprogress/nprogress.js",
+      "needsInterop": true
+    }
+  }
+}
