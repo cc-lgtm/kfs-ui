@@ -28,11 +28,28 @@
       <Option label="html" value="2" />
     </Select>
 
-    <Swper>
-      <SwperItem>1</SwperItem>
-      <SwperItem>2</SwperItem>
-      <SwperItem>3</SwperItem>
-    </Swper>
+    <Tabs :active="active" @change="activeChange">
+      <Tab title="标题一">
+        <div v-if="active === 0">
+          adssds
+          <span>dsads</span>
+        </div>
+      </Tab>
+      <Tab title="标题二">
+        <div v-if="active === 1">
+          adssds
+          <span>dsads</span>
+          <blockquote>as</blockquote>
+        </div>
+      </Tab>
+      <Tab title="标题三">
+        <div v-if="active === 2">
+          adssds
+          <span>dsads</span>
+          <nav>aas</nav>
+        </div>
+      </Tab>
+    </Tabs>
   </div>
 </template>
 
@@ -54,8 +71,9 @@ import Steps from './packages/stepbar/index'
 import Step from './packages/stepitem/index'
 import Select from './packages/select/index.tsx'
 import Option from './packages/option/index'
-import Swper from './packages/carousel/index.tsx'
-import SwperItem from './packages/swperitem/index'
+import Tabs from './packages/tabs/index.tsx'
+import Tab from './packages/tab/index.tsx'
+
 
 export default defineComponent({
   components: {
@@ -73,8 +91,8 @@ export default defineComponent({
     Step,
     Select,
     Option,
-    SwperItem,
-    Swper
+    Tabs,
+    Tab
   },
   setup() {
     const isLoading = ref(false)
@@ -86,12 +104,18 @@ export default defineComponent({
       showPopup.value = true
     }
 
+    const active = ref<number>(0)
+
     const select = (label: string) => {
       console.log(label)
     }
 
     const onChange = (v: number) => {
       console.log(v)
+    }
+
+    const activeChange = (val: number) => {
+      active.value = val
     }
 
     Message({ type: 'success', text: 'test' })
@@ -110,7 +134,9 @@ export default defineComponent({
       onChange,
       select,
       icon,
-      val
+      val,
+      active,
+      activeChange
     }
   }
 })
