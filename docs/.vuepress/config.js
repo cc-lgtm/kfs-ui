@@ -2,6 +2,7 @@ module.exports = {
   lang: 'zh-CN',
   title: 'Uninterest',
   description: '自己学习vue3，写着玩的一个组件库.',
+  plugins: ['@vuepress/plugin-container'],
   themeConfig: {
     navbar: [
       { text: '首页', link: '/' },
@@ -47,9 +48,21 @@ module.exports = {
         text: '导航',
         children: [
           { text: '选项卡 Tabs', link: '/guide/tabs' },
-          { text: 'Pagination', link: '/guide/pagination' }
+          { text: '分页 Pagination', link: '/guide/pagination' }
         ]
       }
     ]
+  },
+  chainWebpack(config) {
+    config.module
+      .rule("md")
+      .test(/\.md$/)
+      .use("vue-loader")
+      .loader(require.resolve("./loader/replaceFile"))
+      .options({
+        replaceFiles: true,
+        wrapper: false,
+      })
+      .end();
   }
 }

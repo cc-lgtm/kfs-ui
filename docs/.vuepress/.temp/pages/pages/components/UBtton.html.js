@@ -1,18 +1,11 @@
 export const data = {
-  "key": "v-5319047b",
-  "path": "/guide/button.html",
+  "key": "v-0e0c0498",
+  "path": "/pages/components/UBtton.html",
   "title": "",
   "lang": "zh-CN",
   "frontmatter": {},
   "excerpt": "",
-  "headers": [
-    {
-      "level": 2,
-      "title": "Button 按钮",
-      "slug": "button-按钮",
-      "children": []
-    }
-  ]
+  "headers": []
 }
 
 if (import.meta.webpackHot) {

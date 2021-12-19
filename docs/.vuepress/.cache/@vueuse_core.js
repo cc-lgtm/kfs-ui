@@ -24,22 +24,27 @@ import {
   watch,
   watchEffect,
   watchSyncEffect
-} from "./chunk-7FLDJL4D.js";
-import "./chunk-BLFRNZBJ.js";
+} from "./chunk-PUQLY47L.js";
+import "./chunk-GS2CHXCI.js";
 import {
+  init_define_DEMOBLOCK_LOCALES,
   init_define_MZ_ZOOM_OPTIONS
-} from "./chunk-KYQ4NUOZ.js";
+} from "./chunk-OFPZGNHH.js";
 
 // dep:@vueuse_core
+init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/theme-default/node_modules/@vueuse/core/index.mjs
+init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/theme-default/node_modules/@vueuse/shared/index.mjs
+init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/theme-default/node_modules/vue-demi/lib/index.mjs
+init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var isVue2 = false;
 var isVue3 = true;

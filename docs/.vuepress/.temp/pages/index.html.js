@@ -16,7 +16,18 @@ export const data = {
     "footer": "MIT | cc-lgtm"
   },
   "excerpt": "",
-  "headers": []
+  "headers": [],
+  "git": {
+    "updatedTime": 1639900942000,
+    "contributors": [
+      {
+        "name": "coderC",
+        "email": "2448856797@qq.com",
+        "commits": 1
+      }
+    ]
+  },
+  "filePathRelative": "README.md"
 }
 
 if (import.meta.webpackHot) {

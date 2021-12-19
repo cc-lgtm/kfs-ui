@@ -98,7 +98,7 @@ export const themeData = {
           "link": "/guide/tabs"
         },
         {
-          "text": "Pagination",
+          "text": "分页 Pagination",
           "link": "/guide/pagination"
         }
       ]
