@@ -9,7 +9,7 @@
     "lib": "vue-cli-service build --target lib --name uninterest --dest lib src/packages/index.ts",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "docs:dev": "vuepress dev docs/guide/getting-started.md",
+    "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "test:unit": "vue-cli-service test:unit",
     "test": "jest",

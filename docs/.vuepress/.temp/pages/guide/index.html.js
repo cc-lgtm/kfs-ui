@@ -1,13 +1,16 @@
 export const data = {
-  "key": "v-3706649a",
-  "path": "/404.html",
-  "title": "",
+  "key": "v-fffb8e28",
+  "path": "/guide/",
+  "title": "guide",
   "lang": "zh-CN",
-  "frontmatter": {
-    "layout": "404"
-  },
+  "frontmatter": {},
   "excerpt": "",
-  "headers": []
+  "headers": [],
+  "git": {
+    "updatedTime": null,
+    "contributors": []
+  },
+  "filePathRelative": "guide/README.md"
 }
 
 if (import.meta.webpackHot) {

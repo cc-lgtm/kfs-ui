@@ -1,10 +1,19 @@
 export const data = {
-  "key": "v-3706649a",
-  "path": "/404.html",
+  "key": "v-8daa1a0e",
+  "path": "/",
   "title": "",
   "lang": "zh-CN",
   "frontmatter": {
-    "layout": "404"
+    "home": true,
+    "actionText": "快速上手 →",
+    "actionLink": "/guide/",
+    "features": [
+      {
+        "title": "介绍",
+        "details": "该项目是自己写着玩的，没啥大用。"
+      }
+    ],
+    "footer": "MIT | cc-lgtm"
   },
   "excerpt": "",
   "headers": []

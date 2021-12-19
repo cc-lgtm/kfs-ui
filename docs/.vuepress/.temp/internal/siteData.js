@@ -1,8 +1,8 @@
 export const siteData = {
   "base": "/",
-  "lang": "en-US",
-  "title": "",
-  "description": "",
+  "lang": "zh-CN",
+  "title": "Uninterest",
+  "description": "自己学习vue3，写着玩的一个组件库.",
   "head": [],
   "locales": {}
 }

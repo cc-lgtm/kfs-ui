@@ -1,13 +1,16 @@
 export const data = {
-  "key": "v-3706649a",
-  "path": "/404.html",
+  "key": "v-5319047b",
+  "path": "/guide/button.html",
   "title": "",
   "lang": "zh-CN",
-  "frontmatter": {
-    "layout": "404"
-  },
+  "frontmatter": {},
   "excerpt": "",
-  "headers": []
+  "headers": [],
+  "git": {
+    "updatedTime": null,
+    "contributors": []
+  },
+  "filePathRelative": "guide/button.md"
 }
 
 if (import.meta.webpackHot) {
