@@ -21,12 +21,6 @@ var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
 
-// <define:__DEMOBLOCK_LOCALES__>
-var init_define_DEMOBLOCK_LOCALES = __esm({
-  "<define:__DEMOBLOCK_LOCALES__>"() {
-  }
-});
-
 // <define:__MZ_ZOOM_OPTIONS__>
 var init_define_MZ_ZOOM_OPTIONS = __esm({
   "<define:__MZ_ZOOM_OPTIONS__>"() {
@@ -36,7 +30,6 @@ var init_define_MZ_ZOOM_OPTIONS = __esm({
 export {
   __spreadValues,
   __commonJS,
-  init_define_DEMOBLOCK_LOCALES,
   init_define_MZ_ZOOM_OPTIONS
 };
-//# sourceMappingURL=chunk-OFPZGNHH.js.map
+//# sourceMappingURL=chunk-KYQ4NUOZ.js.map

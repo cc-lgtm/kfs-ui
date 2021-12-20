@@ -1,6 +1,6 @@
 <template>
   <div>
-    <cc-button @click="onClick" disabled circle :isLoading="isLoading" value="test"></cc-button>
+    <cc-button></cc-button>
     <CcCard :icon="icon"></CcCard>
     <CcInput :leftIcon="icon" :rightIcon="icon" />
     <CcTips tips="this is a tips"></CcTips>
@@ -55,7 +55,6 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import CcButton from './packages/button/index.tsx'
 import CcCard from './packages/card/index'
 import CcInput from './packages/input/index'
 import CcTips from './packages/tips/index'
@@ -77,7 +76,6 @@ import Tab from './packages/tab/index.tsx'
 
 export default defineComponent({
   components: {
-    CcButton,
     CcCard,
     CcInput,
     CcTips,

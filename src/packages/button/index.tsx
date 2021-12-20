@@ -2,7 +2,7 @@ import {
   computed,
   defineComponent,
   PropType,
-  StyleValue
+  CSSProperties
 } from "vue";
 import "./index.scss";
 import CcLoading from '../loading/index';
@@ -77,7 +77,7 @@ const CcButton = defineComponent({
       return {
         '--round': r + 'px',
         '--size': sizeMap[props.size] + 'px'
-      } as StyleValue
+      } as CSSProperties & {[propname: string]: any}
     }
 
     const renderLoading = () => {

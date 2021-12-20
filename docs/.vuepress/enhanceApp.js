@@ -1,11 +1,11 @@
-import { defineClientAppEnhance } from '@vuepress/client'
 import uninterest from 'uninterest'
 import 'uninterest/lib/uninterest.css'
 
-export default defineClientAppEnhance(({
-  app,
-  router,
-  siteData,
+export default async ({
+  Vue
 }) => {
-  app.use(uninterest)
-})
+  if (typeof process === 'undefined') {
+    Vue.use(uninterest)
+  }
+}
+

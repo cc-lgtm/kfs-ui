@@ -3,54 +3,42 @@ import {
   isFunction,
   isPromise,
   isString
-} from "./chunk-GS2CHXCI.js";
+} from "./chunk-BLFRNZBJ.js";
 import {
-  init_define_DEMOBLOCK_LOCALES,
   init_define_MZ_ZOOM_OPTIONS
-} from "./chunk-OFPZGNHH.js";
+} from "./chunk-KYQ4NUOZ.js";
 
 // dep:@vuepress_shared
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/shared/lib/esm/index.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/shared/lib/esm/types/index.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/shared/lib/esm/types/head.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/shared/lib/esm/types/locale.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/shared/lib/esm/types/page.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/shared/lib/esm/types/site.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/shared/lib/esm/types/ssr.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/shared/lib/esm/utils/index.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/shared/lib/esm/utils/dedupeHead.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/shared/lib/esm/utils/resolveHeadIdentifier.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var resolveHeadIdentifier = ([tag, attrs, content]) => {
   if (tag === "meta" && attrs.name) {
@@ -80,17 +68,14 @@ var dedupeHead = (head) => {
 };
 
 // node_modules/@vuepress/shared/lib/esm/utils/ensureLeadingSlash.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var ensureLeadingSlash = (str) => str.replace(/^\/?/, "/");
 
 // node_modules/@vuepress/shared/lib/esm/utils/ensureEndingSlash.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var ensureEndingSlash = (str) => /(\.html|\/)$/.test(str) ? str : str + "/";
 
 // node_modules/@vuepress/shared/lib/esm/utils/formatDateString.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var formatDateString = (str, defaultDateString = "") => {
   const dateMatch = str.match(/\b(\d{4})-(\d{1,2})-(\d{1,2})\b/);
@@ -102,7 +87,6 @@ var formatDateString = (str, defaultDateString = "") => {
 };
 
 // node_modules/@vuepress/shared/lib/esm/utils/htmlEscape.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var htmlEscapeMap = {
   "&": "&amp;",
@@ -115,7 +99,6 @@ var htmlEscapeRegexp = /[&<>'"]/g;
 var htmlEscape = (str) => str.replace(htmlEscapeRegexp, (char) => htmlEscapeMap[char]);
 
 // node_modules/@vuepress/shared/lib/esm/utils/htmlUnescape.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var htmlUnescapeMap = {
   "&amp;": "&",
@@ -133,16 +116,13 @@ var htmlUnescapeRegexp = /&(amp|#38|lt|#60|gt|#62|apos|#39|quot|#34);/g;
 var htmlUnescape = (str) => str.replace(htmlUnescapeRegexp, (char) => htmlUnescapeMap[char]);
 
 // node_modules/@vuepress/shared/lib/esm/utils/isLinkExternal.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 
 // node_modules/@vuepress/shared/lib/esm/utils/isLinkFtp.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var isLinkFtp = (link) => link.startsWith("ftp://");
 
 // node_modules/@vuepress/shared/lib/esm/utils/isLinkHttp.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var isLinkHttp = (link) => /^(https?:)?\/\//.test(link);
 
@@ -158,22 +138,18 @@ var isLinkExternal = (link, base = "/") => {
 };
 
 // node_modules/@vuepress/shared/lib/esm/utils/isLinkMailto.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var isLinkMailto = (link) => /^mailto:/.test(link);
 
 // node_modules/@vuepress/shared/lib/esm/utils/isLinkTel.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var isLinkTel = (link) => /^tel:/.test(link);
 
 // node_modules/@vuepress/shared/lib/esm/utils/isPlainObject.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var isPlainObject = (val) => Object.prototype.toString.call(val) === "[object Object]";
 
 // node_modules/@vuepress/shared/lib/esm/utils/normalizePackageName.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var normalizePackageName = (request, org, type = null) => {
   const orgPrefix = `${org}-`;
@@ -199,17 +175,14 @@ var normalizePackageName = (request, org, type = null) => {
 };
 
 // node_modules/@vuepress/shared/lib/esm/utils/removeEndingSlash.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var removeEndingSlash = (str) => str.replace(/\/$/, "");
 
 // node_modules/@vuepress/shared/lib/esm/utils/removeLeadingSlash.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var removeLeadingSlash = (str) => str.replace(/^\//, "");
 
 // node_modules/@vuepress/shared/lib/esm/utils/resolveLocalePath.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var resolveLocalePath = (locales, routePath) => {
   const localePaths = Object.keys(locales).sort((a, b) => {
@@ -228,7 +201,6 @@ var resolveLocalePath = (locales, routePath) => {
 };
 
 // node_modules/@vuepress/shared/lib/esm/utils/resolveRoutePathFromUrl.js
-init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var resolveRoutePathFromUrl = (url, base = "/") => url.replace(/^(https?:)?\/\/[^/]*/, "").replace(new RegExp(`^${base}`), "/");
 export {

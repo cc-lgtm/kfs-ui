@@ -2,7 +2,19 @@ module.exports = {
   lang: 'zh-CN',
   title: 'Uninterest',
   description: '自己学习vue3，写着玩的一个组件库.',
-  plugins: ['@vuepress/plugin-container'],
+  plugins: [
+    ['vuepress-plugin-demoblock-plus', {
+      scriptImports: ["import * as uninterest from 'uninterest'"],
+      scriptReplaces: [
+        { searchValue: /const ({ defineComponent as _defineComponent }) = Vue/g,
+          replaceValue: 'const { defineComponent: _defineComponent } = Vue'
+        },
+        { searchValue: /import ({.*}) from 'uninterest'/g,
+          replaceValue: (s, s1) => `const ${s1} = uninterest`
+        }
+      ]
+    }]
+  ],
   themeConfig: {
     navbar: [
       { text: '首页', link: '/' },
@@ -54,14 +66,16 @@ module.exports = {
     ]
   },
   chainWebpack(config) {
+    config.resolve.alias.set("vfox-ui", process.cwd() + "/packages");
+    config.resolve.alias.set("core-js/library/fn", "core-js/features");
     config.module
       .rule("md")
       .test(/\.md$/)
       .use("vue-loader")
       .loader(require.resolve("./loader/replaceFile"))
       .options({
-        replaceFiles: true,
-        wrapper: false,
+        replaceFiles: true, // 默认true, 是否将文件填充进md
+        wrapper: false, // 默认true,默认输出Vue Component ,false 时输出html片段
       })
       .end();
   }

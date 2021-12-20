@@ -5,14 +5,7 @@ export const data = {
   "lang": "zh-CN",
   "frontmatter": {},
   "excerpt": "",
-  "headers": [
-    {
-      "level": 2,
-      "title": "Button 按钮",
-      "slug": "button-按钮",
-      "children": []
-    }
-  ]
+  "headers": []
 }
 
 if (import.meta.webpackHot) {
