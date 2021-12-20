@@ -1,6 +1,6 @@
 <template>
   <div>
-    <cc-button></cc-button>
+    <cc-button :disabled="true" />
     <CcCard :icon="icon"></CcCard>
     <CcInput :leftIcon="icon" :rightIcon="icon" />
     <CcTips tips="this is a tips"></CcTips>
@@ -50,6 +50,7 @@
         </div>
       </Tab>
     </Tabs>
+    <Link type="warning" disabled>test</Link>
   </div>
 </template>
 
@@ -72,10 +73,11 @@ import Select from './packages/select/index.tsx'
 import Option from './packages/option/index'
 import Tabs from './packages/tabs/index.tsx'
 import Tab from './packages/tab/index.tsx'
-
+import Link from './packages/link/index'
 
 export default defineComponent({
   components: {
+    Link,
     CcCard,
     CcInput,
     CcTips,

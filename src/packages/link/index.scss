@@ -1,0 +1,34 @@
+.cc-link {
+  font-size: 20px;
+  opacity: 0.8;
+  letter-spacing: 0.7;
+  cursor: pointer;
+}
+.cc-link-default {
+  color: #bdc3c7;
+}
+.cc-link-primary {
+  color: #3498db;
+}
+.cc-link-success {
+  color: #2ecc71;
+}
+.cc-link-warning {
+  color: #f1c40f;
+}
+.cc-link-danger {
+  color: #e74c3c;
+}
+.cc-link-info {
+  color: #3498db;
+}
+.cc-link-underline {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.cc-link-disabled {
+  &:hover {
+    cursor: not-allowed;
+  }
+}
