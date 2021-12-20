@@ -51,6 +51,7 @@
       </Tab>
     </Tabs>
     <Link type="warning" disabled>test</Link>
+    <Switch :value="Switch" />
   </div>
 </template>
 
@@ -74,10 +75,12 @@ import Option from './packages/option/index'
 import Tabs from './packages/tabs/index.tsx'
 import Tab from './packages/tab/index.tsx'
 import Link from './packages/link/index'
+import Switch from './packages/switch/index'
 
 export default defineComponent({
   components: {
     Link,
+    Switch,
     CcCard,
     CcInput,
     CcTips,
@@ -110,6 +113,8 @@ export default defineComponent({
       console.log(label)
     }
 
+    const Switch = ref<boolean>(false)
+
     const onChange = (v: number) => {
       console.log(v)
     }
@@ -127,6 +132,7 @@ export default defineComponent({
 
     return {
       isLoading,
+      Switch,
       showDrawer,
       showPopup,
       onClick,
