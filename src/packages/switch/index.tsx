@@ -38,35 +38,39 @@ const CcSwitch = defineComponent({
   setup(props, { emit }) {
     const className = computed(() => {
       const classes = ['cc-switch']
-      props.size && classes.push(`cc-switch-${props.size}`)
       props.disabled && classes.push('cc-switch-disabled')
       return classes.join(' ')
     })
 
     const styles: CSSProperties & {[propname: string]: any} = reactive({
-      '--left': '',
-      '--right': '',
+      '--left': 1 + 'px',
       '--bg': '#bdc3c7'
     })
 
+    const sizeMap = {
+      'mini': 60 + 'px',
+      'small': 70 + 'px',
+      'medium': 80 + 'px',
+      'large': 90 + 'px'
+    }
     const animate = computed(() => {
-      return styles
+      const w = {
+        '--w': sizeMap[props.size]
+      }
+      return Object.assign(w, styles)
     })
 
     const currentValue = ref(props.inactiveValue)
     const value = ref<boolean>(props.value)
     const onClick = () => {
       if (props.disabled) return;
+      value.value = !value.value
       if (value.value) {
-        console.log(value.value)
-        value.value = !value.value
         currentValue.value = props.checkedValue
-        styles['--right'] = 1 + 'px'
+        styles['--left'] = +sizeMap[props.size].split('p')[0] - 30 + 'px'
         styles['--bg'] = '#3498db'
       }
       if (!value.value) {
-        console.log(value.value)
-        value.value = !value.value
         currentValue.value = props.inactiveValue
         styles['--left'] = 1 + 'px'
         styles['--bg'] = '#bdc3c7'

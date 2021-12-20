@@ -51,7 +51,7 @@
       </Tab>
     </Tabs>
     <Link type="warning" disabled>test</Link>
-    <Switch :value="Switch" />
+    <Switch size="mini" :value="Switch" />
   </div>
 </template>
 

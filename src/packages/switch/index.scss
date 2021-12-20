@@ -1,8 +1,13 @@
 .cc-switch {
+  width: var(--w);
+  height: 30px;
+  border-radius: 30px;
+  background: var(--bg);
   position: relative;
   box-sizing: border-box;
   padding: 5px;
   cursor: pointer;
+  transition: all .3s linear;
   &::before {
     content: '';
     width: 28px;
@@ -11,28 +16,10 @@
     background: #fff;
     position: absolute;
     left: var(--left);
-    right: var(--right);
     top: 50%;
     transform: translateY(-50%);
+    transition: all .3s linear;
   }
- &-medium {
-   width: 70px;
-   height: 30px;
-   border-radius: 30px;
-   background: var(--bg);
- }
- &-mini {
-  @extend .cc-switch-medium;
-  width: 50px;
- }
- &-small {
-  @extend .cc-switch-medium;
-  width: 60px;
- }
- &-large {
-  @extend .cc-switch-medium;
-  width: 80px;
- }
  &-disabled {
    background: #7f8c8d;
    &:hover {
