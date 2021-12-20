@@ -17,6 +17,8 @@
 * Step
 * Tabs
 * Tab
+* Switch
+* Radio
 * Link
 * DatePicker ---开发中
 
