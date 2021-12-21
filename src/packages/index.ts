@@ -13,6 +13,12 @@ import Option from './option'
 import Select from './select'
 import Steps from './stepbar'
 import Step from './stepitem'
+import Tabs from './tabs'
+import Tab from './tab'
+import Switch from './switch'
+import Radio from './radio'
+import RadioGroup from './radioGroup'
+import Link from './link'
 const components = [
   Button,
   Card,
@@ -27,7 +33,13 @@ const components = [
   Option,
   Select,
   Steps,
-  Step
+  Step,
+  Tabs,
+  Tab,
+  Switch,
+  Radio,
+  RadioGroup,
+  Link
 ];
 const install = (app:App) => {
   components.map((component: any) => {
@@ -54,7 +66,13 @@ export {
   Option,
   Select,
   Steps,
-  Step
+  Step,
+  Tabs,
+  Tab,
+  Switch,
+  Radio,
+  RadioGroup,
+  Link
 };
 
 export default {
