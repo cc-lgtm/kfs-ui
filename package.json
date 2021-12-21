@@ -1,6 +1,6 @@
 {
   "name": "uninterest",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "description": "自己写着玩的...",
   "private": false,
   "module": "./lib/uninterest.umd.min.js",
@@ -12,7 +12,7 @@
   "main": "./lib/uninterest.umd.min.js",
   "license": "MIT",
   "scripts": {
-    "lib": "vue-cli-service build --target lib --name uninterest --dest lib src/packages/index.ts",
+    "lib": "vue-cli-service build --target lib --name uninterest --dest lib ./packages/index.ts",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "docs:dev": "vuepress dev docs",
@@ -22,26 +22,6 @@
     "test:unit": "vue-cli-service test:unit",
     "test": "jest",
     "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "@vuepress/markdown": "2.0.0-beta.29",
-    "@vuepress/plugin-container": "^2.0.0-beta.29",
-    "core-js": "^3.6.5",
-    "cross-env": "^7.0.3",
-    "gh-pages": "^3.2.3",
-    "loader-utils": "^0.2.10",
-    "markdown-it": "^12.3.0",
-    "markdown-it-anchor": "^8.4.1",
-    "markdown-it-chain": "^1.3.0",
-    "markdown-it-container": "^3.0.0",
-    "sass": "^1.44.0",
-    "transliteration": "^2.2.0",
-    "vite-plugin-vuedoc": "^3.1.3",
-    "vue": "3.2.0",
-    "vue-class-component": "^8.0.0-0",
-    "vue-loader": "^16.4.1",
-    "vue-server-renderer": "2.6.14",
-    "vuepress-plugin-demoblock-plus": "^1.5.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",
@@ -57,15 +37,33 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/test-utils": "^2.0.0-0",
+    "@vuepress/markdown": "2.0.0-beta.29",
+    "@vuepress/plugin-container": "^2.0.0-beta.29",
+    "core-js": "^3.6.5",
+    "cross-env": "^7.0.3",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.0.0",
+    "gh-pages": "^3.2.3",
+    "loader-utils": "^0.2.10",
+    "markdown-it": "^12.3.0",
+    "markdown-it-anchor": "^8.4.1",
+    "markdown-it-chain": "^1.3.0",
+    "markdown-it-container": "^3.0.0",
     "node-sass": "^4.12.0",
     "prettier": "^2.2.1",
+    "sass": "^1.44.0",
     "sass-loader": "^8.0.2",
+    "transliteration": "^2.2.0",
     "typescript": "~4.1.5",
+    "vite-plugin-vuedoc": "^3.1.3",
+    "vue": "3.2.0",
+    "vue-class-component": "^8.0.0-0",
     "vue-jest": "^5.0.0-0",
-    "vuepress": "^2.0.0-beta.29"
+    "vue-loader": "^16.4.1",
+    "vue-server-renderer": "2.6.14",
+    "vuepress": "^2.0.0-beta.29",
+    "vuepress-plugin-demoblock-plus": "^1.5.1"
   },
   "eslintConfig": {
     "root": true,
@@ -105,5 +103,8 @@
     "transform": {
       "^.+\\.vue$": "vue-jest"
     }
-  }
+  },
+  "files": [
+    "lib/"
+  ]
 }
