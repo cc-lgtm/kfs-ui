@@ -6,7 +6,7 @@ import {
 } from 'vue'
 import './index.scss'
 
-type SizeType = 'mini' | 'small' | 'medium' | 'large'
+export type SizeType = 'mini' | 'small' | 'medium' | 'large'
 
 const CcRadio = defineComponent({
   name: 'cc-radio',

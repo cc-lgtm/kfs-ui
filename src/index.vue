@@ -52,7 +52,11 @@
     </Tabs>
     <Link type="warning" disabled>test</Link>
     <Switch size="mini" :value="Switch" />
-    <Radio value="1" checked disabled>Radio</Radio>
+    <RadioGroup>
+      <Radio value="1">Radio1</Radio>
+      <Radio value="2">Radio2</Radio>
+      <Radio value="3">Radio3</Radio>
+    </RadioGroup>
   </div>
 </template>
 
@@ -78,12 +82,14 @@ import Tab from './packages/tab/index.tsx'
 import Link from './packages/link/index'
 import Switch from './packages/switch/index'
 import Radio from './packages/radio/index'
+import RadioGroup from './packages/radioGroup/index'
 
 export default defineComponent({
   components: {
     Link,
     Switch,
     Radio,
+    RadioGroup,
     CcCard,
     CcInput,
     CcTips,
