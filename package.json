@@ -1,6 +1,6 @@
 {
   "name": "uninterest",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "自己写着玩的...",
   "private": false,
   "module": "./lib/uninterest.umd.min.js",
@@ -36,7 +36,6 @@
     "markdown-it-container": "^3.0.0",
     "sass": "^1.44.0",
     "transliteration": "^2.2.0",
-    "uninterest": "0.1.5",
     "vite-plugin-vuedoc": "^3.1.3",
     "vue": "3.2.0",
     "vue-class-component": "^8.0.0-0",
