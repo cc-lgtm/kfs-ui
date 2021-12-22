@@ -7,9 +7,10 @@ import {
 import "./index.scss";
 import CcLoading from '../loading/index';
 
-type ButtonType = "normal" | "error" | "warn"
+// todo disabled style type size icon-slot
+type ButtonType = "success" | "error" | "warn" | "default"
 
-type ButtonSize = "medium" | "small" | "mini"
+type ButtonSize = "medium" | "small" | "mini" | "large"
 
 const CcButton = defineComponent({
   name: "cc-button",
@@ -20,7 +21,7 @@ const CcButton = defineComponent({
     },
     type: {
       type: String as PropType<ButtonType>,
-      default: "normal"
+      default: "default"
     },
     size: {
       type: String as PropType<ButtonSize>,
@@ -69,6 +70,7 @@ const CcButton = defineComponent({
     const roundStyle = () => {
       const r = typeof props.round === "string" ? +props.round : props.round;
       const sizeMap = {
+        'large': 200,
         'medium': 150,
         'small': 100,
         'mini': 50
@@ -80,12 +82,23 @@ const CcButton = defineComponent({
       } as CSSProperties & {[propname: string]: any}
     }
 
-    const renderLoading = () => {
-      return props.isLoading
-      ? <cc-loading type="loadEffect" />
-      : props.value
+    const render = () => {
+      const icon = slots['icon']
+      const _default = slots['default']
+      if (props.isLoading) {
+        return <cc-loading type="loadEffect" />
+      }
+      return icon
+        ? (<>
+          <div class="icon">{icon()}</div>
+          {props.value}
+          </>)
+        : (<>
+          {_default?.()}
+          {props.value}
+          </>)
     }
-
+    
     return () => (
       <>
         <button
@@ -93,10 +106,7 @@ const CcButton = defineComponent({
           onClick={onClick}
           style={roundStyle()}
         >
-          {
-            renderLoading()
-          }
-          { slots.default?.() }
+          { render() }
         </button>
       </>
     )

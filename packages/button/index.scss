@@ -14,18 +14,39 @@
 
 .cc-button {
   width: var(--size);
-  background: #fff;
   box-sizing: border-box;
   margin: 10px;
   box-shadow: 1px 2px 6px #ccc;
   overflow: hidden;
   border-radius: var(--round);
+  position: relative;
+  display: flex;
+  justify-content: center;
 
-  &-normal {
+  .icon {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    margin-right: 10px;
+    display: flex;
+  }
+
+  &-default {
     @extend .button;
-    background: #2ecc71;
+    background: #fff;
+    color: #7f8c8d;
     &:hover {
-      background: #f6f6f6;
+      background: #fff;
+      color: #7f8c8d;
+      box-shadow: 1px 2px 6px #7f8c8d;
+    }
+  }
+
+  &-success {
+    @extend .button;
+    background: #2ecc71 !important;
+    &:hover {
+      background: #f6f6f6 !important;
       color: #2ecc71;
       box-shadow: 1px 2px 6px #2ecc71;
     }
@@ -53,6 +74,9 @@
     background: rgba(225, 225, 225, 0.4);
     opacity: 0.95;
     cursor: not-allowed;
+    &:hover {
+      box-shadow: 1px 2px 6px #ccc !important;
+    }
   }
   &-isCircle {
     width: 50px;
@@ -60,9 +84,11 @@
     border-radius: 50%;
   }
   &-isDisabled {
-    background: rgba(#bdc3c7, 0.4);
+    color: #ccc !important;
+    background: rgba(#bdc3c7, 0.4) !important;
     &:hover {
       cursor: not-allowed;
+      box-shadow: none !important;
     }
   }
 }

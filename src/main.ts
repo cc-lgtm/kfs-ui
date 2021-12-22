@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import App from "./App.tsx";
+import App from "./App.vue";
 import uninterest from 'uninterest'
 import 'uninterest/lib/uninterest.css'
 
