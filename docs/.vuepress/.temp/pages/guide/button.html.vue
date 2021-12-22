@@ -6,7 +6,7 @@
 <p>基础的卡片用法。</p>
 <demo customClass="" sourceCode="&lt;template&gt;
   &lt;div class=&quot;card-wrap&quot;&gt;
-    &lt;u-button /&gt;
+    &lt;cc-button /&gt;
     &lt;div class=&quot;card&quot;&gt;{{ title }}&lt;/div&gt;
   &lt;/div&gt;
 &lt;/template&gt;
@@ -48,7 +48,7 @@ export default defineComponent({
           <div v-pre class="language-vue">
             <pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">class</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;card-wrap&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">u-button</span><span style="color: var(--shiki-color-text)"> /&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-button</span><span style="color: var(--shiki-color-text)"> /&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">class</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;card&quot;</span><span style="color: var(--shiki-color-text)">&gt;{{ title }}&lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
@@ -183,7 +183,7 @@ const title = ref&lt;any&gt;('vuepress-plugin-demoblock-plus')
 
 <script lang="ts">
       import * as Vue from 'vue'
-      import * as uninterest from 'uninterest'
+      import * as KfsUi from 'kfs-ui'
       export default {
         name: 'component-doc',
         components: {
@@ -195,10 +195,10 @@ const _hoisted_1 = { class: "card-wrap" }
 const _hoisted_2 = { class: "card" }
 
 function render(_ctx, _cache) {
-  const _component_u_button = _resolveComponent("u-button")
+  const _component_cc_button = _resolveComponent("cc-button")
 
   return (_openBlock(), _createElementBlock("div", _hoisted_1, [
-    _createVNode(_component_u_button),
+    _createVNode(_component_cc_button),
     _createElementVNode("div", _hoisted_2, _toDisplayString(_ctx.title), 1 /* TEXT */)
   ]))
 }

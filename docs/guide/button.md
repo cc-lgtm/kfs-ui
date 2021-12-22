@@ -14,7 +14,7 @@
 ```vue
 <template>
   <div class="card-wrap">
-    <u-button />
+    <cc-button />
     <div class="card">{{ title }}</div>
   </div>
 </template>

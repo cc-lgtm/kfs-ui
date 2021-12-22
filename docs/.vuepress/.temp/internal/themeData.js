@@ -10,7 +10,7 @@ export const themeData = {
     },
     {
       "text": "npm",
-      "link": "https://www.npmjs.com/package/uninterest"
+      "link": "https://www.npmjs.com/package/kfs-ui"
     },
     {
       "text": "Github",

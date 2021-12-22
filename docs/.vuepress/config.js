@@ -4,13 +4,13 @@ module.exports = {
   description: '自己学习vue3，写着玩的一个组件库.',
   plugins: [
     ['vuepress-plugin-demoblock-plus', {
-      scriptImports: ["import * as uninterest from 'uninterest'"],
+      scriptImports: ["import * as KfsUi from 'kfs-ui'"],
       scriptReplaces: [
         { searchValue: /const ({ defineComponent as _defineComponent }) = Vue/g,
           replaceValue: 'const { defineComponent: _defineComponent } = Vue'
         },
-        { searchValue: /import ({.*}) from 'uninterest'/g,
-          replaceValue: (s, s1) => `const ${s1} = uninterest`
+        { searchValue: /import ({.*}) from 'kfs-ui'/g,
+          replaceValue: (s, s1) => `const ${s1} = kfs-ui`
         }
       ]
     }]
@@ -19,7 +19,7 @@ module.exports = {
     navbar: [
       { text: '首页', link: '/' },
       { text: '组件', link: '/guide/button' },
-      { text: 'npm', link: 'https://www.npmjs.com/package/uninterest' },
+      { text: 'npm', link: 'https://www.npmjs.com/package/kfs-ui' },
       { text: 'Github', link: 'https://github.com/cc-lgtm/v3-compoents' }
     ],
     sidebar: [
@@ -64,19 +64,5 @@ module.exports = {
         ]
       }
     ]
-  },
-  chainWebpack(config) {
-    config.resolve.alias.set("vfox-ui", process.cwd() + "/packages");
-    config.resolve.alias.set("core-js/library/fn", "core-js/features");
-    config.module
-      .rule("md")
-      .test(/\.md$/)
-      .use("vue-loader")
-      .loader(require.resolve("./loader/replaceFile"))
-      .options({
-        replaceFiles: true, // 默认true, 是否将文件填充进md
-        wrapper: false, // 默认true,默认输出Vue Component ,false 时输出html片段
-      })
-      .end();
   }
 }

@@ -1,11 +1,11 @@
-import uninterest from 'uninterest'
-import 'uninterest/lib/uninterest.css'
+import KfsUi from 'kfs-ui'
+import 'kfs-ui/lib/index.css'
 
 export default async ({
   Vue
 }) => {
   if (typeof process === 'undefined') {
-    Vue.use(uninterest)
+    Vue.use(KfsUi)
   }
 }
 

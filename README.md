@@ -1,4 +1,4 @@
-# Uninterest
+# kfs-ui
 
 ## 已完成组件
 * Button
@@ -23,7 +23,7 @@
 * DatePicker ---开发中
 
 ## npm地址
-> [npm](https://www.npmjs.com/package/uninterest).
+> [npm](https://www.npmjs.com/package/kfs-ui).
 
 ## tips
 此项目是自己学习vue3而写着玩的，没啥大用...

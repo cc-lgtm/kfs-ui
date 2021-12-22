@@ -1,8 +1,10 @@
 import {
+  init_define_DEMOBLOCK_LOCALES,
   init_define_MZ_ZOOM_OPTIONS
-} from "./chunk-KYQ4NUOZ.js";
+} from "./chunk-OFPZGNHH.js";
 
 // node_modules/@vue/shared/dist/shared.esm-bundler.js
+init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 function makeMap(str, expectsLowerCase) {
   const map = Object.create(null);
@@ -298,4 +300,4 @@ export {
   toNumber,
   getGlobalThis
 };
-//# sourceMappingURL=chunk-BLFRNZBJ.js.map
+//# sourceMappingURL=chunk-GS2CHXCI.js.map

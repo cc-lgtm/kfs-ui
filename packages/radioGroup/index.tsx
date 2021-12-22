@@ -4,10 +4,10 @@ import {
   ref,
   watch
 } from 'vue'
-import CcRadio from '@/packages/radio/index'
+import CcRadio from './../radio/index'
 import './index.scss'
 
-import { SizeType } from '@/packages/radio/index'
+import { SizeType } from './../radio/index'
 
 const CcRadioGroup = defineComponent({
   name: 'cc-radio-group',

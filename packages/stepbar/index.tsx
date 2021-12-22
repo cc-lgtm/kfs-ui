@@ -4,7 +4,7 @@ import {
   PropType,
   CSSProperties
 } from 'vue'
-import CcStepItem from '@/packages/stepitem/index'
+import CcStepItem from './../stepitem/index'
 import './index.scss'
 
 type DirectionType = 'vertical' | 'horizontal'

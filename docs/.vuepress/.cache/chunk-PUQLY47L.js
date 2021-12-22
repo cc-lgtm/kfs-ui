@@ -39,12 +39,14 @@ import {
   toHandlerKey,
   toNumber,
   toRawType
-} from "./chunk-BLFRNZBJ.js";
+} from "./chunk-GS2CHXCI.js";
 import {
+  init_define_DEMOBLOCK_LOCALES,
   init_define_MZ_ZOOM_OPTIONS
-} from "./chunk-KYQ4NUOZ.js";
+} from "./chunk-OFPZGNHH.js";
 
 // node_modules/@vuepress/bundler-vite/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
+init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 function warn(msg, ...args) {
   console.warn(`[Vue warn] ${msg}`, ...args);
@@ -1023,6 +1025,7 @@ var tick = Promise.resolve();
 _a = "__v_isReadonly";
 
 // node_modules/@vuepress/bundler-vite/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
+init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var isHmrUpdating = false;
 var hmrDirtyComponents = new Set();
@@ -6863,6 +6866,7 @@ var resolveFilter = null;
 var compatUtils = null;
 
 // node_modules/@vuepress/bundler-vite/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js
+init_define_DEMOBLOCK_LOCALES();
 init_define_MZ_ZOOM_OPTIONS();
 var svgNS = "http://www.w3.org/2000/svg";
 var doc = typeof document !== "undefined" ? document : null;
@@ -8366,4 +8370,4 @@ export {
   createSSRApp,
   initDirectivesForSSR
 };
-//# sourceMappingURL=chunk-7FLDJL4D.js.map
+//# sourceMappingURL=chunk-PUQLY47L.js.map
