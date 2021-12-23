@@ -3,6 +3,7 @@
   opacity: 0.8;
   letter-spacing: 0.7;
   cursor: pointer;
+  text-decoration: none;
 }
 .cc-link-default {
   color: #bdc3c7;
@@ -28,6 +29,7 @@
   }
 }
 .cc-link-disabled {
+  opacity: 0.4;
   &:hover {
     cursor: not-allowed;
   }

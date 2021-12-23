@@ -1,13 +1,7 @@
 .cc-tips {
-  min-width: 100px;
-  padding: 5px 0;
-  max-width: max-content;
-  background: rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: 0.8px;
-  color: #57606f;
+  width: max-content;
+  background: var(--bg);
+  color: var(--color);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   position: relative;
 
@@ -22,8 +16,7 @@
     width: max-content;
     top: calc(5px - 100%);
     left: calc(100% - 50px);
-    color: #ff6348;
-    text-shadow: 1px 2px 3px #ff4757;
+    color: var(--tipsColor);
     opacity: var(--opacity);
     animation: var(--animation);
   }

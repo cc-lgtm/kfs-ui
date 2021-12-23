@@ -14,6 +14,18 @@ const CcTips = defineComponent({
     },
     class: {
       type: String
+    },
+    background: {
+      type: String,
+      default: 'rgba(0, 0, 0, 0.1)'
+    },
+    color: {
+      type: String,
+      default: '#57606f'
+    },
+    tipsColor: {
+      type: String,
+      default: '#000'
     }
   },
   emits: ['hover', 'hoverout'],
@@ -33,9 +45,18 @@ const CcTips = defineComponent({
       if (isTips.value) return;
       const style: CSSProperties & {[propname: string]: any} = {
         '--animation': 'hidetip 3s 1',
-        'opacity': opacity.value
+        '--opacity': opacity.value
       }
       return style
+    })
+
+    const colorStyle = computed(() => {
+      const style: CSSProperties & {[propname: string]: any} = {
+        '--bg': props.background,
+        '--color': props.color,
+        '--tipsColor': props.tipsColor
+      }
+      return Object.assign(styles.value, style)
     })
 
     const classes = computed(() => {
@@ -47,7 +68,7 @@ const CcTips = defineComponent({
     return () => (
       <div class={classes.value} onMouseover={onHover} onMouseout={onHoverOut}>
         { props.tips }
-        { <div class="hover-tips" style={styles.value}>{ props.tips }</div> }
+        { <div class="hover-tips" style={colorStyle.value}>{ props.tips }</div> }
         { slots.default?.() }
       </div>
     )

@@ -7,7 +7,6 @@ import {
 import "./index.scss";
 import CcLoading from '../loading/index';
 
-// todo disabled style type size icon-slot
 type ButtonType = "success" | "error" | "warn" | "default"
 
 type ButtonSize = "medium" | "small" | "mini" | "large"

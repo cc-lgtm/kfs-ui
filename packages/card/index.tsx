@@ -1,8 +1,11 @@
 import {
   computed,
+  PropType,
   defineComponent
 } from 'vue'
 import './index.scss'
+
+type ShadowType = 'always' | 'hover' | 'never'
 
 const CcCard = defineComponent({
   name: 'cc-card',
@@ -16,6 +19,10 @@ const CcCard = defineComponent({
     },
     class: {
       type: String
+    },
+    shadow: {
+      type: String as PropType<ShadowType>,
+      default: 'always'
     }
   },
   emits: ['click'],
@@ -27,6 +34,7 @@ const CcCard = defineComponent({
     const classStyle = computed(() => {
       const classes = ['cc-card']
       props.class && classes.push(props.class)
+      props.shadow && classes.push(`cc-card-${props.shadow}`)
       return classes.join(' ')
     })
 
