@@ -1,4 +1,5 @@
 import {
+  computed,
   defineComponent,
   PropType,
   ref,
@@ -29,8 +30,15 @@ const CcInput = defineComponent({
       default: '请输入...'
     },
     leftText: {
-      type: String,
-      default: 'leftText'
+      type: String
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
+      type: Boolean,
+      default: false
     },
     className: {
       type: String
@@ -39,17 +47,17 @@ const CcInput = defineComponent({
   emits: ['update:input', 'click', 'inputChange'],
   setup(props, { slots, emit }) {
 
-    const styles = () => {
+    const styles = computed(() => {
       const classes = []
       classes.push('cc-input')
       props.className && classes.push(props.className)
-
       return classes.join(' ')
-    }
+    })
 
     const currentV = ref<string>("")
 
     const onInput = (e: Event) => {
+      if (props.disabled) return;
       currentV.value = (e.target as unknown as HTMLInputElement).value
       emit('update:input', currentV.value)
     }
@@ -63,12 +71,20 @@ const CcInput = defineComponent({
     }
 
     return () => (
-      <div class={styles()}>
+      <div class={styles.value}>
         { props.leftText && <span class="title">{ props.leftText }</span> }
         {
           props.leftIcon && <img src={props.leftIcon} alt="left-icon" class="left-icon" />
         }
-          <input type={props.type} value={props.value}  onInput={onInput} placeholder={props.tips} />
+          <input
+            type={props.type}
+            value={props.value}
+            disabled={props.disabled}
+            readonly={props.readonly}
+            onInput={onInput}
+            placeholder={props.tips}
+            class={props.disabled ? 'disabled': ''}
+          />
         {
           props.rightIcon && <img src={props.rightIcon} alt="right-icon" class="right-icon" onClick={rightIconClick} />
         }

@@ -1,11 +1,9 @@
 .cc-input {
   width: max-content;
-  height: 50px;
+  height: 45px !important;
   display: flex;
   align-items: center;
-  box-sizing: border-box;
-  border-bottom: 1px solid #1e90ff;
-  margin: 10px 0;
+  border: 1px solid #bdc3c7 !important;
   .left-icon {
     width: 20px;
     height: 20px;
@@ -17,10 +15,6 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   input {
-    width: 180px;
-    height: 40px;
-    border: none;
-    outline: none;
     display: flex;
     flex: 1;
     padding: 0 10px;
@@ -35,5 +29,11 @@
     &:active {
       box-shadow: 1px 2px 6px #7bed9f;
     }
+  }
+}
+
+.disabled {
+  &:hover {
+    cursor: not-allowed !important;
   }
 }
