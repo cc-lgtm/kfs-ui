@@ -25,6 +25,8 @@ const CcTabs = defineComponent({
       emit('change', activeVal.value)
     })
 
+    const tabs = ref<HTMLDivElement>()
+
     const activeClass = (index: number) => {
       const classes = ['cc-tabs-box']
       index === activeVal.value && classes.push('active')
@@ -47,7 +49,7 @@ const CcTabs = defineComponent({
     }
 
     return () => (
-      <div class="cc-tabs">
+      <div class="cc-tabs" ref={tabs}>
         {renderTabs()}
       </div>
     )

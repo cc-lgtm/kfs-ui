@@ -1,41 +1,42 @@
 .cc-tips {
   width: max-content;
-  background: var(--bg);
   color: var(--color);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   position: relative;
+  background: none !important;
 
   &:hover {
-    box-shadow: 1px 2px 6px #ccc;
     cursor: pointer;
-    animation: showTip 3s 1;
+    transition: all .3s linear;
+    box-shadow: none !important;
+    transition: all 1s linear !important;
   }
 
   .hover-tips {
     position: absolute;
     width: max-content;
-    top: calc(5px - 100%);
+    padding: 2px 10px;
+    top: calc(-5px - 100%) !important;
     left: calc(100% - 50px);
-    color: var(--tipsColor);
+    transition: all .3s linear;
+    background: rgba(#ccc, 0.4);
+    color: #7f8c8d !important;
+    border-radius: 3px;
+    text-shadow: none !important;
+    box-shadow: 1px 2px 6px #ecf0f1;
     opacity: var(--opacity);
-    animation: var(--animation);
-  }
-}
-
-@keyframes showtip {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes hidetip {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
+    transition: all 1s linear !important;
+    &:before{
+      content:" ";
+      border-left: 0px solid transparent;
+      border-top:10px solid transparent;
+      border-right:10px solid transparent;
+      border-bottom:10px solid #ccc;
+      transform: rotate(-45deg);
+      opacity: 0.4;
+      position: absolute;
+      left: 0;
+      top: 15px;
+    }
   }
 }
