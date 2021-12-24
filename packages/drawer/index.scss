@@ -1,7 +1,9 @@
 .cc-drawer {
-  width: 30%;
-  min-height: 100vh;
+  min-width: var(--w) !important;
+  max-width: max-content;
+  min-height: 10% !important;
   max-height: max-content;
+  padding: 0 15px;
   background: #fff;
   box-shadow: 1px 2px 6px #ccc;
   box-sizing: border-box;
@@ -27,30 +29,13 @@
 
   &-box {
     display: flex;
-    width: 100%;
-    min-height: 100vh;
-    max-height: max-content;
+    width: 100% !important;
+    // max-height: max-content;
     justify-content: center;
     padding: 20px 0;
     position: relative;
     box-sizing: border-box;
   }
-
-  .title {
-    font-size: 28px;
-    letter-spacing: 0.95px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 40px;
-  }
-
-  img {
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    right: 20px;
-    top: 30px;
-    cursor: pointer;
-  } 
 }
 
 @keyframes FadeInL{

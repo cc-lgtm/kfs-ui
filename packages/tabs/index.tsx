@@ -3,7 +3,7 @@ import {
   ref,
   watch
 } from 'vue'
-import CcTap from './../tab'
+import CcTap from '../tab'
 import './index.scss'
 
 const CcTabs = defineComponent({

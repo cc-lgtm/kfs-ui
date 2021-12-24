@@ -5,7 +5,7 @@ import {
   PropType,
   ref
 } from 'vue'
-import CcOption from './../option/index'
+import CcOption from '../option/index'
 import './index.scss'
 
 type SizeType = 'mini' | 'small' | 'medium' | 'large'

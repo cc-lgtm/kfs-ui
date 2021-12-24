@@ -8,7 +8,7 @@ import {
 } from 'vue'
 import './index.scss'
 import date_icon from './../assets/date.svg'
-import CcButton from './../button/index'
+import CcButton from '../button/index'
 
 type DateType = 'datetime' | 'datetimerange'
 

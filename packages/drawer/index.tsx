@@ -8,49 +8,27 @@ import {
   ref
 } from 'vue'
 import './index.scss'
-import close_icon from './../assets/close.svg';
 
 type drawerPosition = 'left' | 'right'
 
 const CcDrawer = defineComponent({
   name: 'cc-drawer',
   props: {
+    vModel: {
+      type: Boolean,
+      default: true
+    },
     position: {
       type: String as PropType<drawerPosition>,
       default: 'right'
     },
-    title: {
+    width: {
       type: String,
-      default: 'title'
-    },
-    content: {
-      type: [String, Array, Object],
-      default: 'content'
+      default: '15%'
     }
   },  
   emits: ['opened', 'closed'],
   setup(props, { emit, slots }) {
-    const renderContent = () => {
-      const valueType = Object.prototype.toString.call(props.content)
-      const typeMap: {[propname: string]: string} = {
-        '[object, String]': 'string',
-        '[object, Array]': 'array',
-        '[object, Object]': 'object'
-      }
-      const currentType = ref<string>('')
-      Object.keys(typeMap).forEach((type, _) => {
-        if (valueType === type) {
-          currentType.value = typeMap[type]
-        }
-      })
-      if ((['string', 'array', 'object'].includes(currentType.value as string))) {
-        throw Error('类型必须为 string | array | object');
-      }
-      if (currentType.value === 'string') return props.content;
-      // if (currentType.value === 'array' || currentType.value === 'object') {
-      // }
-    }
-
     const getScorllW = () => {
       const w = ref<string>(document.body.scrollWidth + 'px')
       window.onresize = () => {
@@ -81,7 +59,8 @@ const CcDrawer = defineComponent({
 
     const styles = computed(() => {
       const style: CSSProperties & {[propname: string]: any} = {
-        '--shadow': getScorllW()
+        '--shadow': getScorllW(),
+        '--w': props.width
       }
       return Object.assign(style, positionStyle())
     })
@@ -107,18 +86,11 @@ const CcDrawer = defineComponent({
     }
 
     return () => (
-      showDrawer.value &&
+      showDrawer.value && props.vModel &&
       <div class="cc-drawer" style={styles.value} onClick={clickMask}>
         <div class='cc-drawer-box'>
-          <span class='title'>{ props.title }</span>
-          <div class='content'>
-            {
-              renderContent()
-            }
-          </div>
-          <img src={close_icon} alt="close" onClick={onClose} />
+          {slots.default?.()}
         </div>
-        {slots.default?.()}
       </div>
     )
   }

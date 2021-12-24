@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import Button from './../packages/button/index'
+import Button from '../packages/button/index'
 
 const App: Record<string, unknown> = defineComponent({
   components: {Button},
