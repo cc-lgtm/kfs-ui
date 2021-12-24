@@ -39,11 +39,6 @@
   .title {
     @extend .textStyle;
   }
-  img {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-  }
   .content {
     @extend .textStyle;
     width: 100%;
@@ -59,10 +54,5 @@
   .btns {
     display: flex;
     justify-content: flex-end;
-
-    .close {
-      background: #fff;
-      color: #000;
-    }
   }
 }

@@ -4,7 +4,6 @@ import {
   ref
 } from 'vue'
 import './index.scss'
-import close_icon from './../assets/close.svg'
 import CcButton from '../button/index';
 import CcInput from '../input';
 
@@ -58,12 +57,11 @@ const CcPopup = defineComponent({
         <div class="cc-popup-box">
           <div class="top">
             <span class="title">{ props.title }</span>
-            <img src={close_icon} alt="close" onClick={onClose} />
           </div>
           { renderType() }
           <div class="btns">
-            { props.type !== 'message' && <CcButton value="取消" class="close" onClick={onClose} /> }
-            <CcButton value="确认" onClick={onConfirm} />
+            { props.type !== 'message' && <CcButton value="取消" onClick={onClose} /> }
+            <CcButton value="确认" type="success" onClick={onConfirm} />
           </div>
         </div>
         { slots.default?.() }
