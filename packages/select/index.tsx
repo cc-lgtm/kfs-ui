@@ -18,7 +18,8 @@ const CcSelect = defineComponent({
       type: [String, Array] as PropType<string | string[]>
     },
     placeholder: {
-      type: String
+      type: String,
+      default: '请输入'
     },
     size: {
       type: String as PropType<SizeType>,
@@ -48,14 +49,18 @@ const CcSelect = defineComponent({
       const props = slot_arr?.[index].props as {[propname: string]: any}
       const keys = Object.keys(props)
       if (keys.includes('disabled') && !props?.['disabled']) return;
+      r.value = 90
       val.value = props?.label
       if (val.value) optionStatus.value = false
       emit('change', val.value)
     }
 
     const optionStatus = ref<boolean>(false)
+    const r = ref<number>(90)
     const onClick = () => {
       if (props.disabled) return;
+      r.value = -90
+      console.log(111)
       optionStatus.value = true
     }
 
@@ -79,9 +84,18 @@ const CcSelect = defineComponent({
       return w
     })
 
+    const icon = '>'
+    const iconStyle = computed(() => {
+      const style = {
+        '--r': r.value + 'deg'
+      } as CSSProperties
+      return style
+    })
+
     return () => (
       <div class="cc-select" style={sizeStyle.value}>
         <div class={classNmae.value} onClick={onClick}>{val.value}</div>
+        <span class="icon" style={iconStyle.value}>{icon}</span>
         {optionStatus.value &&
         <div class="container">
           { renderOptions() }

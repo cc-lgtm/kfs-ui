@@ -1,9 +1,14 @@
 <template>
   <div>
-    <Tips tips="嗯。。。" style="marginTop: 100px">这是一个tips</Tips>
+    <Select>
+      <Option label="js" />
+      <Option label="html" />
+      <Option label="css" />
+    </Select>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Tips from './../packages/tips/index'
+import Select from './../packages/select/index'
+import Option from './../packages/option/index'
 </script>
