@@ -1,8 +1,10 @@
 import {
+  computed,
   defineComponent,
   PropType,
   ref,
-  watch
+  watch,
+  provide
 } from 'vue'
 import CcRadio from '../radio/index'
 import './index.scss'
@@ -30,37 +32,33 @@ const CcRadioGroup = defineComponent({
     const slot_arr = slots.default?.()
 
     const val = ref<string>()
-    const onClick = (index: number) => {
-      let prop: {[propname: string]: any};
-      let radio;
-      for (radio in slot_arr) {
-        prop = slot_arr?.[radio as unknown as number]?.props as {[propname: string]: any}
-        prop['checked'] = index === +radio
-        console.log(prop['checked'])
-      }
-      if (props.disabled) {
-        prop!['disabled'] = props.disabled
-      }
-      val.value = props['value']
-      prop!['size'] = props.size
+    const onClick = (e: Event, index: number) => {
+      val.value = obj.value[index].props['value']
+      console.log(obj.value[index].props['value'])
     }
 
     watch(val, () => {
       emit('change', val.value)
     })
 
-    const renderRadio = () => {
-      return slot_arr?.map((radio, index) => (
+    const obj = ref(slot_arr)
+    const renderRadio = computed(() => {
+      slot_arr.map((radio, index) => {
+        if (typeof radio.props['checked'] !== 'boolean' && radio.props['checked'] !== '') {
+          obj.value[index].props['checked'] = false
+        }
+      })
+      return obj.value?.map((radio, index) => (
         <div
           class="box"
           key={index}
-          onClick={() => onClick(index)}
+          onClick={(e) => onClick(e, index)}
         >{radio}</div>
       ))
-    }
+    })
 
     return () => (
-      <div class="cc-radio-group">{renderRadio()}</div>
+      <div class="cc-radio-group">{renderRadio.value}</div>
     )
   }
 })

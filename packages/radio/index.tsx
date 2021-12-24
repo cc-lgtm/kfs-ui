@@ -31,10 +31,11 @@ const CcRadio = defineComponent({
   emits: ['change'],
   setup(props, { emit, slots }) {
     const value = ref<boolean>(props.checked)
+    const radioRef = ref<HTMLDivElement>()
     const onClick = () => {
       if (props.disabled) return;
       value.value = !value.value
-      emit('change', value.value)
+      emit('change', value.value, radioRef)
     }
 
     const className = computed(() => {
@@ -48,6 +49,7 @@ const CcRadio = defineComponent({
     return () => (
       <div class="cc-radio">
         <div
+          ref={radioRef}
           class={className.value}
           onClick={onClick}
         ></div>
