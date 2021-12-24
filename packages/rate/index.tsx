@@ -7,8 +7,8 @@ import {
   readonly
 } from  'vue'
 import './index.scss'
-import star from './../assets/star.svg'
-import full_star from './../assets/full_star.svg'
+import star from './star'
+import full_star from './fullStar'
 
 const CcRate = defineComponent({
   name: 'cc-rate',
@@ -53,11 +53,9 @@ const CcRate = defineComponent({
       if (props.colors) {
         colors.value.splice(0, 3).push(...props.colors as Array<string>)
       }
-
       const style = {
 
       }
-
       return style
     }
 
@@ -130,9 +128,6 @@ const CcRate = defineComponent({
       starObj,
       (newV, oldV) => {
         if (saveStatus.value) {
-          const copy = readonly(starObj)
-          console.log('copy')
-          console.log(newV, oldV)
           for (let s = 0; s < 5; s++) {
             starObj['star' + (s + 1)] = oldV['star' + (s + 1)]
           }
@@ -140,15 +135,23 @@ const CcRate = defineComponent({
       }
     )
 
-    props.disabled && Object.freeze(starObj)
+    props.disabled && Object.freeze(starObj);
+
+    const render = () => {
+      return (
+        [1, 2, 3, 4, 5].map((_, index) => (
+          <div onMouseover={(e) => onMouse(e, `star${index + 1}`)}>
+            {
+              starObj[`star${index + 1}`] ? full_star() : star()
+            }
+          </div>
+        ))
+      )
+    }
 
     return () => (
       <div class="cc-rate" onMouseout={onMouseOut} onClick={onClick} style={renderColors()}>
-        <img id="star1" src={starObj['star1'] ? full_star : star} alt="star" onMouseover={(e) => onMouse(e, 'star1')} />
-        <img id="star2" src={starObj['star2'] ? full_star : star} alt="star" onMouseover={(e) => onMouse(e, 'star2')} />
-        <img id="star3" src={starObj['star3'] ? full_star : star} alt="star" onMouseover={(e) => onMouse(e, 'star3')} />
-        <img id="star4" src={starObj['star4'] ? full_star : star} alt="star" onMouseover={(e) => onMouse(e, 'star4')} />
-        <img id="star5" src={starObj['star5'] ? full_star : star} alt="star" onMouseover={(e) => onMouse(e, 'star5')} />
+        { render() }
         { props.showText && <span>{ renderText.value }</span> }
         { props.showScore && <span>{ renderScore.value }</span> }
       </div>
