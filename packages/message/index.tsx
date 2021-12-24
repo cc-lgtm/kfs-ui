@@ -9,7 +9,7 @@ import {
 } from 'vue'
 import './index.scss'
 
-type MessageType = 'success' | 'error' | 'warn'
+type MessageType = 'success' | 'error' | 'warn' | 'default'
 
 const CcMessage = defineComponent({
   name: 'cc-message',
@@ -21,29 +21,35 @@ const CcMessage = defineComponent({
     },
     type: {
       type: String as PropType<MessageType>,
-      default: 'warn'
+      default: 'default'
+    },
+    top: {
+      type: String,
+      default: '15'
     }
   },
   setup(props, { slots }) {
 
     const style: {[propname: string]: any} = {
+      default: {
+        '--color': '#fff',
+        '--backgroundColor': 'rgb(236, 240, 241)',
+        '--borderColor': 'rgb(233, 230, 221)'
+      },
       warn: {
-        icon: 'icon-warning',
-        color: '#E6A23C',
-        backgroundColor: 'rgb(253, 246, 236)',
-        borderColor: 'rgb(250, 236, 216)'
+        '--color': '#E6A23C',
+        '--backgroundColor': 'rgb(253, 246, 236)',
+        '--borderColor': 'rgb(250, 236, 216)'
       },
       error: {
-        icon: 'icon-shanchu',
-        color: '#F56C6C',
-        backgroundColor: 'rgb(254, 240, 240)',
-        borderColor: 'rgb(253, 226, 226)'
+        '--color': '#F56C6C',
+        '--backgroundColor': 'rgb(254, 240, 240)',
+        '--borderColor': 'rgb(253, 226, 226)'
       },
       success: {
-        icon: 'icon-queren2',
-        color: '#67C23A',
-        backgroundColor: 'rgb(240, 249, 235)',
-        borderColor: 'rgb(225, 243, 216)'
+        '--color': '#67C23A',
+        '--backgroundColor': 'rgb(240, 249, 235)',
+        '--borderColor': 'rgb(225, 243, 216)'
       }
     }
 
@@ -54,17 +60,9 @@ const CcMessage = defineComponent({
     })
 
     const messageStyle = computed(() => {
-      const styles = []
-      props.type && styles.push(style[props.type])
-
-      return styles.join(' ')
-    })
-
-    const iconClass = computed(() => {
-      const classes = ['iconfont']
-      props.type && classes.push(style[props.type].icon)
-
-      return classes.join(' ')
+      return Object.assign(style[props.type], {
+        '--top': props.top + 'px'
+      })
     })
 
     return () => (
@@ -73,7 +71,6 @@ const CcMessage = defineComponent({
           {
             flag.value &&
             <div class="cc-message" style={messageStyle.value}>
-              <i class={iconClass.value}></i>
               <span class="text">{props.text}</span>
             </div>
           }
