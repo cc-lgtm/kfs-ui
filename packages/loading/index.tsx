@@ -2,56 +2,45 @@ import {
   defineComponent,
   PropType
 } from 'vue'
-import './index.scss'
+import Line from './loadline/index'
+import Effect from './loadeffect/index'
+import Rect from './loadrect/index'
+import Back from './loadback/index'
+import BackLine from './loadbackline/index'
 
-type loadType = 'loadEffect' | 'loadLine'
+type loadType = 'effect' | 'line' | 'rect' | 'back' | 'backLine'
 
 const CcLoading = defineComponent({
   name: "cc-loading",
+  components: {
+    Line,
+    Effect,
+    Rect,
+    Back,
+    BackLine
+  },
   props: {
     type: {
       type: String as PropType<loadType>,
-      default: 'loadEffect'
+      default: 'line'
     }
   },
-  emits: ['hover'],
-  setup(props, { emit, slots }) {
-    const hoverLoading = (e: Event) => {
-      emit('hover', e)
-    }
+  setup(props) {
 
     const renderLoading = () => {
-      if (props.type === 'loadLine') {
-        return (
-          <div class="loadEffect" onMouseover={hoverLoading}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        )
+      const loadType = {
+        'effect': <Effect />,
+        'line': <Line />,
+        'rect': <Rect />,
+        'back': <Back />,
+        'backLine': <BackLine />
       }
-      if (props.type === 'loadEffect') {
-        return (
-          <div class="loadLine" onMouseover={hoverLoading}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        )
-      }
+      return loadType[props.type]
     }
 
     return () => (
       <>
-        {
-          renderLoading()
-        }
-        { slots.defalut?.() }
+        {renderLoading()}
       </>
     )
   }

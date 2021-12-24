@@ -1,0 +1,40 @@
+.loadrect{
+  width: 100px;
+  height: 15px;
+  margin: 0 auto;
+  text-align: center;
+}
+.loadrect span{
+  display: inline-block;
+  width: 15px;
+  height: 100%;
+  margin-right: 5px;
+  background: lightgreen;
+  -webkit-animation: loadrect 1.04s ease infinite;
+}
+.loadrect span:last-child{
+  margin-right: 0px; 
+}
+@-webkit-keyframes loadrect{
+  0%{
+      opacity: 1;
+  }
+  100%{
+      opacity: 0;
+  }
+}
+.loadrect span:nth-child(1){
+  -webkit-animation-delay:0.13s;
+}
+.loadrect span:nth-child(2){
+  -webkit-animation-delay:0.26s;
+}
+.loadrect span:nth-child(3){
+  -webkit-animation-delay:0.39s;
+}
+.loadrect span:nth-child(4){
+  -webkit-animation-delay:0.52s;
+}
+.loadrect span:nth-child(5){
+  -webkit-animation-delay:0.65s;
+}
