@@ -6,9 +6,25 @@ import {
 import './index.scss'
 
 type VariableType = 'p' | 'text' | 'h1' | 'h3' | 'rect' | 'circle' | 'image' | 'button' | 'caption'
+import SkeletonButton from './button/index'
+import SkeletonCircle from './circle/index'
+import SkeletonCaption from './caption/index'
+import SkeletonH from './h/index'
+import SkeletonImg from './img/index'
+import SkeletonRect from './rect/index'
+import SkeletonText from './text/index'
 
 const CcSkeletonItem = defineComponent({
   name: 'cc-skeleton-item',
+  components: {
+    SkeletonButton,
+    SkeletonCircle,
+    SkeletonCaption,
+    SkeletonH,
+    SkeletonImg,
+    SkeletonRect,
+    SkeletonText
+  },
   props: {
     variable: {
       type: String as PropType<VariableType>,
@@ -16,12 +32,15 @@ const CcSkeletonItem = defineComponent({
     }
   },
   setup(props) {
-    const skeletonItemClass = computed(() => {
-      return `cc-skeleton-item-${props.variable}`
-    })
     return () => (
       <div class="cc-skeleton-item-box">
-        <div class={skeletonItemClass.value}></div>
+        <SkeletonButton />
+        <SkeletonCaption />
+        <SkeletonCircle />
+        <SkeletonH />
+        <SkeletonImg />
+        <SkeletonText />
+        <SkeletonRect />
       </div>
     )
   }
