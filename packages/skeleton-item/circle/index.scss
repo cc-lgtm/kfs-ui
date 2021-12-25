@@ -1,6 +1,32 @@
 .skeleton-circle {
-  width: 100px;
-  height: 100px;
+  width: var(--w);
+  height: var(--w);
   background: #ecf0f1;
   border-radius: 50%;
+  margin: 10px;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(25%, #f0f0f0), color-stop(37%, #e3e3e3), color-stop(63%, #f0f0f0));
+    background-image: -o-linear-gradient(left, #f0f0f0 25%, #e3e3e3 37%, #f0f0f0 63%);
+    background-image: linear-gradient(90deg, #f0f0f0 25%, #e3e3e3 37%, #f0f0f0 63%);
+    background-size: 400% 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: loading .8s infinite ease;
+  }
+}
+
+@keyframes loading {
+  0% {
+      background-position: 100% 50%
+  }
+
+  to {
+      background-position: 0 50%
+  }
 }
