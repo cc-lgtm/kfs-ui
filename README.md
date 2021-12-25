@@ -20,6 +20,7 @@
 * Switch
 * Radio
 * Link
+* Skeleton
 * DatePicker ---开发中
 
 ## npm地址

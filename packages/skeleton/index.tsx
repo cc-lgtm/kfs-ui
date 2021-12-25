@@ -1,5 +1,4 @@
 import {
-  computed,
   CSSProperties,
   defineComponent,
   PropType,

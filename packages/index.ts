@@ -9,6 +9,8 @@ import Rate from './rate'
 import Popup from './popup'
 import Message from './message/index.ts'
 import Pagination from './pagination'
+import Skeleton from './skeleton'
+import SkeletonItem from './skeleton-item'
 import Option from './option'
 import Select from './select'
 import Steps from './stepbar'
@@ -39,7 +41,9 @@ const components = [
   Switch,
   Radio,
   RadioGroup,
-  Link
+  Link,
+  Skeleton,
+  SkeletonItem
 ];
 const install = (app:App) => {
   components.map((component: any) => {
@@ -72,7 +76,9 @@ export {
   Switch,
   Radio,
   RadioGroup,
-  Link
+  Link,
+  Skeleton,
+  SkeletonItem
 };
 
 export default {
