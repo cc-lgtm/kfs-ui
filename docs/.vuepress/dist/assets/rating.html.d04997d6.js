@@ -1,0 +1,1 @@
+const t={key:"v-57bb7620",path:"/guide/rating.html",title:"Rating",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1640424568e3,contributors:[{name:"coderC",email:"2448856797@qq.com",commits:2}]},filePathRelative:"guide/rating.md"};export{t as data};

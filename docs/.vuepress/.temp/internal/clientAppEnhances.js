@@ -3,6 +3,7 @@ import clientAppEnhance1 from '/home/littlebird/桌面/vue3-components/vue3-comp
 import clientAppEnhance2 from '/home/littlebird/桌面/vue3-components/vue3-components/v3-components/node_modules/@vuepress/plugin-theme-data/lib/client/clientAppEnhance.js'
 import clientAppEnhance3 from '/home/littlebird/桌面/vue3-components/vue3-components/v3-components/node_modules/@vuepress/theme-default/lib/client/clientAppEnhance.js'
 import clientAppEnhance4 from '/home/littlebird/桌面/vue3-components/vue3-components/v3-components/node_modules/vuepress-plugin-demoblock-plus/client/clientAppEnhance.js'
+import clientAppEnhance5 from '/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/.vuepress/clientAppEnhance.js'
 
 export const clientAppEnhances = [
   clientAppEnhance0,
@@ -10,4 +11,5 @@ export const clientAppEnhances = [
   clientAppEnhance2,
   clientAppEnhance3,
   clientAppEnhance4,
+  clientAppEnhance5,
 ]

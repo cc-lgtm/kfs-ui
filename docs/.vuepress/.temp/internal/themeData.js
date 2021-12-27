@@ -14,7 +14,7 @@ export const themeData = {
     },
     {
       "text": "Github",
-      "link": "https://github.com/cc-lgtm/v3-compoents"
+      "link": "https://github.com/cc-lgtm/kfs-ui"
     }
   ],
   "sidebar": [
@@ -32,6 +32,10 @@ export const themeData = {
         {
           "text": "文字提示 Tips",
           "link": "/guide/tips"
+        },
+        {
+          "text": "连接 Link",
+          "link": "/guide/link"
         }
       ]
     },
@@ -53,6 +57,14 @@ export const themeData = {
         {
           "text": "日历时间选择 DatePicker",
           "link": "/guide/datepicker"
+        },
+        {
+          "text": "切换 Switch",
+          "link": "/guide/switch"
+        },
+        {
+          "text": "单选框 Radio",
+          "link": "/guide/radio"
         }
       ]
     },

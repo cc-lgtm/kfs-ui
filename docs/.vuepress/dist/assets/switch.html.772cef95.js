@@ -1,0 +1,1 @@
+const t={key:"v-3ae325b9",path:"/guide/switch.html",title:"Switch",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1640424568e3,contributors:[{name:"coderC",email:"2448856797@qq.com",commits:2}]},filePathRelative:"guide/switch.md"};export{t as data};

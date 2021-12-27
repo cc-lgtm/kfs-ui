@@ -5,8 +5,6 @@ export const data = {
   "lang": "zh-CN",
   "frontmatter": {
     "home": true,
-    "actionText": "快速上手 →",
-    "actionLink": "/guide/",
     "features": [
       {
         "title": "介绍",
