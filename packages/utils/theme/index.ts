@@ -1,7 +1,7 @@
-import classname from './className';
-import Size from './size';
-import styles from './style';
-import Type from './type';
+import classname from './className.ts';
+import Size from './size.ts';
+import styles from './style.ts';
+import Type from './type.ts';
 
 export {
   classname,

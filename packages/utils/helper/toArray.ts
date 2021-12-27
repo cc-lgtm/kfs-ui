@@ -1,4 +1,4 @@
-type PropType = string | number | {[propname: string]: any}
+type PropType = {[propname: string]: any}
 
 const toStr = (v: PropType) => {
   return Object.prototype.toString.call(v)
@@ -21,7 +21,8 @@ const toArray = (prop: PropType): any[] => {
   if (type === 'object') {
     const keys = Object.keys(prop)
     const obj = {} as {[propname: string]: any}
-    for (let key of keys) {
+    let key: string;
+    for (key of keys) {
       obj[key] = prop[key]
     }
   }

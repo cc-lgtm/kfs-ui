@@ -1,30 +1,52 @@
 import {
   computed,
   defineComponent,
-  PropType
+  PropType,
+  CSSProperties
 } from "vue";
 import "./index.scss";
 import CcLoading from '../loading/index';
-import {componentName, componentProps} from '../utils/helper';
-import {classname, styles} from '../utils/theme';
-import {Size, Type} from '../utils/theme'
 
-const name = componentName('button')
-const props = componentProps([
-  'class','type','size','circle',
-  'circle','disabled','value',
-  'isLoading','round'
-], [
-  {type: String}, {type: String as PropType<Type>,default: "default"},
-  {type: String as PropType<Size>,default: 'medium'}, {type: Boolean,default: false},
-  {type: Boolean,default: false}, {type: String,default: '按钮'},
-  {type: Boolean,default: false}, {type: [Number, String],default: 0}
-])
+type ButtonType = "success" | "error" | "warn" | "default"
+
+type ButtonSize = "medium" | "small" | "mini" | "large"
 
 const CcButton = defineComponent({
-  name,
-  props,
+  name: "cc-button",
   components: {CcLoading},
+  props: {
+    class: {
+      type: String
+    },
+    type: {
+      type: String as PropType<ButtonType>,
+      default: "default"
+    },
+    size: {
+      type: String as PropType<ButtonSize>,
+      default: 'medium'
+    },
+    circle: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    value: {
+      type: String,
+      default: '按钮'
+    },
+    isLoading: {
+      type: Boolean,
+      default: false
+    },
+    round: {
+      type: [Number, String],
+      default: 0
+    }
+  },
   emits: ['click'],
   setup(props, { emit, slots }) {
     const onClick = (e: Event) => {
@@ -33,40 +55,47 @@ const CcButton = defineComponent({
       emit('click', e)
     }
 
-    const stateClass = [
-      {state: props.type, className: `cc-button-${props.type}`},
-      {state: props.isLoading, className: 'cc-button-isLoading'},
-      {state: props.circle, className: 'cc-button-isCircle'},
-      {state: props.disabled, className: 'cc-button-isDisabled'},
-      {state: props.class, className: props.class}
-    ]
-    const className = computed(() => classname(stateClass, 'cc-button'))
+    const className = computed(() => {
+      const classes = ['cc-button']
+      props.type && classes.push(`cc-button-${props.type}`)
+      props.isLoading && classes.push('cc-button-isLoading')
+      props.circle && classes.push('cc-button-isCircle')
+      props.disabled && classes.push('cc-button-isDisabled')
+      props.class && classes.push(props.class)
 
-    const r = typeof props.round === "string" ? +props.round : props.round;
-    const sizeMap = {
-      'large': 200,
-      'medium': 150,
-      'small': 100,
-      'mini': 50
-    } as {[propname: string]: number}
-    const roundStyle = styles(['--round','--size'],
-                              [r + 'px', sizeMap[props.size] + 'px'])
+      return classes.join(' ')
+    })
+
+    const roundStyle = () => {
+      const r = typeof props.round === "string" ? +props.round : props.round;
+      const sizeMap = {
+        'large': 200,
+        'medium': 150,
+        'small': 100,
+        'mini': 50
+      }
+
+      return {
+        '--round': r + 'px',
+        '--size': sizeMap[props.size] + 'px'
+      } as CSSProperties & {[propname: string]: any}
+    }
 
     const render = () => {
       const icon = slots['icon']
       const _default = slots['default']
       if (props.isLoading) {
-        return <cc-loading type="loadLine" />
+        return <cc-loading type="loadEffect" />
       }
       return icon
-      ? (<>
-        <div class="icon">{icon()}</div>
-        {props.value}
-        </>)
-      : (<>
-        {_default?.()}
-        {props.value}
-        </>)
+        ? (<>
+          <div class="icon">{icon()}</div>
+          {props.value}
+          </>)
+        : (<>
+          {_default?.()}
+          {props.value}
+          </>)
     }
     
     return () => (
@@ -74,7 +103,7 @@ const CcButton = defineComponent({
         <button
           class={className.value}
           onClick={onClick}
-          style={roundStyle}
+          style={roundStyle()}
         >
           { render() }
         </button>
