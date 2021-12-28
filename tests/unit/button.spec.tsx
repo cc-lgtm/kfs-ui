@@ -1,12 +1,12 @@
 import { defineComponent, ref } from 'vue'
 import { mount } from '@vue/test-utils'
-import CcButton from '../../packages/button/index'
+import CcButton from './../../packages/button/index'
 
 test('测试默认button', () => {
   const wraper = mount({
     template:
     <div class="container">
-      <CcButton value="test" type="normal">button</CcButton>
+      <CcButton value="test" type="default">button</CcButton>
       <CcButton value="test" type="error">button</CcButton>
       <CcButton value="test" type="warn">button</CcButton>
     </div>

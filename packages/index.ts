@@ -45,6 +45,7 @@ const components = [
   Skeleton,
   SkeletonItem
 ];
+
 const install = (app:App) => {
   components.map((component: any) => {
     if (component === Message) {
