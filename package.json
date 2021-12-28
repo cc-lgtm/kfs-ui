@@ -12,7 +12,7 @@
   "main": "./lib/index.js",
   "license": "MIT",
   "scripts": {
-    "lib": "vue-cli-service build --target lib --name kfs-ui --dest lib ./packages/index.ts",
+    "lib": "vue-cli-service build --target lib --name kfs-ui --dest lib ./packages/index.ts && vue-cli-service build packages --no-clean",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "docs:dev": "vuepress dev docs",
