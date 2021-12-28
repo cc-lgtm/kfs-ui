@@ -5,7 +5,8 @@ module.exports = {
   theme: '@vuepress/theme-default',
   plugins: [['vuepress-plugin-demoblock-plus', {
     cssPreprocessor: 'scss'
-  }]],
+  }], [
+  ]],
   themeConfig: {
     navbar: [
       { text: '首页', link: '/' },

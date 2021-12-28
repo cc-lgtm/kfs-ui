@@ -1,9 +1,14 @@
 <template>
   <div>
-    <Button value="test" />
+    <Steps :space=100>
+      <Step />
+      <Step />
+      <Step />
+    </Steps>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Button from './../packages/button/index'
+import Steps from './../packages/stepbar/index'
+import Step from './../packages/stepitem/index'
 </script>

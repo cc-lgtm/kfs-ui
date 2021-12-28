@@ -3,12 +3,12 @@
   display: flex;
   justify-content: space-between;
   margin: 10px;
-  .box {
+  &-box {
     position: relative;
     border-radius: 50%;
     background: #fff;
     border: var(--border);
-    .index {
+    &-index {
       position: absolute;
       top: 12px;
       left: 50%;
@@ -16,7 +16,7 @@
       font-size: 18px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    .line {
+    &-line {
       width: var(--line);
       height: 2px;
       background: #bdc3c7;

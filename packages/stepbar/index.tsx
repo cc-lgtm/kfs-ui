@@ -75,13 +75,13 @@ const CcStepBar = defineComponent({
     const renderItem = () => {
       return slot_arr!.map((slot, index) => (
         <div
-          class="box"
+          class="cc-stepbar-box"
           key={index}
           style={borderStyle(index)}
         >
           { slot }
-          <span class="index">{index + 1}</span>
-          <span class="line" style={lineStyle(index)} />
+          <span class="cc-stepbar-box-index">{index + 1}</span>
+          <span class="cc-stepbar-box-line" style={lineStyle(index)} />
         </div>
       ))
     }

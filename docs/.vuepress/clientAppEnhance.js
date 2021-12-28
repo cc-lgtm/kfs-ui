@@ -4,7 +4,7 @@ import './../../lib/index.css'
 
 export default defineClientAppEnhance(({
   app,
-  router,
+  route,
   siteData,
   Vue,
   isServer

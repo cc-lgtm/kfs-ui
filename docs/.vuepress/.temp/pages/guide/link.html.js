@@ -7,8 +7,14 @@ export const data = {
   "excerpt": "",
   "headers": [],
   "git": {
-    "updatedTime": null,
-    "contributors": []
+    "updatedTime": 1640587332000,
+    "contributors": [
+      {
+        "name": "coderC",
+        "email": "2448856797@qq.com",
+        "commits": 1
+      }
+    ]
   },
   "filePathRelative": "guide/link.md"
 }
