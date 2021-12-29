@@ -1,23 +1,18 @@
-import { defineComponent } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 import Button from '../packages/button/index'
-import Tips from '../packages/tips/index'
-import Drawer from '../packages/drawer/index'
+import { useRef } from './../packages/utils/hooks/index'
 
 const App: Record<string, unknown> = defineComponent({
-  components: {Button, Tips, Drawer},
+  components: {Button},
   setup() {
-    const configs = [{
-      conponent: <Tips>tips</Tips>
-    }] as Array<{[propname: string]: any}>
+    const buttonRef = useRef<HTMLDivElement>('el')
+    onMounted(() => {
+      console.log(buttonRef)
+    })
     return () => (
       <div>
+        <div ref={() => buttonRef}>aaaa</div>
         <Button type="default" />
-        <Drawer />
-        {
-          configs.map((c, _) => (
-            <c.conponent></c.conponent>
-          ))
-        }
       </div>
     );
   },
