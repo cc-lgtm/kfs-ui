@@ -2,10 +2,10 @@ import {
   computed,
   defineComponent,
   PropType,
-  ref,
   watch
 } from 'vue'
 import './index.scss'
+import { useState } from './../utils/hooks/index'
 
 type inputType = 'text' | 'number' | 'password'
 
@@ -54,11 +54,11 @@ const CcInput = defineComponent({
       return classes.join(' ')
     })
 
-    const currentV = ref<string>("")
+    const [currentV, useCurrentV] = useState<string>("")
 
     const onInput = (e: Event) => {
       if (props.disabled) return;
-      currentV.value = (e.target as unknown as HTMLInputElement).value
+      useCurrentV((e.target as unknown as HTMLInputElement).value)
       emit('update:input', currentV.value)
     }
 

@@ -1,6 +1,5 @@
 import {
   defineComponent,
-  ref,
   onMounted,
   TransitionGroup,
   Transition,
@@ -8,8 +7,8 @@ import {
   computed
 } from 'vue'
 import './index.scss'
-
-type MessageType = 'success' | 'error' | 'warn' | 'default'
+import { Type } from './../utils/theme/index'
+import { useState } from './../utils/hooks/index'
 
 const CcMessage = defineComponent({
   name: 'cc-message',
@@ -20,7 +19,7 @@ const CcMessage = defineComponent({
       default: ''
     },
     type: {
-      type: String as PropType<MessageType>,
+      type: String as PropType<Type>,
       default: 'default'
     },
     top: {
@@ -53,10 +52,10 @@ const CcMessage = defineComponent({
       }
     }
 
-    const flag = ref<boolean>(false)
+    const [flag, useFlag] = useState<boolean>(false)
 
     onMounted(() => {
-      flag.value = true
+      useFlag(true)
     })
 
     const messageStyle = computed(() => {

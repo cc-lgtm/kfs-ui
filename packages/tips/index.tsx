@@ -1,10 +1,10 @@
 import {
   defineComponent,
   computed,
-  ref,
   CSSProperties
 } from 'vue'
 import './index.scss';
+import { useState } from './../utils/hooks/index'
 
 const CcTips = defineComponent({
   name: 'cc-tips',
@@ -22,21 +22,21 @@ const CcTips = defineComponent({
   },
   emits: ['hover', 'hoverout'],
   setup(props, { slots, emit }) {
-    const isTips = ref<boolean>(false)
+    const [tips, useTips] = useState<boolean>(false)
     const onHover = (e: Event) => {
-      isTips.value = true
+      useTips(true)
       emit('hover', e)
     }
     const onHoverOut = (e: Event) => {
-      isTips.value = false
+      useTips(false)
       emit('hoverout', e)
     }
 
     const styles = computed(() => {
-      if (isTips.value) return;
+      if (tips.value) return;
       const style: CSSProperties & {[propname: string]: any} = {
         '--color': props.color,
-        '--opacity': isTips.value ? 1 : 0
+        '--opacity': tips.value ? 1 : 0
       }
       return style
     })

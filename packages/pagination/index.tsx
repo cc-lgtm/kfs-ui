@@ -1,11 +1,11 @@
 import {
   computed,
   defineComponent,
-  ref,
   watch
 } from 'vue'
 import './index.scss'
 import message from '../message/index';
+import { useState } from '../utils/hooks/index';
 
 const CcPagination = defineComponent({
   name: 'cc-pagination',
@@ -57,22 +57,23 @@ const CcPagination = defineComponent({
       currentChange?: (current: number) => void
     }
 
-    const currentPage = ref<number>(props.currentPage)
+    const [currentPage, useCurrentPage] = useState<number>()
 
     type currentType = number | 'pre' | 'next' | '...'
 
     const currentChange = (current: currentType) => {
       if (current !== 'pre' && current !== 'next') {
-        currentPage.value = current as number
+        useCurrentPage(current as number)
       }
       if (current === 'pre') {
         if (currentPage.value === 1) return;
         currentPage.value -= 1
+        useCurrentPage(currentPage.value--)
         emit('prevClick', currentPage.value)
       }
       if (current === 'next') {
         if (currentPage.value === computePager.value) return;
-        currentPage.value += 1
+        useCurrentPage(currentPage.value++)
         emit('nextClick', currentPage.value)
       }
     }
@@ -202,7 +203,7 @@ const CcPagination = defineComponent({
       return layoutFn.map(fn => fn())
     }
 
-    const inputV = ref<number>()
+    const [inputV, useInputV] = useState<number>()
     const onInput = (e: Event) => {
       const value = (e.target as unknown as HTMLInputElement).value
       if (value !== '' && typeof +value !== 'number') {
@@ -212,19 +213,19 @@ const CcPagination = defineComponent({
         })
       }
       if (+value < 1) {
-        inputV.value = 1
+        useInputV(1)
         return;
       };
       if (+value > computePager.value) {
-        inputV.value = computePager.value
+        useInputV(computePager.value)
         return;
       }
-      inputV.value = +value
+      useInputV(+value)
     }
 
     const onKeydown = (e: KeyboardEvent) => {
       if (e && e.code === 'Enter') {
-        currentPage.value = inputV.value as number
+        useCurrentPage(inputV.value as number)
       }
     }
 

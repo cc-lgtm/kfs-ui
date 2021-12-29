@@ -4,10 +4,10 @@ import {
   defineComponent,
   onMounted,
   PropType,
-  reactive,
-  ref
+  reactive
 } from 'vue'
 import './index.scss'
+import { useState } from './../utils/hooks/index'
 
 type drawerPosition = 'left' | 'right'
 
@@ -30,11 +30,11 @@ const CcDrawer = defineComponent({
   emits: ['opened', 'closed'],
   setup(props, { emit, slots }) {
     const getScorllW = () => {
-      const w = ref<string>(document.body.scrollWidth + 'px')
+      const [width, useWidth] = useState<string>(document.body.scrollWidth + 'px')
       window.onresize = () => {
-        w.value = document.body.scrollWidth + 'px'
+        useWidth(document.body.scrollWidth + 'px')
       }
-      return w.value
+      return width.value
     }
 
     const positionStyle = () => {
@@ -64,23 +64,22 @@ const CcDrawer = defineComponent({
       }
       return Object.assign(style, positionStyle())
     })
-
+    const [showDrawer, useShowDrawer] = useState<boolean>(false)
     const onClose = () => {
-      showDrawer.value = false
+      useShowDrawer(true)
       emit('closed', showDrawer.value)
     }
 
     onMounted(() => {
-      showDrawer.value = true
+      useShowDrawer(true)
       emit('opened', showDrawer.value)
     })
 
-    const showDrawer = ref<boolean>(false)
     const clickMask = (e: Event) => {
       const el = document.querySelector('.cc-drawer-box')
       if (el) {
         if (!el.contains(e.target as Node)) {
-          showDrawer.value = false
+          useShowDrawer(false)
         }
       }
     }

@@ -3,12 +3,11 @@ import {
   CSSProperties,
   defineComponent,
   PropType,
-  reactive,
-  ref
+  reactive
 } from 'vue'
 import './index.scss'
-
-type SizeType = 'mini' | 'small' | 'medium' | 'large'
+import { Size } from './../utils/theme/index'
+import { useState } from './../utils/hooks/index'
 
 const CcSwitch = defineComponent({
   name: 'cc-switch',
@@ -26,7 +25,7 @@ const CcSwitch = defineComponent({
       default: false
     },
     size: {
-      type: String as PropType<SizeType>,
+      type: String as PropType<Size>,
       default: 'medium'
     },
     disabled: {
@@ -60,18 +59,18 @@ const CcSwitch = defineComponent({
       return Object.assign(w, styles)
     })
 
-    const currentValue = ref(props.inactiveValue)
-    const value = ref<boolean>(props.value)
+    const [currentValue, useCurrentValue] = useState(props.inactiveValue)
+    const [value, useValue] = useState<boolean>(props.value)
     const onClick = () => {
       if (props.disabled) return;
-      value.value = !value.value
+      useValue(!value.value)
       if (value.value) {
-        currentValue.value = props.checkedValue
+        useCurrentValue(props.checkedValue)
         styles['--left'] = +sizeMap[props.size].split('p')[0] - 30 + 'px'
         styles['--bg'] = '#3498db'
       }
       if (!value.value) {
-        currentValue.value = props.inactiveValue
+        useCurrentValue(props.inactiveValue)
         styles['--left'] = 1 + 'px'
         styles['--bg'] = '#bdc3c7'
       }

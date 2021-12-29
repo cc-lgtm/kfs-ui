@@ -1,12 +1,11 @@
 import {
   computed,
   defineComponent,
-  PropType,
-  ref
+  PropType
 } from 'vue'
 import './index.scss'
-
-export type SizeType = 'mini' | 'small' | 'medium' | 'large'
+import { Size } from './../utils/theme/index'
+import { useState } from './../utils/hooks/index'
 
 const CcRadio = defineComponent({
   name: 'cc-radio',
@@ -24,17 +23,17 @@ const CcRadio = defineComponent({
       required: true
     },
     size: {
-      type: String as PropType<SizeType>,
+      type: String as PropType<Size>,
       default: 'medium'
     }
   },
   emits: ['change'],
   setup(props, { emit, slots }) {
-    const value = ref<boolean>(props.checked)
-    const radioRef = ref<HTMLDivElement>()
+    const [value, useValue] = useState<boolean>(props.checked)
+    const [radioRef] = useState<HTMLDivElement>()
     const onClick = () => {
       if (props.disabled) return;
-      value.value = !value.value
+      useValue(!value.value)
       emit('change', value.value, radioRef)
     }
 

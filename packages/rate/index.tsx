@@ -1,14 +1,13 @@
 import {
   defineComponent,
-  ref,
   reactive,
   computed,
-  watch,
-  readonly
+  watch
 } from  'vue'
 import './index.scss'
 import star from './star'
 import full_star from './fullStar'
+import { useState } from './../utils/hooks/index'
 
 const CcRate = defineComponent({
   name: 'cc-rate',
@@ -49,9 +48,9 @@ const CcRate = defineComponent({
   setup(props, { emit, slots }) {
 
     const renderColors = () => {
-      const colors = ref<Array<string>>(['#F7BA2A', '#F7BA2A', '#F7BA2A'])
+      const colors = reactive<Array<string>>(['#F7BA2A', '#F7BA2A', '#F7BA2A'])
       if (props.colors) {
-        colors.value.splice(0, 3).push(...props.colors as Array<string>)
+        colors.splice(0, 3).push(...props.colors as Array<string>)
       }
       const style = {
 
@@ -66,8 +65,8 @@ const CcRate = defineComponent({
       "star4": false,
       "star5": false
     })
-    const saveStatus = ref<boolean>(false)
-    const currentState = ref<number>(0)
+    const [saveStatus, useSaveStatus] = useState<boolean>(false)
+    const [currentState, useCurrentState] = useState<number>(0)
 
     const renderStar = (num: number) => {
       for (let s = 0; s < num; s++) {
@@ -80,14 +79,14 @@ const CcRate = defineComponent({
 
     const onMouse = (e: MouseEvent, id: string) => {
       const num: number = +id.slice(4, 5)
-      currentState.value = num
+      useCurrentState(num)
       renderStar(num)
       emit('mouse', e)
     }
 
     const onMouseOut = () => {
       if (!saveStatus.value) {
-        currentState.value = 0
+        useCurrentState(0)
         for (let s = 0; s <= 5; s++) {
           starObj['star' + (s + 1)] = false 
         }
@@ -95,7 +94,7 @@ const CcRate = defineComponent({
     }
 
     const onClick = () => {
-      saveStatus.value = true
+      useSaveStatus(true)
     }
 
     const renderText = computed(() => {
@@ -119,7 +118,7 @@ const CcRate = defineComponent({
 
     const setValue = () => {
       const num: number = +props.value
-      currentState.value = num
+      useCurrentState(num)
       renderStar(num)
     }
     props.value && setValue()

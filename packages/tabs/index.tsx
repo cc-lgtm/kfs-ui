@@ -1,10 +1,10 @@
 import {
   defineComponent,
-  ref,
   watch
 } from 'vue'
 import CcTap from '../tab'
 import './index.scss'
+import { useState } from './../utils/hooks/index'
 
 const CcTabs = defineComponent({
   name: 'cc-tabs',
@@ -17,15 +17,13 @@ const CcTabs = defineComponent({
   },
   emits: ['change', 'click'],
   setup(props, { slots, emit }) {
+    const [tabs] = useState<HTMLDivElement>()
     const slot_arr = slots.default?.()
-
-    const activeVal = ref<number | string>(props.active)
+    const [activeVal, useActiveVal] = useState<number | string>(props.active)
 
     watch(activeVal, () => {
       emit('change', activeVal.value)
     })
-
-    const tabs = ref<HTMLDivElement>()
 
     const activeClass = (index: number) => {
       const classes = ['cc-tabs-box']
@@ -34,7 +32,7 @@ const CcTabs = defineComponent({
     }
 
     const onClick = (e: Event, index: number) => {
-      activeVal.value = index
+      useActiveVal(index)
       emit('click', e)
     }
 

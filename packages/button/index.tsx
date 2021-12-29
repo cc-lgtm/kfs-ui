@@ -6,10 +6,7 @@ import {
 } from "vue";
 import "./index.scss";
 import CcLoading from '../loading/index';
-
-type ButtonType = "success" | "error" | "warn" | "default"
-
-type ButtonSize = "medium" | "small" | "mini" | "large"
+import { Type, Size } from './../utils/theme/index'
 
 const CcButton = defineComponent({
   name: "cc-button",
@@ -19,11 +16,11 @@ const CcButton = defineComponent({
       type: String
     },
     type: {
-      type: String as PropType<ButtonType>,
+      type: String as PropType<Type>,
       default: "default"
     },
     size: {
-      type: String as PropType<ButtonSize>,
+      type: String as PropType<Size>,
       default: 'medium'
     },
     circle: {
@@ -87,15 +84,12 @@ const CcButton = defineComponent({
       if (props.isLoading) {
         return <cc-loading type="loadEffect" />
       }
-      return icon
-        ? (<>
-          <div class="icon">{icon()}</div>
+      return (
+        <>
+          {icon ? <div class="icon">{icon()}</div> : _default?.()}
           {props.value}
-          </>)
-        : (<>
-          {_default?.()}
-          {props.value}
-          </>)
+        </>
+      )
     }
     
     return () => (

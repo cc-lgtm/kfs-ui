@@ -2,14 +2,13 @@ import {
   computed,
   defineComponent,
   PropType,
-  ref,
   watch,
-  provide
+  reactive
 } from 'vue'
 import CcRadio from '../radio/index'
 import './index.scss'
-
-import { SizeType } from '../radio/index'
+import { Size } from './../utils/theme/index'
+import { useState } from './../utils/hooks/index'
 
 const CcRadioGroup = defineComponent({
   name: 'cc-radio-group',
@@ -23,7 +22,7 @@ const CcRadioGroup = defineComponent({
       default: false
     },
     size: {
-      type: String as PropType<SizeType>,
+      type: String as PropType<Size>,
       default: 'medium'
     }
   },
@@ -31,24 +30,23 @@ const CcRadioGroup = defineComponent({
   setup(props, { emit, slots }) {
     const slot_arr = slots.default?.()
 
-    const val = ref<string>()
+    const [val, useVal] = useState<string>()
     const onClick = (e: Event, index: number) => {
-      val.value = obj.value[index].props['value']
-      console.log(obj.value[index].props['value'])
+      useVal(obj[index].props['value'])
     }
 
     watch(val, () => {
       emit('change', val.value)
     })
 
-    const obj = ref(slot_arr)
+    const obj = reactive(slot_arr)
     const renderRadio = computed(() => {
       slot_arr.map((radio, index) => {
         if (typeof radio.props['checked'] !== 'boolean' && radio.props['checked'] !== '') {
-          obj.value[index].props['checked'] = false
+          obj[index].props['checked'] = false
         }
       })
-      return obj.value?.map((radio, index) => (
+      return obj?.map((radio, index) => (
         <div
           class="box"
           key={index}

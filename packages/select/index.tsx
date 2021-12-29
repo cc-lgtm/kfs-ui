@@ -2,13 +2,12 @@ import {
   computed,
   CSSProperties,
   defineComponent,
-  PropType,
-  ref
+  PropType
 } from 'vue'
 import CcOption from '../option/index'
 import './index.scss'
-
-type SizeType = 'mini' | 'small' | 'medium' | 'large'
+import { Size } from './../utils/theme/index'
+import { useState } from './../utils/hooks/index'
 
 const CcSelect = defineComponent({
   name: 'cc-select',
@@ -22,7 +21,7 @@ const CcSelect = defineComponent({
       default: '请输入'
     },
     size: {
-      type: String as PropType<SizeType>,
+      type: String as PropType<Size>,
       default: 'medium'
     },
     disabled: {
@@ -44,24 +43,23 @@ const CcSelect = defineComponent({
       ))
     }
 
-    const val = ref<string>(props.placeholder as string)
+    const [val, useVal] = useState<string>(props.placeholder as string)
     const onChange = (index: number) => {
       const props = slot_arr?.[index].props as {[propname: string]: any}
       const keys = Object.keys(props)
       if (keys.includes('disabled') && !props?.['disabled']) return;
-      r.value = 90
-      val.value = props?.label
-      if (val.value) optionStatus.value = false
+      useR(90)
+      useVal(props?.label)
+      if (val.value) useOptionStatus(false)
       emit('change', val.value)
     }
 
-    const optionStatus = ref<boolean>(false)
-    const r = ref<number>(90)
+    const [optionStatus, useOptionStatus] = useState<boolean>(false)
+    const [r, useR] = useState<number>(90)
     const onClick = () => {
       if (props.disabled) return;
-      r.value = -90
-      console.log(111)
-      optionStatus.value = true
+      useR(-90)
+      useOptionStatus(true)
     }
 
     const classNmae = computed(() => {

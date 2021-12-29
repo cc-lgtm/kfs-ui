@@ -1,11 +1,11 @@
 import {
   defineComponent,
-  PropType,
-  ref
+  PropType
 } from 'vue'
 import './index.scss'
 import CcButton from '../button/index';
 import CcInput from '../input';
+import { useState } from './../utils/hooks/index'
 
 type PopupType = 'message' | 'confirm' | 'upload'
 
@@ -28,14 +28,14 @@ const CcPopup = defineComponent({
   },
   emits: ['close', 'confirm'],
   setup(props, { emit, slots }) {
-    const showPopup = ref<boolean>(true)
+    const [showPopup, useShowPopup] = useState<boolean>(true)
     const onClose = (e: Event) => {
-      showPopup.value = false
+      useShowPopup(false)
       emit('close', e)
     }
 
     const onConfirm = (e: Event) => {
-      showPopup.value = false
+      useShowPopup(false)
       emit('confirm', e)
     }
 

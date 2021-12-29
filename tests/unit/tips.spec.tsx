@@ -30,4 +30,3 @@ test('disabled text', async () => {
   await wrapper.trigger('hover')
   expect(wrapper.text()).toContain('this not is a tips')
 })
-
