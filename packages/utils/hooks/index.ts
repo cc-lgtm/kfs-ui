@@ -3,11 +3,13 @@ import useEffect from './useEffect';
 import useCallBack from './useCallBack';
 import useMemo from './useMemo'
 import useRef from './useRef'
+import useContext from './useContext'
 
 export {
   useState,
   useEffect,
   useCallBack,
   useMemo,
-  useRef
+  useRef,
+  useContext
 }
