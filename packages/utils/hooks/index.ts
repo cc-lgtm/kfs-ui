@@ -4,6 +4,7 @@ import useCallBack from './useCallBack';
 import useMemo from './useMemo'
 import useRef from './useRef'
 import useContext from './useContext'
+import useReducer from './useReducer'
 
 export {
   useState,
@@ -11,5 +12,6 @@ export {
   useCallBack,
   useMemo,
   useRef,
-  useContext
+  useContext,
+  useReducer
 }
