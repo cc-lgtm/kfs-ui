@@ -1,5 +1,7 @@
-const useCallBack = () => {
-  // 缓存函数在指定参数改变时创建函数 computed & watch
+import { watch } from 'vue'
+
+const useCallBack = (fn: (...args: any) => unknown, rely: any[]) => {
+  watch(rely, fn)
 }
 
 export default useCallBack;

@@ -1,8 +1,8 @@
 import { watchEffect } from 'vue'
 type fnType = () => void
-const useEffect = (fn: fnType, arr?: []) => {
-  const options = {}
-  arr?.map((o, _) => {
+const useEffect = (fn: fnType, rely?: any[]) => {
+  const options = {} as {[propname: string]: any}
+  rely?.map((o, _) => {
     options[o] = o
   })
   watchEffect(fn, options)

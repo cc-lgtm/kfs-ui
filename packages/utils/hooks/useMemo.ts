@@ -1,1 +1,10 @@
-// 缓存计算属性 computed
+import { computed } from 'vue'
+import useEffect from './useEffect';
+
+const useMemo = (fn: (...args: any) => unknown, rely: any[]) => {
+  useEffect(() => {
+    computed(fn)
+  }, rely)
+}
+
+export default useMemo;
