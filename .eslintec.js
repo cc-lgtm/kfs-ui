@@ -18,7 +18,8 @@ module.exports = {
         "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
         "@typescript-eslint/no-explicit-any": ["on"],
         "indent": ["warn", 2],
-        "quotes": [1, "single"]
+        "quotes": [1, "single"],
+        "prettier/prettier": "off"
     },
     overrides: [{
         files: [

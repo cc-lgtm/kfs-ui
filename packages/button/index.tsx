@@ -7,6 +7,7 @@ import {
 import "./index.scss";
 import CcLoading from '../loading/index';
 import { Type, Size } from './../utils/theme/index'
+import { useClass, useStyle } from './../utils/hooks/index'
 
 const CcButton = defineComponent({
   name: "cc-button",
@@ -52,16 +53,13 @@ const CcButton = defineComponent({
       emit('click', e)
     }
 
-    const className = computed(() => {
-      const classes = ['cc-button']
+    const className = useClass((classes) => {
       props.type && classes.push(`cc-button-${props.type}`)
       props.isLoading && classes.push('cc-button-isLoading')
       props.circle && classes.push('cc-button-isCircle')
       props.disabled && classes.push('cc-button-isDisabled')
       props.class && classes.push(props.class)
-
-      return classes.join(' ')
-    })
+    }, ['cc-button'])
 
     const roundStyle = () => {
       const r = typeof props.round === "string" ? +props.round : props.round;
@@ -95,7 +93,7 @@ const CcButton = defineComponent({
     return () => (
       <>
         <button
-          class={className.value}
+          class={className}
           onClick={onClick}
           style={roundStyle()}
         >
