@@ -5,7 +5,8 @@ type SourceType = {[propname: string]: any}
 const useStyle = (source: SourceType) => {
   const styles = {} as CSSProperties & SourceType
   toArray(source).map((s, _) => {
-    styles[s] = source[s]
+    const k = Object.keys(s)
+    styles[k[0]] = s[k[0]]
   })
   return styles
 }

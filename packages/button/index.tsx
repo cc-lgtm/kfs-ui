@@ -61,20 +61,17 @@ const CcButton = defineComponent({
       props.class && classes.push(props.class)
     }, ['cc-button'])
 
-    const roundStyle = () => {
-      const r = typeof props.round === "string" ? +props.round : props.round;
-      const sizeMap = {
-        'large': 200,
-        'medium': 150,
-        'small': 100,
-        'mini': 50
-      }
-
-      return {
-        '--round': r + 'px',
-        '--size': sizeMap[props.size] + 'px'
-      } as CSSProperties & {[propname: string]: any}
+    const r = typeof props.round === "string" ? +props.round : props.round;
+    const sizeMap = {
+      'large': 200,
+      'medium': 150,
+      'small': 100,
+      'mini': 50
     }
+    const styles = useStyle({
+      '--round': r + 'px',
+      '--size': sizeMap[props.size] + 'px'
+    })
 
     const render = () => {
       const icon = slots['icon']
@@ -95,7 +92,7 @@ const CcButton = defineComponent({
         <button
           class={className}
           onClick={onClick}
-          style={roundStyle()}
+          style={styles}
         >
           { render() }
         </button>

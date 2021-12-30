@@ -20,10 +20,11 @@ const toArray = (prop: PropType): any[] => {
   }
   if (type === 'object') {
     const keys = Object.keys(prop)
-    const obj = {} as {[propname: string]: any}
     let key: string;
     for (key of keys) {
+      const obj = {} as {[propname: string]: any}
       obj[key] = prop[key]
+      newArray.push(obj)
     }
   }
   return newArray
