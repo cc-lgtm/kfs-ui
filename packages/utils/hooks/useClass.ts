@@ -6,7 +6,7 @@ type ClassType = {
   class: string
 }
 const useClass = computed((initClass?: string) => {
-  const classes = tuple<string>([initClass])
+  const classes = tuple<string>([initClass as string])
   const addClass = (source: ClassType): void => {
     source.state && classes.push(source.class)
   }
