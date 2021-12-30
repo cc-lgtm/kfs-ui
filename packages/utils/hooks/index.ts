@@ -6,6 +6,7 @@ import useRef from './useRef'
 import useContext from './useContext'
 import useReducer from './useReducer'
 import useClass from './useClass'
+import useStyle from './useStyle'
 
 export {
   useState,
@@ -15,5 +16,6 @@ export {
   useRef,
   useContext,
   useReducer,
-  useClass
+  useClass,
+  useStyle
 }
