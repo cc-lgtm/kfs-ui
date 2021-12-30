@@ -1,8 +1,6 @@
 import {
-  computed,
   defineComponent,
-  PropType,
-  CSSProperties
+  PropType
 } from "vue";
 import "./index.scss";
 import CcLoading from '../loading/index';

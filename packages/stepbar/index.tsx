@@ -1,11 +1,11 @@
 import {
-  computed,
   defineComponent,
   PropType,
   CSSProperties
 } from 'vue'
 import CcStepItem from '../stepitem/index'
 import './index.scss'
+import { useStyle } from './../utils/hooks/index'
 
 type DirectionType = 'vertical' | 'horizontal'
 type StepStatus = 'wait' | 'process' | 'finish' | 'error' | 'success'
@@ -41,12 +41,9 @@ const CcStepBar = defineComponent({
   setup(props, { slots }) {
     const slot_arr = slots.default?.()
     
-    const styles = computed(() => {
-      const space = +props.space!
-      const style: CSSProperties & {[propname: string]: any} = {
-        '--width': space * (slot_arr!.length - 1) + 'px'
-      }
-      return style
+    const space = +props.space!
+    const style = useStyle({
+      '--width': space * (slot_arr!.length - 1) + 'px'
     })
 
     const lineStyle = (index: number) => {
@@ -86,7 +83,7 @@ const CcStepBar = defineComponent({
       ))
     }
     return () => (
-      <div class="cc-stepbar" style={styles.value}>
+      <div class="cc-stepbar" style={style}>
         {
           renderItem().map((item) => item)
         }

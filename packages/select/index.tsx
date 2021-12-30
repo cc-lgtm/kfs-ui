@@ -1,13 +1,11 @@
 import {
-  computed,
-  CSSProperties,
   defineComponent,
   PropType
 } from 'vue'
 import CcOption from '../option/index'
 import './index.scss'
 import { Size } from './../utils/theme/index'
-import { useState } from './../utils/hooks/index'
+import { useState, useClass, useStyle } from './../utils/hooks/index'
 
 const CcSelect = defineComponent({
   name: 'cc-select',
@@ -62,37 +60,29 @@ const CcSelect = defineComponent({
       useOptionStatus(true)
     }
 
-    const classNmae = computed(() => {
-      const names = ['input']
+    const className = useClass((names) => {
       props.disabled && names.push('input-disabled')
       props.size && names.push(`input-${props.size}`)
-      return names.join(' ')
-    })
+    }, ['input'])
 
-    const sizeStyle = computed(() => {
-      const sizeMap = {
-        'mini': 90 + 'px',
-        'small': 120 + 'px',
-        'medium': 150 + 'px',
-        'large': 180 + 'px'
-      } as {[propname: string]: any}
-      const w = {
-        '--w': sizeMap[props.size]
-      } as CSSProperties
-      return w
+    const sizeMap = {
+      'mini': 90 + 'px',
+      'small': 120 + 'px',
+      'medium': 150 + 'px',
+      'large': 180 + 'px'
+    }
+    const sizeStyle = useStyle({
+      '--w': sizeMap[props.size]
     })
 
     const icon = '>'
-    const iconStyle = computed(() => {
-      const style = {
-        '--r': r.value + 'deg'
-      } as CSSProperties
-      return style
+    const iconStyle = useStyle({
+      '--r': r.value + 'deg'
     })
 
     return () => (
       <div class="cc-select" style={sizeStyle.value}>
-        <div class={classNmae.value} onClick={onClick}>{val.value}</div>
+        <div class={className} onClick={onClick}>{val.value}</div>
         <span class="icon" style={iconStyle.value}>{icon}</span>
         {optionStatus.value &&
         <div class="container">

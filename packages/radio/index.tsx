@@ -1,11 +1,10 @@
 import {
-  computed,
   defineComponent,
   PropType
 } from 'vue'
 import './index.scss'
 import { Size } from './../utils/theme/index'
-import { useState } from './../utils/hooks/index'
+import { useState, useClass } from './../utils/hooks/index'
 
 const CcRadio = defineComponent({
   name: 'cc-radio',
@@ -37,19 +36,17 @@ const CcRadio = defineComponent({
       emit('change', value.value, radioRef)
     }
 
-    const className = computed(() => {
-      const classes = []
+    const className = useClass((classes) => {
       props.disabled && classes.push('cc-radio-disabed')
       props.size && classes.push(`cc-radio-${props.size}`)
       value.value && classes.push('cc-radio-checked')
-      return classes.join(' ')
     })
 
     return () => (
       <div class="cc-radio">
         <div
           ref={radioRef}
-          class={className.value}
+          class={className}
           onClick={onClick}
         ></div>
         {slots.default?.()}

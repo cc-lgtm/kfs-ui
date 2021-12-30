@@ -4,6 +4,7 @@ import {
   defineComponent
 } from 'vue'
 import './index.scss'
+import { useClass } from './../utils/hooks/index'
 
 type ShadowType = 'always' | 'hover' | 'never'
 
@@ -31,15 +32,13 @@ const CcCard = defineComponent({
       emit('click', e)
     }
 
-    const classStyle = computed(() => {
-      const classes = ['cc-card']
+    const className = useClass((classes) => {
       props.class && classes.push(props.class)
       props.shadow && classes.push(`cc-card-${props.shadow}`)
-      return classes.join(' ')
-    })
+    }, ['cc-card'])
 
     return () => (
-      <div class={classStyle.value} onClick={onClick}>
+      <div class={className} onClick={onClick}>
         <img src={props.icon} alt="icon" />
         <span>{ props.value }</span>
         { slots.default?.() }

@@ -1,11 +1,10 @@
 import {
-  computed,
   defineComponent,
   PropType,
   watch
 } from 'vue'
 import './index.scss'
-import { useState } from './../utils/hooks/index'
+import { useState, useClass } from './../utils/hooks/index'
 
 type inputType = 'text' | 'number' | 'password'
 
@@ -47,12 +46,9 @@ const CcInput = defineComponent({
   emits: ['update:input', 'click', 'inputChange'],
   setup(props, { slots, emit }) {
 
-    const styles = computed(() => {
-      const classes = []
-      classes.push('cc-input')
+    const className = useClass((classes) => {
       props.className && classes.push(props.className)
-      return classes.join(' ')
-    })
+    }, ['cc-input'])
 
     const [currentV, useCurrentV] = useState<string>("")
 
@@ -71,7 +67,7 @@ const CcInput = defineComponent({
     }
 
     return () => (
-      <div class={styles.value}>
+      <div class={className}>
         { props.leftText && <span class="title">{ props.leftText }</span> }
         {
           props.leftIcon && <img src={props.leftIcon} alt="left-icon" class="left-icon" />

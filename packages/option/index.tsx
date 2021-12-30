@@ -1,8 +1,8 @@
 import {
-  computed,
   defineComponent
 } from 'vue'
 import './index.scss'
+import { useClass } from './../utils/hooks/index'
 
 const CcOption = defineComponent({
   name: 'cc-option',
@@ -19,14 +19,12 @@ const CcOption = defineComponent({
     }
   },
   setup(props) {
-    const className = computed(() => {
-      const classes = ['cc-option']
+    const className = useClass((classes) => {
       props.disabled && classes.push('cc-option-disabled')
-      return classes.join(' ')
-    })
+    }, ['cc-option'])
 
     return () => (
-      <div class={className.value}>
+      <div class={className}>
         {props.label}
       </div>
     )

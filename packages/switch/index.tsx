@@ -1,5 +1,4 @@
 import {
-  computed,
   CSSProperties,
   defineComponent,
   PropType,
@@ -7,7 +6,7 @@ import {
 } from 'vue'
 import './index.scss'
 import { Size } from './../utils/theme/index'
-import { useState } from './../utils/hooks/index'
+import { useState, useClass, useStyle } from './../utils/hooks/index'
 
 const CcSwitch = defineComponent({
   name: 'cc-switch',
@@ -35,16 +34,9 @@ const CcSwitch = defineComponent({
   },
   emits: ['change'],
   setup(props, { emit }) {
-    const className = computed(() => {
-      const classes = ['cc-switch']
+    const className = useClass((classes) => {
       props.disabled && classes.push('cc-switch-disabled')
-      return classes.join(' ')
-    })
-
-    const styles: CSSProperties & {[propname: string]: any} = reactive({
-      '--left': 1 + 'px',
-      '--bg': '#bdc3c7'
-    })
+    }, ['cc-switch'])
 
     const sizeMap = {
       'mini': 60 + 'px',
@@ -52,12 +44,12 @@ const CcSwitch = defineComponent({
       'medium': 80 + 'px',
       'large': 90 + 'px'
     }
-    const animate = computed(() => {
-      const w = {
-        '--w': sizeMap[props.size]
-      }
-      return Object.assign(w, styles)
+    const styles: CSSProperties & {[propname: string]: any} = reactive({
+      '--left': 1 + 'px',
+      '--bg': '#bdc3c7',
+      '--w': sizeMap[props.size]
     })
+    const animate = useStyle(styles)
 
     const [currentValue, useCurrentValue] = useState(props.inactiveValue)
     const [value, useValue] = useState<boolean>(props.value)
@@ -79,7 +71,7 @@ const CcSwitch = defineComponent({
 
     return () => (
       <div
-        class={className.value}
+        class={className}
         style={animate.value}
         onClick={onClick}
       ></div>

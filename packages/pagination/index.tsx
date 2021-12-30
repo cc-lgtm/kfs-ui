@@ -5,7 +5,7 @@ import {
 } from 'vue'
 import './index.scss'
 import message from '../message/index';
-import { useState } from '../utils/hooks/index';
+import { useState, useClass } from '../utils/hooks/index';
 
 const CcPagination = defineComponent({
   name: 'cc-pagination',
@@ -111,18 +111,15 @@ const CcPagination = defineComponent({
       }
       return classes.join(' ')
     }
-    const pre_isEnd = computed(() => {
-      const classes = ['change_pager']
+
+    const pre_isEnd = useClass((classes) => {
       props.background && classes.push('background')
       currentPage.value === 1 && classes.push('is_end')
-      return classes.join(' ')
-    })
-    const next_isEnd = computed(() => {
-      const classes = ['change_pager']
+    }, ['change_pager'])
+    const next_isEnd = useClass((classes) => {
       props.background && classes.push('background')
       currentPage.value === computePager.value && classes.push('is_end')
-      return classes.join(' ')
-    })
+    }, ['change_pager'])
 
     const total = () => {
       return (
@@ -136,7 +133,7 @@ const CcPagination = defineComponent({
     const prev = () => {
       return (
         <div
-          class={pre_isEnd.value}
+          class={pre_isEnd}
           onClick={() => currentChange('pre')}
         >{renderPre()}</div>
       )
@@ -164,7 +161,7 @@ const CcPagination = defineComponent({
     const next = () => {
       return (
         <div
-          class={next_isEnd.value}
+          class={next_isEnd}
           onClick={() => currentChange('next')}
         >{renderNext()}</div>
       )

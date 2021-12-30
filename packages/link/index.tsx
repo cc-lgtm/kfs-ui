@@ -1,9 +1,9 @@
 import {
-  computed,
   defineComponent,
   PropType
 } from 'vue'
 import './index.scss'
+import { useClass } from './../utils/hooks/index'
 
 type LinkType = 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info'
 
@@ -25,17 +25,15 @@ const CcLink = defineComponent({
     href: String
   },
   setup(props, { slots }) {
-    const className = computed(() => {
-      const classes = ['cc-link']
+    const className = useClass((classes) => {
       props.type && classes.push(`cc-link-${props.type}`)
       props.underline && classes.push('cc-link-underline')
       props.disabled && classes.push('cc-link-disabled')
-      return classes.join(' ')
-    })
+    }, ['cc-link'])
 
     return () => (
       <a
-        class={className.value}
+        class={className}
         href={props.disabled ? 'javascript:void(0)' : props.href}
       >{slots.default?.()}</a>
     )
