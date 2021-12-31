@@ -2,10 +2,10 @@ import {
   defineComponent,
   PropType
 } from "vue";
-import "./index.scss";
-import CcLoading from '../loading/index';
-import { Type, Size } from './../utils/theme/index'
-import { useClass, useStyle } from './../utils/hooks/index'
+import "./button.scss";
+import CcLoading from '../loading/loading';
+import { Type, Size } from '../utils/theme/index'
+import { useClass, useStyle } from '../utils/hooks/index'
 
 const CcButton = defineComponent({
   name: "cc-button",

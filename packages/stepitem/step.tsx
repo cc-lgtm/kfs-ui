@@ -1,10 +1,10 @@
 import {
   defineComponent
 } from 'vue'
-import './index.scss'
+import './step.scss'
 
 const CcStepItem = defineComponent({
-  name: 'cc-stepitem',
+  name: 'cc-step',
   props: {
     title: {
       type: String

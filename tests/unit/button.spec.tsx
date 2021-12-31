@@ -1,6 +1,6 @@
 import { defineComponent, ref } from 'vue'
 import { mount } from '@vue/test-utils'
-import CcButton from './../../packages/button/index'
+import CcButton from '../../packages/button/button'
 
 test('测试默认button', () => {
   const wraper = mount({

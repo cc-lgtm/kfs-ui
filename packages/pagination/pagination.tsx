@@ -3,8 +3,8 @@ import {
   defineComponent,
   watch
 } from 'vue'
-import './index.scss'
-import message from '../message/index';
+import './pagination.scss'
+import message from '../message/message';
 import { useState, useClass } from '../utils/hooks/index';
 
 const CcPagination = defineComponent({

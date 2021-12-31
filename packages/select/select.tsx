@@ -2,10 +2,10 @@ import {
   defineComponent,
   PropType
 } from 'vue'
-import CcOption from '../option/index'
-import './index.scss'
-import { Size } from './../utils/theme/index'
-import { useState, useClass, useStyle } from './../utils/hooks/index'
+import CcOption from '../option/option'
+import './select.scss'
+import { Size } from '../utils/theme/index'
+import { useState, useClass, useStyle } from '../utils/hooks/index'
 
 const CcSelect = defineComponent({
   name: 'cc-select',

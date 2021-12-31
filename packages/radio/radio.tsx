@@ -2,9 +2,9 @@ import {
   defineComponent,
   PropType
 } from 'vue'
-import './index.scss'
-import { Size } from './../utils/theme/index'
-import { useState, useClass } from './../utils/hooks/index'
+import './radio.scss'
+import { Size } from '../utils/theme/index'
+import { useState, useClass } from '../utils/hooks/index'
 
 const CcRadio = defineComponent({
   name: 'cc-radio',

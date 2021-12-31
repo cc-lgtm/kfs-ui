@@ -2,10 +2,10 @@ import {
   defineComponent,
   PropType
 } from 'vue'
-import './index.scss'
-import CcButton from '../button/index';
-import CcInput from '../input';
-import { useState } from './../utils/hooks/index'
+import './popup.scss'
+import CcButton from '../button/button';
+import CcInput from '../input/input';
+import { useState } from '../utils/hooks/index'
 
 type PopupType = 'message' | 'confirm' | 'upload'
 

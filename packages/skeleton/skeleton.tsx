@@ -4,7 +4,7 @@ import {
   PropType,
   reactive
 } from 'vue'
-import CcSkeletonItem from './../skeleton-item/index'
+import CcSkeletonItem from '../skeleton-item/skeletonItem'
 
 type RowsWidthType = string[] | number[]
 

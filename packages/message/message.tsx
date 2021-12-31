@@ -6,9 +6,9 @@ import {
   PropType,
   computed
 } from 'vue'
-import './index.scss'
-import { Type } from './../utils/theme/index'
-import { useState } from './../utils/hooks/index'
+import './message.scss'
+import { Type } from '../utils/theme/index'
+import { useState } from '../utils/hooks/index'
 
 const CcMessage = defineComponent({
   name: 'cc-message',

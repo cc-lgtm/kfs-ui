@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import CcCard from './../../packages/card/index'
+import CcCard from '../../packages/card/card'
 
 test('test card html', () => {
   const wraper = mount(CcCard)

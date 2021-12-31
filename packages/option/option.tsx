@@ -1,8 +1,8 @@
 import {
   defineComponent
 } from 'vue'
-import './index.scss'
-import { useClass } from './../utils/hooks/index'
+import './option.scss'
+import { useClass } from '../utils/hooks/index'
 
 const CcOption = defineComponent({
   name: 'cc-option',

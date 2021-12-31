@@ -2,8 +2,8 @@ import {
   defineComponent,
   PropType
 } from 'vue'
-import './index.scss'
-import { useClass } from './../utils/hooks/index'
+import './link.scss'
+import { useClass } from '../utils/hooks/index'
 
 type LinkType = 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info'
 

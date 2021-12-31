@@ -4,13 +4,13 @@ import {
   computed,
   watch
 } from  'vue'
-import './index.scss'
+import './rating.scss'
 import star from './star'
 import full_star from './fullStar'
-import { useState } from './../utils/hooks/index'
+import { useState } from '../utils/hooks/index'
 
 const CcRate = defineComponent({
-  name: 'cc-rate',
+  name: 'cc-rating',
   props: {
     value: {
       type: String,

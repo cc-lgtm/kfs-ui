@@ -1,6 +1,4 @@
 import { createApp } from "vue";
-import App from "./App.tsx";
-import uninterest from 'uninterest'
-import 'uninterest/lib/uninterest.css'
+import App from "./App.vue";
 
-createApp(App).use(uninterest).mount("#app");
+createApp(App).mount("#app");

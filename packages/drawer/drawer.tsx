@@ -6,8 +6,8 @@ import {
   PropType,
   reactive
 } from 'vue'
-import './index.scss'
-import { useState } from './../utils/hooks/index'
+import './drawer.scss'
+import { useState } from '../utils/hooks/index'
 
 type drawerPosition = 'left' | 'right'
 

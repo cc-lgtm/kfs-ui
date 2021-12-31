@@ -2,8 +2,8 @@ import {
   PropType,
   defineComponent
 } from 'vue'
-import './index.scss'
-import { useClass } from './../utils/hooks/index'
+import './card.scss'
+import { useClass } from '../utils/hooks/index'
 
 type ShadowType = 'always' | 'hover' | 'never'
 

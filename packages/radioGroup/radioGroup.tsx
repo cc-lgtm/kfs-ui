@@ -5,10 +5,10 @@ import {
   watch,
   reactive
 } from 'vue'
-import CcRadio from '../radio/index'
-import './index.scss'
-import { Size } from './../utils/theme/index'
-import { useState } from './../utils/hooks/index'
+import CcRadio from '../radio/radio'
+import './radioGroup.scss'
+import { Size } from '../utils/theme/index'
+import { useState } from '../utils/hooks/index'
 
 const CcRadioGroup = defineComponent({
   name: 'cc-radio-group',

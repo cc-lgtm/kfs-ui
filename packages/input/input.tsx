@@ -3,8 +3,8 @@ import {
   PropType,
   watch
 } from 'vue'
-import './index.scss'
-import { useState, useClass, useEffect } from './../utils/hooks/index'
+import './input.scss'
+import { useState, useClass } from '../utils/hooks/index'
 
 type inputType = 'text' | 'number' | 'password'
 

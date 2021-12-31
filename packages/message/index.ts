@@ -1,18 +1,9 @@
-import { createVNode, render, ref } from 'vue'
-import CcMessage from './index'
+import { App } from 'vue'
+import message from './messageFn'
 
-const div: HTMLDivElement = document.createElement('div')
-div.setAttribute('class', 'cc-message')
-document.body.appendChild(div)
-
-const timer = ref<number | any>(null)
-
-export default ({ type, text }: {[propname: string]: any}) => {
- const vnode = createVNode(CcMessage, { type, text })
- render(vnode, div)
-
- clearTimeout(timer)
- timer.value = setTimeout(() => {
-   render(null, div)
- }, 2000)
+export const Message = {}
+Message['install'] = (app: App) => {
+  app.config.globalProperties.$toast = message
 }
+
+export default Message;

@@ -6,9 +6,8 @@ import {
   CSSProperties,
   reactive
 } from 'vue'
-import './index.scss'
-import date_icon from './../assets/date.svg'
-import CcButton from '../button/index'
+import './datePicker.scss'
+import CcButton from '../button/button'
 
 type DateType = 'datetime' | 'datetimerange'
 

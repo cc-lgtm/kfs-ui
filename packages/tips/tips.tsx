@@ -1,8 +1,8 @@
 import {
   defineComponent
 } from 'vue'
-import './index.scss';
-import { useState, useClass, useStyle } from './../utils/hooks/index'
+import './tips.scss';
+import { useState, useClass, useStyle } from '../utils/hooks/index'
 
 const CcTips = defineComponent({
   name: 'cc-tips',

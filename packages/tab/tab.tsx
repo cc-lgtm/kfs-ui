@@ -1,7 +1,7 @@
 import {
   defineComponent
 } from 'vue'
-import './index.scss'
+import './tab.scss'
 
 const CcTab = defineComponent({
   name: 'cc-tab',

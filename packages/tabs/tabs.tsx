@@ -2,9 +2,9 @@ import {
   defineComponent,
   watch
 } from 'vue'
-import CcTap from '../tab'
-import './index.scss'
-import { useState } from './../utils/hooks/index'
+import CcTap from '../tab/tab'
+import './tabs.scss'
+import { useState } from '../utils/hooks/index'
 
 const CcTabs = defineComponent({
   name: 'cc-tabs',

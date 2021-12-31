@@ -4,9 +4,9 @@ import {
   PropType,
   reactive
 } from 'vue'
-import './index.scss'
-import { Size } from './../utils/theme/index'
-import { useState, useClass, useStyle } from './../utils/hooks/index'
+import './switch.scss'
+import { Size } from '../utils/theme/index'
+import { useState, useClass, useStyle } from '../utils/hooks/index'
 
 const CcSwitch = defineComponent({
   name: 'cc-switch',

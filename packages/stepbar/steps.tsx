@@ -3,15 +3,15 @@ import {
   PropType,
   CSSProperties
 } from 'vue'
-import CcStepItem from '../stepitem/index'
-import './index.scss'
-import { useStyle } from './../utils/hooks/index'
+import CcStepItem from '../stepitem/step'
+import './steps.scss'
+import { useStyle } from '../utils/hooks/index'
 
 type DirectionType = 'vertical' | 'horizontal'
 type StepStatus = 'wait' | 'process' | 'finish' | 'error' | 'success'
 
 const CcStepBar = defineComponent({
-  name: 'cc-stepbar',
+  name: 'cc-steps',
   components: {CcStepItem},
   props: {
     space: {
