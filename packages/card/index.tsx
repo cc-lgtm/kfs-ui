@@ -1,5 +1,4 @@
 import {
-  computed,
   PropType,
   defineComponent
 } from 'vue'

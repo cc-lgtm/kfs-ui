@@ -4,7 +4,7 @@ import {
 } from 'vue'
 import CcTap from '../tab'
 import './index.scss'
-import { useState, useClass } from './../utils/hooks/index'
+import { useState } from './../utils/hooks/index'
 
 const CcTabs = defineComponent({
   name: 'cc-tabs',

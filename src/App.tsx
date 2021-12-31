@@ -1,6 +1,6 @@
 import { defineComponent, onMounted, ref } from "vue";
 import Button from '../packages/button/index'
-import { useRef } from './../packages/utils/hooks/index'
+import Input from '../packages/input/index'
 
 const App: Record<string, unknown> = defineComponent({
   components: {Button},
@@ -8,6 +8,7 @@ const App: Record<string, unknown> = defineComponent({
     return () => (
       <div>
         <Button type="default" />
+        <Input />
       </div>
     );
   },

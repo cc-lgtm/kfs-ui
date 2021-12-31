@@ -4,7 +4,7 @@ import {
   watch
 } from 'vue'
 import './index.scss'
-import { useState, useClass } from './../utils/hooks/index'
+import { useState, useClass, useEffect } from './../utils/hooks/index'
 
 type inputType = 'text' | 'number' | 'password'
 
@@ -43,7 +43,7 @@ const CcInput = defineComponent({
       type: String
     }
   },
-  emits: ['update:input', 'click', 'inputChange'],
+  emits: ['input', 'click', 'inputChange'],
   setup(props, { slots, emit }) {
 
     const className = useClass((classes) => {
@@ -55,7 +55,7 @@ const CcInput = defineComponent({
     const onInput = (e: Event) => {
       if (props.disabled) return;
       useCurrentV((e.target as unknown as HTMLInputElement).value)
-      emit('update:input', currentV.value)
+      emit('input', currentV.value)
     }
 
     watch(currentV, (pre, next) => {
