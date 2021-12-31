@@ -111,6 +111,7 @@
     }
   },
   "files": [
-    "lib/"
+    "lib/",
+    "typings/"
   ]
 }
