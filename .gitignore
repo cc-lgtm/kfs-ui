@@ -2,6 +2,7 @@
 node_modules
 /dist
 /lib
+/cli/lib/*
 
 
 # local env files
