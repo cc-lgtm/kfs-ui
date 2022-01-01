@@ -1,6 +1,6 @@
 import {ref} from 'vue'
 import { mount } from '@vue/test-utils';
-import Tips from './../../packages/tips/index'
+import Tips from './../../packages/tips/tips'
 
 const testTips = {
   template: `<Tips :tips="tips" @hover="onHover">{{msg}}</Tips>`,

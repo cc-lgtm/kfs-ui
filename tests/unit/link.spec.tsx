@@ -1,6 +1,6 @@
 import {ref} from 'vue'
 import { mount } from '@vue/test-utils';
-import Link from './../../packages/link/index'
+import Link from './../../packages/link/link'
 
 const testLink = {
   template: `<Link :href="href" @click="addCount">{{count}}</Link>`,

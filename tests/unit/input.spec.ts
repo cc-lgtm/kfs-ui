@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Input from '../../packages/input/index'
+import Input from '../../packages/input/input'
 
 const testInput = {
   template: '<Input id="input" value="test data" @input="onInput" />',
