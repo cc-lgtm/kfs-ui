@@ -15,7 +15,8 @@
     "packages/*"
   ],
   "scripts": {
-    "lib": "vue-cli-service build --target lib --name kfs-ui --dest lib ./packages/index.ts",
+    "build:com": "node ./cli/lib/index.js build",
+    "build:lib": "vue-cli-service build --target lib --name kfs-ui --dest lib ./packages/index.ts",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "docs:dev": "vuepress dev docs",

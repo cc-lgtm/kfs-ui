@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "esbuild --bundle ./index.ts --format=cjs --platform=node --outdir=./lib --watch",
     "build": "esbuild --bundle ./index.ts --format=cjs --platform=node --outdir=./lib",
-    "cli": "node ./lib/index.js create"
+    "cli": "node ./lib/index.js build"
   },
   "keywords": [],
   "author": "",
