@@ -1,0 +1,17 @@
+{
+  "name": "fks-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "preview": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "commander": "^8.3.0",
+    "fs-extra": "^10.0.0"
+  }
+}
