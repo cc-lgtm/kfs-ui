@@ -9,6 +9,7 @@ node_modules/*
 
 dist/*
 docs/*
+cli/lib/*
 examples/*
 scripts/*
 _config.yml
