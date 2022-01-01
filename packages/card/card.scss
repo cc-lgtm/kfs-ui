@@ -22,11 +22,11 @@
   }
 
   &-hover {
-    box-shadow: none !important;
+    box-shadow: none;
     &:hover {
-      background: #f1f4f7 !important;
-      color: #70a1ff !important;
-      box-shadow: 1px 2px 6px #ccc !important;
+      background: #f1f4f7;
+      color: #70a1ff;
+      box-shadow: 1px 2px 6px #ccc;
     }
   }
 

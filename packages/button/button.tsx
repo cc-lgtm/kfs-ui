@@ -75,7 +75,7 @@ const CcButton = defineComponent({
       const icon = slots['icon']
       const _default = slots['default']
       if (props.isLoading) {
-        return <cc-loading type="loadEffect" />
+        return <cc-loading />
       }
       return (
         <>

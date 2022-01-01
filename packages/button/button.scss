@@ -44,9 +44,9 @@
 
   &-success {
     @extend .button;
-    background: #2ecc71 !important;
+    background: #2ecc71;
     &:hover {
-      background: #f6f6f6 !important;
+      background: #f6f6f6;
       color: #2ecc71;
       box-shadow: 1px 2px 6px #2ecc71;
     }
@@ -75,7 +75,7 @@
     opacity: 0.95;
     cursor: not-allowed;
     &:hover {
-      box-shadow: 1px 2px 6px #ccc !important;
+      box-shadow: 1px 2px 6px #ccc;
     }
   }
   &-isCircle {
@@ -85,7 +85,7 @@
   }
   &-isDisabled {
     color: #ccc !important;
-    background: rgba(#bdc3c7, 0.4) !important;
+    background: rgba(#bdc3c7, 0.4);
     &:hover {
       cursor: not-allowed;
       box-shadow: none !important;

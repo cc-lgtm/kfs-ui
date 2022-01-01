@@ -1,15 +1,15 @@
 .cc-input {
   width: max-content;
-  height: 45px !important;
+  height: 45px;
   display: flex;
   align-items: center;
-  border: 1px solid hsl(204, 8%, 76%) !important;
+  border: 1px solid hsl(204, 8%, 76%);
   .left-icon {
     width: 20px;
     height: 20px;
   }
   .title {
-    font-size: 18px !important;
+    font-size: 18px;
     letter-spacing: 0.38px;
     color: #1e90ff;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -39,6 +39,6 @@
 
 .disabled {
   &:hover {
-    cursor: not-allowed !important;
+    cursor: not-allowed;
   }
 }

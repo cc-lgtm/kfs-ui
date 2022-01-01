@@ -9,18 +9,18 @@
   justify-content: space-between;
   &-mini {
     @extend .cc-radio-medium;
-    width: 15px !important;
-    height: 15px !important;
+    width: 15px;
+    height: 15px;
   }
   &-small {
     @extend .cc-radio-medium;
-    width: 18px !important;
-    height: 18px !important;
+    width: 18px;
+    height: 18px;
   }
   &-large {
     @extend .cc-radio-medium;
-    width: 23px !important;
-    height: 23px !important;
+    width: 23px;
+    height: 23px;
   }
   .cc-radio-medium {
     width: 20px;
