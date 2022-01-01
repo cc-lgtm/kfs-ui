@@ -2,7 +2,7 @@
 node_modules
 /dist
 /lib
-/cli/lib/*
+/cli/lib/index.js
 
 
 # local env files
