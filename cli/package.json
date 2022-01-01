@@ -5,13 +5,18 @@
   "main": "index.ts",
   "preview": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "esbuild --bundle ./index.ts --format=cjs --platform=node --outdir=./lib --watch",
+    "build": "esbuild --bundle ./index.ts --format=cjs --platform=node --outdir=./lib",
+    "cli": "node ./lib/index.js create"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "commander": "^8.3.0",
-    "fs-extra": "^10.0.0"
+    "esbuild": "^0.14.10",
+    "fs-extra": "^10.0.0",
+    "inquirer": "^8.2.0",
+    "kolorist": "^1.5.1"
   }
 }
