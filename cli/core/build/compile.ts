@@ -1,15 +1,13 @@
-import fs from 'fs-extra'
+import fs from 'fs-extra/lib/fs'
 
 const buildAll = async (entry: string, output: string) => {
-  const ENTRY = {} as {[propname: string]: string}
+  const ENTRY = {}
   const configContent = (entry: {[propname: string]: string}) => `module.exports = {
     outputDir: './lib',
     configureWebpack: {
       entry: ${JSON.stringify(entry)},
       output: {
-        filename: '[name]/index.js',
-        libraryTarget: 'commonjs2',
-        libraryExport: 'default'
+        filename: '[name]/index.js'
       }
     }
   }`
@@ -18,13 +16,12 @@ const buildAll = async (entry: string, output: string) => {
     packages.forEach((component, _) => {
       const name = (component as string)
       if (name === 'utils') return;
-      if (name === 'index.ts') {
-        ENTRY['index'] = './packages/index.ts'
+      if (name === 'index.ts' || name === 'message') {
         return;
       }
-      ENTRY[name] = `./packages/${component}/index.ts`
+      ENTRY[component] = `./packages/${component}/index.ts`
     })
-    fs.writeFileSync(`${output}/index.js`, configContent(ENTRY), 'utf-8')
+    fs.writeFileSync(`${output}/index.js`, configContent(ENTRY))
   })
 }
 

@@ -1,5 +1,10 @@
 const config = require('./config/index')
 module.exports = {
   lintOnSave: false,
-  ...config
+  ...config,
+  css: {
+    extract: {
+      ignoreOrder: false,
+    }
+  }  
 }
