@@ -1,6 +1,6 @@
 {
   "name": "kfs-ui",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "自己写着玩的...",
   "private": false,
   "module": "./lib/index.js",
