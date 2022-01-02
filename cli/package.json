@@ -5,19 +5,18 @@
   "main": "index.ts",
   "preview": false,
   "scripts": {
-    "dev": "esbuild --bundle ./index.ts --format=cjs --platform=node --outdir=./lib --watch",
-    "build": "esbuild --bundle ./index.ts --format=cjs --platform=node --outdir=./lib",
+    "dev": "esbuild --bundle ./index.ts --format=cjs --platform=node --outdir=./lib",
     "cli": "node ./lib/index.js build"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/commander": "^2.12.2",
+    "@types/node": "^17.0.6",
     "commander": "^8.3.0",
-    "esbuild": "^0.14.10",
     "fs-extra": "^10.0.0",
     "inquirer": "^8.2.0",
-    "kolorist": "^1.5.1",
-    "vite": "^2.7.10"
+    "kolorist": "^1.5.1"
   }
 }

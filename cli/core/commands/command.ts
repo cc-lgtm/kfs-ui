@@ -3,8 +3,10 @@ import { onBuild } from '../build/build'
 
 const program = new Command()
 program.command('build')
-.option('-e --entry <type>', "打包packages入口")
+.option('-t --type <type>', "打包类型 all or demand")
 .action(onBuild)
 program.parse()
 
-export default program;
+export {
+  program
+}
