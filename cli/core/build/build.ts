@@ -2,6 +2,7 @@ import fs from 'fs-extra'
 import inquirer from 'inquirer'
 import { red, green, yellow } from 'kolorist'
 import path from 'path'
+import { buildAll, buildLib } from './compile'
 
 const findPackage = (entry: string) => {
   const defPath = path.join(__dirname, '../../')

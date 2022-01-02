@@ -17,6 +17,7 @@
     "esbuild": "^0.14.10",
     "fs-extra": "^10.0.0",
     "inquirer": "^8.2.0",
-    "kolorist": "^1.5.1"
+    "kolorist": "^1.5.1",
+    "vite": "^2.7.10"
   }
 }
