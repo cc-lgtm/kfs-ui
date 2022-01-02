@@ -5,7 +5,7 @@
   "main": "index.ts",
   "preview": false,
   "scripts": {
-    "dev": "esbuild --bundle ./index.ts --format=cjs --platform=node --outdir=./lib",
+    "dev": "esbuild --bundle ./index.ts --format=cjs --platform=node --outdir=./lib --watch",
     "cli": "node ./lib/index.js build"
   },
   "keywords": [],
@@ -18,5 +18,10 @@
     "fs-extra": "^10.0.0",
     "inquirer": "^8.2.0",
     "kolorist": "^1.5.1"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^2.0.1",
+    "@vitejs/plugin-vue-jsx": "^1.3.3",
+    "vite": "^2.7.10"
   }
 }

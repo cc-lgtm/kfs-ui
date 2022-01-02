@@ -9,7 +9,7 @@ const defPath = path.join(__dirname, '../../')
 
 const findPackage = (entry: string, output?: string) => {
   const ENTRY = `${defPath}${entry}/`
-  const OUTPUT = output || `${defPath}${output}`
+  const OUTPUT = output || `${defPath}${output}config`
   fs.readdir(ENTRY, (err: Error, data: any[]) => {
     if (err) {
       console.log(red(`查找文件失败${err}`))
@@ -18,6 +18,7 @@ const findPackage = (entry: string, output?: string) => {
         console.log(yellow('该文件夹下为空'))
       }
       buildAll(ENTRY, OUTPUT)
+      console.log(green('编译成功: 请运行 yarn build'))
     }
   })
 }

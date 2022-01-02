@@ -1,3 +1,5 @@
+const config = require('./config/index')
 module.exports = {
-  lintOnSave: false
+  lintOnSave: false,
+  ...config
 }
