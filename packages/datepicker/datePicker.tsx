@@ -172,7 +172,7 @@ const CcDatePicker = defineComponent({
     return () => (
       <div class="cc-date_picker" ref={datePicker} style={positionStyle.value}>
         <div class="date_box" onClick={onClick}>
-          <img class="date_icon" src={date_icon} alt="logo" />
+          {/* <img class="date_icon" src={date_icon} alt="logo" /> */}
           <span class="tips">选择日期时间</span>
         </div>
         { showPicker.value && <div class="picker_box">

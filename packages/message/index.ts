@@ -2,7 +2,7 @@ import { App } from 'vue'
 import messageJsx from './message'
 import message from './messageFn'
 
-export const Message = {}
+export const Message = {} as {[propname: string]: any}
 export {
   messageJsx
 }

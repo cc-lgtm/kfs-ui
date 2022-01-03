@@ -27,12 +27,12 @@ const CcSkeleton = defineComponent({
   setup(props, { slots }) {
     const styles = (index: number) => {
       const style = {
-        '--w': props.rowsWidth[index]
+        '--w': props.rowsWidth![index]
       } as CSSProperties
       return style
     }
     const renderRows = () => {
-      const skeletonRows = reactive([])
+      const skeletonRows = reactive([] as JSX.Element[])
       for (let i = 0; i < props.rows; i++) {
         skeletonRows.push(<CcSkeletonItem variable="text" style={styles(i)} />)
       }

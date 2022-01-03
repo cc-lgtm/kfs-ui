@@ -4,9 +4,3 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
-
-declare module '*.tsx'
-declare module '*.png'
-declare module '*.svg'
-declare module '*.ts'
-declare module './../lib/index'

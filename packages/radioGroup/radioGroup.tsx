@@ -28,7 +28,7 @@ const CcRadioGroup = defineComponent({
   },
   emits: ['change'],
   setup(props, { emit, slots }) {
-    const slot_arr = slots.default?.()
+    const slot_arr = slots.default?.() as {[propname: string]: any}[]
 
     const [val, useVal] = useState<string>()
     const onClick = (e: Event, index: number) => {

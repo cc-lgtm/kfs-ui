@@ -4,6 +4,8 @@
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
+    "declaration": true,
+    "outDir": "typings",
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
@@ -29,12 +31,10 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-, "typings/shims-vue.d.ts", "examples/main.js"  ],
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "shims-vue.d.ts"
+  ],
   "exclude": [
     "node_modules",
     "dist"
