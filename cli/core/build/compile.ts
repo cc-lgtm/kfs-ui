@@ -7,19 +7,19 @@ const buildAll = async (entry: string, output: string) => {
     configureWebpack: {
       entry: ${JSON.stringify(entry)},
       output: {
-        filename: '[name]/index.js',
-        libraryExport: 'default'
+        filename: '[name]/index.js'
       }
     },
     filenameHashing: false,
     css: {
-      extract: false,
+      extract: true,
       sourceMap: false,
       requireModuleExtension: false
     }
   }`
   const packages = fs.readdirSync(entry)
   fs.mkdir(output, () => {
+    ENTRY['app'] = './examples/main.ts'
     packages.forEach((component, _) => {
       const name = (component as string)
       if (name === 'utils' || name === 'index.ts') return;

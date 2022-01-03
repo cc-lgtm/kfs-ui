@@ -1,10 +1,11 @@
 import { App } from 'vue'
 const installComponent = (component: any) => {
-  (component as Record<string, unknown>).install = (app: App) => {
+  const __component__ = {} as {[propname: string]: any}
+  (__component__ as Record<string, unknown>).install = (app: App) => {
     const { name } = component
     app.component(name, component)
   }
-  return component
+  return __component__
 }
 
 export default installComponent;
