@@ -7,7 +7,10 @@ const buildAll = async (entry: string, output: string) => {
     configureWebpack: {
       entry: ${JSON.stringify(entry)},
       output: {
-        filename: '[name]/index.js'
+        filename: '[name]/index.js',
+        libraryTarget: 'umd',
+        library: 'kfs-ui',
+        libraryExport: 'default'
       }
     },
     filenameHashing: false,
@@ -19,10 +22,13 @@ const buildAll = async (entry: string, output: string) => {
   }`
   const packages = fs.readdirSync(entry)
   fs.mkdir(output, () => {
-    ENTRY['app'] = './examples/main.ts'
     packages.forEach((component, _) => {
       const name = (component as string)
-      if (name === 'utils' || name === 'index.ts') return;
+      if (name === 'utils') return;
+      if (name === 'index.ts') {
+        ENTRY['index'] = './packages/index.ts'
+        return;
+      }
       ENTRY[component] = `./packages/${component}/index.ts`
     })
     fs.writeFileSync(`${output}/index.js`, configContent(ENTRY))
