@@ -1,7 +1,7 @@
-import fs from 'fs-extra'
-import inquirer from 'inquirer'
+const fs = require('fs-extra')
+const inquirer = require('inquirer')
 import { red, green, yellow } from 'kolorist'
-import path from 'path'
+const path = require('path')
 import { buildAll } from './compile'
 
 const BUILDOPTIONS = ['all', 'demand'] as string[]
@@ -9,7 +9,7 @@ const defPath = path.join(__dirname, '../../')
 
 const findPackage = (entry: string, output?: string) => {
   const ENTRY = `${defPath}${entry}/`
-  const OUTPUT = output || `${defPath}${output}config`
+  const OUTPUT = output || `${defPath}${output}lib`
   fs.readdir(ENTRY, (err: Error, data: any[]) => {
     if (err) {
       console.log(red(`查找文件失败${err}`))

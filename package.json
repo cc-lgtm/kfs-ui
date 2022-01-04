@@ -1,6 +1,6 @@
 {
   "name": "kfs-ui",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "自己写着玩的...",
   "private": false,
   "module": "./lib/index.js",
@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "build:com": "node ./cli/lib/index.js build",
-    "build:lib": "vue-cli-service build --target lib --name kfs-ui --dest lib ./packages/index.ts",
+    "build:lib": "vue-cli-service build --target lib --name kfs-ui --dest lib ./packages/**/index.ts",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "docs:dev": "vuepress dev docs",

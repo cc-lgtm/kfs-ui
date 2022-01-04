@@ -1,40 +1,117 @@
-import fs from 'fs-extra/lib/fs'
+const fs = require('fs-extra')
+import Vue from '@vitejs/plugin-vue'
+import VueJsx from '@vitejs/plugin-vue-jsx'
+import { defineConfig, build, InlineConfig } from 'vite'
+import path = require('path')
 
-const buildAll = async (entry: string, output: string) => {
-  const ENTRY = {}
-  const configContent = (entry: {[propname: string]: string}) => `module.exports = {
-    outputDir: './lib',
-    configureWebpack: {
-      entry: ${JSON.stringify(entry)},
-      output: {
-        filename: '[name]/index.js',
-        libraryTarget: 'umd',
-        library: 'kfs-ui',
-        libraryExport: 'default'
-      }
-    },
-    filenameHashing: false,
-    css: {
-      extract: true,
-      sourceMap: false,
-      requireModuleExtension: false
+const entry = `./../../../packages`
+const output = `./../../../lib`
+
+const baseConfig = defineConfig({
+  optimizeDeps: {
+    exclude: ['esbuild']
+  },
+  plugins: [Vue(), VueJsx()]
+})
+const buildAll = () => {
+  build(defineConfig({
+    ...baseConfig,
+    build: {
+      lib: {
+        entry: path.resolve(entry, 'index.ts'),
+        name: 'kfs-ui',
+        fileName: 'kfs-ui',
+        formats: ['es', 'umd']
+      },
+      outDir: output
     }
-  }`
-  const packages = fs.readdirSync(entry)
-  fs.mkdir(output, () => {
-    packages.forEach((component, _) => {
-      const name = (component as string)
-      if (name === 'utils') return;
-      if (name === 'index.ts') {
-        ENTRY['index'] = './packages/index.ts'
-        return;
-      }
-      ENTRY[component] = `./packages/${component}/index.ts`
-    })
-    fs.writeFileSync(`${output}/index.js`, configContent(ENTRY))
-  })
+  }) as InlineConfig)
 }
 
+// buildAll()
+
+const buildSingle = (name: string) => {
+  build(defineConfig({
+    ...baseConfig,
+    build: {
+      lib: {
+        entry: path.resolve(entry, 'index.ts'),
+        name: 'index',
+        fileName: 'index',
+        formats: ['es', 'umd']
+      },
+      outDir: path.resolve(output, name)
+    }
+  }) as InlineConfig)
+}
+
+const createPackageJson = (name: string) => {
+  const config = `{
+    "name": "${name}",
+    "version": "0.0.0",
+    "main": "index.umd.js",
+    "module": "index.es.js",
+    "style": "style.css"
+  }`
+  fs.outputFile(
+    path.resolve(output, `${name}/packages.json`),
+    config,
+    'utf-8'
+  )
+}
+
+const buildLib = async () => {
+  await buildAll()
+  const components = fs.readdirSync(entry).filter(name => {
+    const dir = path.resolve(entry, name)
+    const isDir = fs.lstatSync(dir).isDirectory()
+    return isDir && fs.readdirSync(dir).includes('index.ts')
+  })
+
+  for(const name of components) {
+    await buildSingle(name)
+    createPackageJson(name)
+  }
+}
+
+buildLib()
+
+// const buildAll = async (entry: string, output: string) => {
+  // const ENTRY = {}
+  // const configContent = (entry: {[propname: string]: string}) => `module.exports = {
+  //   outputDir: './lib',
+  //   configureWebpack: {
+  //     entry: ${JSON.stringify(entry)},
+  //     output: {
+  //       filename: '[name]/index.js',
+  //       libraryTarget: 'umd',
+  //       library: 'kfs-ui',
+  //       libraryExport: 'default'
+  //     }
+  //   },
+  //   filenameHashing: false,
+  //   css: {
+  //     extract: true,
+  //     sourceMap: false,
+  //     requireModuleExtension: false
+  //   }
+  // }`
+  // const packages = fs.readdirSync(entry)
+  // fs.mkdir(output, () => {
+  //   packages.forEach((component, _) => {
+  //     const name = (component as string)
+  //     if (name === 'utils') return;
+  //     if (name === 'index.ts') {
+  //       ENTRY['index'] = './packages/index.ts'
+  //       return;
+  //     }
+  //     ENTRY[component] = `./packages/${component}/index.ts`
+  //   })
+  //   fs.writeFileSync(`${output}/index.js`, configContent(ENTRY))
+  // })
+// }
+
 export {
-  buildAll
+  buildAll,
+  buildLib
 }
