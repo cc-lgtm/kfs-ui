@@ -13,10 +13,21 @@ const baseConfig = defineConfig({
   },
   plugins: [Vue(), VueJsx()]
 })
+
+const rollupOptions = {
+  external: ['vue', 'vue-router'],
+  output: {
+    globals: {
+      vue: 'Vue'
+    }
+  }
+}
+
 const buildAll = () => {
   build(defineConfig({
     ...baseConfig,
     build: {
+      rollupOptions,
       lib: {
         entry: path.resolve(entry, 'index.ts'),
         name: 'kfs-ui',
@@ -32,6 +43,7 @@ const buildSingle = (name: string) => {
   build(defineConfig({
     ...baseConfig,
     build: {
+      rollupOptions,
       lib: {
         entry: path.resolve(entry, 'index.ts'),
         name: 'index',
@@ -71,6 +83,8 @@ const buildLib = async () => {
     createPackageJson(name)
   }
 }
+
+buildLib()
 
 // const buildAll = async (entry: string, output: string) => {
   // const ENTRY = {}

@@ -1,26 +1,26 @@
 import { App } from 'vue'
-import {Button} from './button'
-import {Card} from './card'
-import {Input} from './input'
-import {Loading} from './loading'
-import {Drawer} from './drawer'
-import {Tips} from './tips'
-import {Rating} from './rate'
-import {Popup} from './popup'
-import {Message} from './message'
-import {Pagination} from './pagination'
-import {Skeleton} from './skeleton'
-import {SkeletonItem} from './skeleton-item'
-import {Option} from './option'
-import {Select} from './select'
-import {Steps} from './stepbar'
-import {Step} from './stepitem'
-import {Tabs} from './tabs'
-import {Tab} from './tab'
-import {Switch} from './switch'
-import {Radio} from './radio'
-import {RadioGroup} from './radioGroup'
-import {Link} from './link'
+import Button from './button/button'
+import Card from './card/card'
+import Input from './input/input'
+import Loading from './loading/loading'
+import Drawer from './drawer/drawer'
+import Tips from './tips/tips'
+import Rating from './rate/rating'
+import Popup from './popup/popup'
+import Message from './message/message'
+import Pagination from './pagination/pagination'
+import Skeleton from './skeleton/skeleton'
+import SkeletonItem from './skeleton-item/skeletonItem'
+import Option from './option/option'
+import Select from './select/select'
+import Steps from './stepbar/steps'
+import Step from './stepitem/step'
+import Tabs from './tabs/tabs'
+import Tab from './tab/tab'
+import Switch from './switch/switch'
+import Radio from './radio/radio'
+import RadioGroup from './radioGroup/radioGroup'
+import Link from './link/link'
 const components = [
   Button,
   Card,
@@ -48,41 +48,36 @@ const components = [
 
 const install = (app:App) => {
   components.map((component: any) => {
-    // if (component.install) {
-    //   app.use(component)
-    // } else if (component.name) {
-      if (component.name) {
-        app.component(component.name , component)
-      }
-    // }
+    app.component(component.name , component)
   })
 }
 
-export * from './button'
-export * from './card'
-export * from './input'
-export * from './loading'
-export * from './drawer'
-export * from './tips'
-export * from './rate'
-export * from './popup'
-export * from './message'
-export * from './pagination'
-export * from './skeleton'
-export * from './skeleton-item'
-export * from './option'
-export * from './select'
-export * from './stepbar'
-export * from './stepitem'
-export * from './tabs'
-export * from './tab'
-export * from './switch'
-export * from './radio'
-export * from './radioGroup'
-export * from './link'
-
 export {
-  install
+  install,
+  Button,
+  Card,
+  Input,
+  Loading,
+  Drawer,
+  Tips,
+  Rating,
+  Popup,
+  Message,
+  Pagination,
+  Option,
+  Select,
+  Steps,
+  Step,
+  Tabs,
+  Tab,
+  Switch,
+  Radio,
+  RadioGroup,
+  Link,
+  Skeleton,
+  SkeletonItem
 }
 
-export default install
+export default {
+  install
+}

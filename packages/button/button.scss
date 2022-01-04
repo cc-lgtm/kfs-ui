@@ -86,9 +86,10 @@
   &-isDisabled {
     color: #ccc !important;
     background: rgba(#bdc3c7, 0.4);
+    box-shadow: none;
     &:hover {
       cursor: not-allowed;
-      box-shadow: none !important;
+      box-shadow: none;
     }
   }
 }
