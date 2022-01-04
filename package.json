@@ -1,6 +1,6 @@
 {
   "name": "kfs-ui",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "自己写着玩的...",
   "private": false,
   "module": "./lib/kfs-ui.umd.js",
@@ -9,14 +9,15 @@
     "email": "2448856797@qq.com",
     "url": "https://github.com/cc-lgtm/v3-compoents"
   },
-  "main": "./lib/kfs-ui.umd.js",
+  "main": "./lib/index.js",
   "license": "MIT",
   "workspaces": [
     "packages/*"
   ],
+  "types": "./lib/index.d.ts",
   "scripts": {
     "build:com": "node ./cli/lib/index.js build",
-    "build:lib": "vue-cli-service build --target lib --name kfs-ui --dest lib ./packages/**/index.ts",
+    "build:lib": "vue-cli-service build --target lib --name kfs-ui --dest test ./packages/index.ts",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "docs:dev": "vuepress dev docs",
@@ -114,6 +115,6 @@
   },
   "files": [
     "lib/",
-    "typings/"
+    "types/"
   ]
 }
