@@ -70,6 +70,15 @@ const createPackageJson = (name: string) => {
   )
 }
 
+const createTypes = (name: string) => {
+  const config = `declare module 'kfs-ui/lib/${name}.umd.js'`
+  fs.outputFile(
+    path.resolve(output, `${name}/index.d.ts`),
+    config,
+    'utf-8'
+  )
+}
+
 const buildLib = async () => {
   await buildAll()
   const components = fs.readdirSync(entry).filter(name => {
@@ -81,6 +90,7 @@ const buildLib = async () => {
   for(const name of components) {
     await buildSingle(name)
     createPackageJson(name)
+    createTypes(name)
   }
 }
 
