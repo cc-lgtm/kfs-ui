@@ -6,7 +6,7 @@
   "preview": false,
   "scripts": {
     "dev": "esbuild --bundle ./index.ts --format=cjs --platform=node --outdir=./lib --watch",
-    "cli": "node ./lib/index.js build"
+    "cli": "ts-node ./index.ts build"
   },
   "keywords": [],
   "author": "",

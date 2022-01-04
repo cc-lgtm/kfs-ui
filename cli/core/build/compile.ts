@@ -28,8 +28,6 @@ const buildAll = () => {
   }) as InlineConfig)
 }
 
-// buildAll()
-
 const buildSingle = (name: string) => {
   build(defineConfig({
     ...baseConfig,
@@ -48,7 +46,7 @@ const buildSingle = (name: string) => {
 const createPackageJson = (name: string) => {
   const config = `{
     "name": "${name}",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "main": "index.umd.js",
     "module": "index.es.js",
     "style": "style.css"
@@ -73,8 +71,6 @@ const buildLib = async () => {
     createPackageJson(name)
   }
 }
-
-buildLib()
 
 // const buildAll = async (entry: string, output: string) => {
   // const ENTRY = {}
