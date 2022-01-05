@@ -20,6 +20,7 @@ const findPackage = (entry: string, type: string) => {
       console.log(green('编译成功'))
     }
   })
+  
 }
 
 const buildType = (type: string) => {
