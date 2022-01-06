@@ -31,10 +31,10 @@
   }
 
   &-never {
-    box-shadow: none !important;
+    box-shadow: none;
     &:hover {
-      background: none !important;
-      color: #000 !important;
+      background: none;
+      color: #000;
     }
   }
 
