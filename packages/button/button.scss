@@ -2,15 +2,14 @@
 
 .button {
   width: 100%;
-  padding: 10px 0;
+  padding: 5px 0;
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: var(--theme-size-md);
   letter-spacing: 2px;
-  line-height: 18px;
   user-select: none;
   border: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: $-theme-color-all;
+  color: var(--theme-color-all);
   cursor: pointer;
 }
 
@@ -24,6 +23,7 @@
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   .icon {
     width: 20px;
@@ -35,40 +35,40 @@
 
   &-default {
     @extend .button;
-    background: $-theme-bg-default;
-    color: $-theme-color-default;
+    background: var(--theme-bg-default);
+    color: var(--theme-color-default);
     &:hover {
       background: #fff;
-      color: $-theme-color-default;
-      box-shadow: 1px 2px 6px $-theme-color-default;
+      color: var(--theme-color-default);
+      box-shadow: 1px 2px 6px var(--theme-color-default);
     }
   }
 
   &-success {
     @extend .button;
-    background: $-theme-bg-success;
+    background: var(--theme-bg-success);
     &:hover {
       background: #f6f6f6;
-      color: $-theme-bg-success;
-      box-shadow: 1px 2px 6px $-theme-bg-success;
+      color: var(--theme-bg-success);
+      box-shadow: 1px 2px 6px var(--theme-bg-success);
     }
   }
   &-error {
     @extend .button;
-    background: $-theme-bg-error;
+    background: var(--theme-bg-error);
     &:hover {
       background: #f6f6f6;
-      color: $-theme-bg-error;
-      box-shadow: 1px 2px 6px $-theme-bg-error;
+      color: var(--theme-bg-error);
+      box-shadow: 1px 2px 6px var(--theme-bg-error);
     }
   }
   &-warn {
     @extend .button;
-    background: $-theme-bg-warn;
+    background: var(--theme-bg-warn);
     &:hover {
       background: #f6f6f6;
-      color: $-theme-bg-warn;
-      box-shadow: 1px 2px 6px $-theme-bg-warn;
+      color: var(--theme-bg-warn);
+      box-shadow: 1px 2px 6px var(--theme-bg-warn);
     }
   }
   &-isLoading {
@@ -86,14 +86,14 @@
     border-radius: 50%;
   }
   &-isDisabled {
-    color: #ccc;
-    background: $-theme-bg-disabled;
+    color: var(--theme-color-all);
+    background: var(--theme-bg-disabled);
     box-shadow: none;
     &:hover {
       cursor: not-allowed;
       box-shadow: none;
-      color: #ccc;
-      background: $-theme-bg-disabled;
+      color: var(--theme-color-all);
+      background: var(--theme-bg-disabled);
     }
   }
 }
