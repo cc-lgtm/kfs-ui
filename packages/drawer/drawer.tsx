@@ -29,13 +29,13 @@ const CcDrawer = defineComponent({
   },  
   emits: ['opened', 'closed'],
   setup(props, { emit, slots }) {
-    const getScorllW = () => {
+    const getScorllW = onMounted(() => {
       const [width, useWidth] = useState<string>(document.body.scrollWidth + 'px')
       window.onresize = () => {
         useWidth(document.body.scrollWidth + 'px')
       }
       return width.value
-    }
+    })
 
     const positionStyle = () => {
       const position = props.position
@@ -59,7 +59,7 @@ const CcDrawer = defineComponent({
 
     const styles = computed(() => {
       const style: CSSProperties & {[propname: string]: any} = {
-        '--shadow': getScorllW(),
+        '--shadow': getScorllW,
         '--w': props.width
       }
       return Object.assign(style, positionStyle())

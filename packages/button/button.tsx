@@ -30,10 +30,6 @@ const CcButton = defineComponent({
       type: Boolean,
       default: false
     },
-    value: {
-      type: String,
-      default: '按钮'
-    },
     isLoading: {
       type: Boolean,
       default: false
@@ -80,7 +76,6 @@ const CcButton = defineComponent({
       return (
         <>
           {icon ? <div class="icon">{icon()}</div> : _default?.()}
-          {props.value}
         </>
       )
     }

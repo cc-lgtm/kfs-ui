@@ -1,9 +1,12 @@
-import { createVNode, render, ref } from 'vue'
+import { createVNode, render, ref, onMounted } from 'vue'
 import CcMessage from './messageFn'
 
-const div: HTMLDivElement = document.createElement('div')
-div.setAttribute('class', 'cc-message')
-document.body.appendChild(div)
+let div: HTMLDivElement;
+onMounted(() => {
+  div = document.createElement('div')
+  div.setAttribute('class', 'cc-message')
+  document.body.appendChild(div)
+})
 
 const timer = ref<number | any>(null)
 

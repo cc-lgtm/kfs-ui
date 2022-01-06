@@ -1,6 +1,5 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import KfsUI from '../lib'
-import '../lib/button/style.css'
+import KfsUI from '../packages'
 
 createApp(App).use(KfsUI).mount("#app");

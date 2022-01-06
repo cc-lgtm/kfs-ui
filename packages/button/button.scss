@@ -1,3 +1,5 @@
+@import './../style/var.scss';
+
 .button {
   width: 100%;
   padding: 10px 0;
@@ -8,7 +10,7 @@
   user-select: none;
   border: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
+  color: $-theme-color-all;
   cursor: pointer;
 }
 
@@ -33,40 +35,40 @@
 
   &-default {
     @extend .button;
-    background: #fff;
-    color: #7f8c8d;
+    background: $-theme-bg-default;
+    color: $-theme-color-default;
     &:hover {
       background: #fff;
-      color: #7f8c8d;
-      box-shadow: 1px 2px 6px #7f8c8d;
+      color: $-theme-color-default;
+      box-shadow: 1px 2px 6px $-theme-color-default;
     }
   }
 
   &-success {
     @extend .button;
-    background: #2ecc71;
+    background: $-theme-bg-success;
     &:hover {
       background: #f6f6f6;
-      color: #2ecc71;
-      box-shadow: 1px 2px 6px #2ecc71;
+      color: $-theme-bg-success;
+      box-shadow: 1px 2px 6px $-theme-bg-success;
     }
   }
   &-error {
     @extend .button;
-    background: #e74c3c;
+    background: $-theme-bg-error;
     &:hover {
       background: #f6f6f6;
-      color: #e74c3c;
-      box-shadow: 1px 2px 6px #e74c3c;
+      color: $-theme-bg-error;
+      box-shadow: 1px 2px 6px $-theme-bg-error;
     }
   }
   &-warn {
     @extend .button;
-    background: #f39c12;
+    background: $-theme-bg-warn;
     &:hover {
       background: #f6f6f6;
-      color: #f39c12;
-      box-shadow: 1px 2px 6px #f39c12;
+      color: $-theme-bg-warn;
+      box-shadow: 1px 2px 6px $-theme-bg-warn;
     }
   }
   &-isLoading {
@@ -84,12 +86,14 @@
     border-radius: 50%;
   }
   &-isDisabled {
-    color: #ccc !important;
-    background: rgba(#bdc3c7, 0.4);
+    color: #ccc;
+    background: $-theme-bg-disabled;
     box-shadow: none;
     &:hover {
       cursor: not-allowed;
       box-shadow: none;
+      color: #ccc;
+      background: $-theme-bg-disabled;
     }
   }
 }

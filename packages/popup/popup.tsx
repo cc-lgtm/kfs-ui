@@ -60,8 +60,8 @@ const CcPopup = defineComponent({
           </div>
           { renderType() }
           <div class="btns">
-            { props.type !== 'message' && <CcButton value="取消" onClick={onClose} /> }
-            <CcButton value="确认" type="success" onClick={onConfirm} />
+            { props.type !== 'message' && <CcButton onClick={onClose}>取消</CcButton> }
+            <CcButton type="success" onClick={onConfirm}>确定</CcButton>
           </div>
         </div>
         { slots.default?.() }
