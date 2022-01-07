@@ -17,7 +17,7 @@ const CcSkeletonItem = defineComponent({
   },
   setup(props) {
     const animated = useContext.setContext('animated')
-    const w = useContext.setContext('w') || '200px'
+    const w = useContext.setContext('w', '200px')
 
     const hMap = {
       'button': '40px',

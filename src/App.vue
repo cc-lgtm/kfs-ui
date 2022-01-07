@@ -1,11 +1,9 @@
 <template>
   <div>
-    <cc-skeleton :loading="true" :animated="true">
-      <cc-skeleton-item />
-      <cc-skeleton-item />
-    </cc-skeleton>
+    <DatePicker />
   </div>
 </template>
 
 <script lang="ts" setup>
+import DatePicker from '../packages/datepicker'
 </script>

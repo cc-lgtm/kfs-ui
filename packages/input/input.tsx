@@ -4,7 +4,8 @@ import {
   watch
 } from 'vue'
 import './input.scss'
-import { useState, useClass } from '../utils/hooks/index'
+import { useState, useClass, useStyle } from '../utils/hooks/index'
+import { Size } from '../utils/theme'
 
 type inputType = 'text' | 'number' | 'password'
 
@@ -13,7 +14,11 @@ const CcInput = defineComponent({
   props: {
     value: {
       type: String
-    },  
+    },
+    size: {
+      type: String as PropType<Size>,
+      default: 'medium'
+    },
     leftIcon: {
       type: String
     },
@@ -43,12 +48,24 @@ const CcInput = defineComponent({
       type: String
     }
   },
-  emits: ['input', 'click', 'inputChange'],
+  emits: ['input', 'click', 'inputChange', 'foucs', 'blur'],
   setup(props, { slots, emit }) {
 
     const className = useClass((classes) => {
       props.className && classes.push(props.className)
     }, ['cc-input'])
+
+    const sizeMap = {
+      "large": ['250px', '35px', '20px'],
+      "medium": ['200px', '30px', '18px'],
+      "small": ['150px', '25px', '16px'],
+      "mini": ['100px', '15px', '14px']
+    } as {[k: string]: string[]}
+    const styles = useStyle({
+      '--w': sizeMap[props.size][0],
+      '--h': sizeMap[props.size][1],
+      '--size': sizeMap[props.size][2]
+    })
 
     const [currentV, useCurrentV] = useState<string>("")
 
@@ -66,8 +83,11 @@ const CcInput = defineComponent({
       emit('click', e)
     }
 
+    const onFocus = (e: Event) => emit('foucs', e)
+    const onBlur = (e: Event) => emit('blur', e)
+
     return () => (
-      <div class={className}>
+      <div class={className} style={styles}>
         { props.leftText && <span class="title">{ props.leftText }</span> }
         {
           props.leftIcon && <img src={props.leftIcon} alt="left-icon" class="left-icon" />
@@ -78,6 +98,8 @@ const CcInput = defineComponent({
             disabled={props.disabled}
             readonly={props.readonly}
             onInput={onInput}
+            onFocus={onFocus}
+            onBlur={onBlur}
             placeholder={props.tips}
             class={props.disabled ? 'disabled': ''}
           />

@@ -43,9 +43,7 @@ const CcSkeleton = defineComponent({
         useContext.getContext('w', i)
         skeletonRows.push(<CcSkeletonItem variable="text" style={styles(i)} />)
       }
-      return skeletonRows.map((s, _) => (
-        s
-      ))
+      return skeletonRows.map(s => s)
     }
     const row = () => {
       return props.rows ? renderRows() : slots.default?.()
