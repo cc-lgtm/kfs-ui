@@ -33,13 +33,14 @@ const CcSkeleton = defineComponent({
     useContext.getContext('animated', props.animated)
     const styles = (index: number) => {
       const style = {
-        '--w': props.rowsWidth![index]
+        '--w': props.rowsWidth ? props.rowsWidth![index] : '200px'
       } as CSSProperties
       return style
     }
     const renderRows = () => {
       const skeletonRows = reactive([] as JSX.Element[])
       for (let i = 0; i < props.rows; i++) {
+        useContext.getContext('w', i)
         skeletonRows.push(<CcSkeletonItem variable="text" style={styles(i)} />)
       }
       return skeletonRows.map((s, _) => (

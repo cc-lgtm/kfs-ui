@@ -1,32 +1,14 @@
 import {
   defineComponent,
-  PropType,
-  inject
+  PropType
 } from 'vue'
-import { useContext } from '../utils/hooks'
+import './skeleton-item.scss';
+import { useStyle, useContext } from '../utils/hooks'
 
 type VariableType = 'p' | 'text' | 'h' | 'rect' | 'circle' | 'image' | 'button' | 'caption'
-import SkeletonButton from './button/index'
-import SkeletonCircle from './circle/index'
-import SkeletonCaption from './caption/index'
-import SkeletonH from './h/index'
-import SkeletonImg from './img/index'
-import SkeletonRect from './rect/index'
-import SkeletonText from './text/index'
-import SkeletonP from './p/index'
 
 const CcSkeletonItem = defineComponent({
   name: 'cc-skeleton-item',
-  components: {
-    SkeletonButton,
-    SkeletonCircle,
-    SkeletonCaption,
-    SkeletonH,
-    SkeletonImg,
-    SkeletonRect,
-    SkeletonText,
-    SkeletonP
-  },
   props: {
     variable: {
       type: String as PropType<VariableType>,
@@ -35,23 +17,28 @@ const CcSkeletonItem = defineComponent({
   },
   setup(props) {
     const animated = useContext.setContext('animated')
-    console.log(animated)
-    const renderSkeletonItem = () => {
-      const type = {
-        'p': <SkeletonP></SkeletonP>,
-        'text': <SkeletonText></SkeletonText>,
-        'h': <SkeletonH></SkeletonH>,
-        'rect': <SkeletonRect></SkeletonRect>,
-        'circle': <SkeletonCircle></SkeletonCircle>,
-        'image': <SkeletonImg></SkeletonImg>,
-        'button': <SkeletonButton></SkeletonButton>,
-        'caption': <SkeletonCaption></SkeletonCaption>
-      } as {[propname:string]: JSX.Element}
-      return type[props.variable]
-    }
+    const w = useContext.setContext('w') || '200px'
+
+    const hMap = {
+      'button': '40px',
+      'caption': '30px',
+      'circle': w,
+      'h': '20px',
+      'image': '200px',
+      'p': '15px',
+      'rect': '100px',
+      'text': '15px'
+    } as {[k: string]: string}
+
+    const styles = useStyle({
+      '--w': w,
+      '--h': hMap[props.variable],
+      '--r': props.variable === 'circle' ? '50%' : '5px',
+      '--animation': animated ? 'loading .8s infinite ease' : ''
+    })
+
     return () => (
-      <div class="cc-skeleton-item-box">
-        {renderSkeletonItem()}
+      <div class="cc-skeleton-item" style={styles}>
       </div>
     )
   }

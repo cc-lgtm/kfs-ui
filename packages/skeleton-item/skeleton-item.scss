@@ -1,8 +1,8 @@
-.skeleton-p {
+.cc-skeleton-item {
   width: var(--w);
-  height: 15px;
+  height: var(--h);
   background: #ecf0f1;
-  border-radius: 5px;
+  border-radius: var(--r);
   margin: 10px;
   overflow: hidden;
   position: relative;
@@ -17,16 +17,16 @@
     position: absolute;
     left: 0;
     top: 0;
-    animation: loading .8s infinite ease;
+    animation: var(--animation);
   }
 }
 
 @keyframes loading {
   0% {
-    background-position: 100% 50%
+      background-position: 100% 50%
   }
 
   to {
-    background-position: 0 50%
+      background-position: 0 50%
   }
 }
