@@ -9,7 +9,7 @@
   width: 15px;
   height: 100%;
   margin-right: 5px;
-  background: lightgreen;
+  background: var(--theme-bg-success);
   -webkit-animation: loadrect 1.04s ease infinite;
 }
 .loadrect span:last-child{

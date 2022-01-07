@@ -6,6 +6,9 @@
     <cc-button type="error">按钮</cc-button>
     <cc-button type="warn">按钮</cc-button>
     <cc-card shadow="never" />
+    <cc-input />
+    <cc-link>adsds</cc-link>
+    <cc-loading />
   </div>
 </template>
 

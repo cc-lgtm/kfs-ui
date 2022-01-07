@@ -9,7 +9,7 @@
   width: 15px;
   height: 100%;
   border-radius: 50%;
-  background: lightgreen;
+  background: var(--theme-bg-success);
   -webkit-animation: loadback 1.04s ease-in infinite alternate;
 }
 @-webkit-keyframes loadback{

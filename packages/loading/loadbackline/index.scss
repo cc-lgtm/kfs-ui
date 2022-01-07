@@ -4,7 +4,7 @@
   border-radius: 2px;
   margin: 0 auto;
   position: relative;
-  background: lightgreen;
+  background: var(--theme-bg-success);
   -webkit-animation: changeBgColor 1.04s ease-in infinite alternate;
 }
 .loadbackline span{

@@ -1,15 +1,15 @@
 .loadEffect {
-	width:100px;
-	height:100px;
+	width: 100px;
+	height: 100px;
 	position:relative;
-	margin:25% auto;
+	margin: 0 auto;
 }
 .loadEffect span {
 	display:inline-block;
 	width:16px;
 	height:16px;
 	border-radius:50%;
-	background:#48a5f4;
+	background: var(--theme-bg-info);
 	position:absolute;
 	-webkit-animation:loadEffect 1.04s ease infinite;
 }

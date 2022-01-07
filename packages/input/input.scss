@@ -19,12 +19,12 @@
     display: flex;
     flex: 1;
     padding: 0 10px;
-    color: #1e90ff;
+    color: var(--theme-color-default);
     font-size: 20px;
     border: none;
     font-family: Georgia, 'Times New Roman', Times, serif;
     &::placeholder {
-      font-size: 14px;
+      font-size: var(--theme-size-xs);
     }
   }
   .right-icon {

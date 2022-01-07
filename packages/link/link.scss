@@ -9,23 +9,23 @@
   color: #bdc3c7;
 }
 .cc-link-primary {
-  color: #3498db;
+  color: var(--theme-bg-info);
 }
 .cc-link-success {
-  color: #2ecc71;
+  color: var(--theme-bg-success);
 }
 .cc-link-warning {
-  color: #f1c40f;
+  color: var(--theme-bg-warn);
 }
 .cc-link-danger {
-  color: #e74c3c;
+  color: var(--theme-bg-error);
 }
 .cc-link-info {
-  color: #3498db;
+  color: var(--theme-bg-info);
 }
 .cc-link-underline {
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 .cc-link-disabled {

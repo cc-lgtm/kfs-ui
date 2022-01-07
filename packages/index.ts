@@ -1,3 +1,4 @@
+import './style/var.scss';
 import { App } from 'vue'
 import Button from './button/button'
 import Card from './card/card'
