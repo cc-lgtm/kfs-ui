@@ -29,14 +29,5 @@
       "dom.iterable",
       "scripthost"
     ]
-  },
-  "include": [
-    "packages/**/*.ts",
-    "packages/**/*.tsx",
-    "shims-vue.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  }
 }
