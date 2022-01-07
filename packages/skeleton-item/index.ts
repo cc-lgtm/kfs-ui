@@ -1,5 +1,5 @@
 import { installComponent } from '../utils/helper'
 import skeletonItem from './skeletonItem'
 
-export const SkeletonItem = installComponent(skeletonItem)
-export default SkeletonItem;
+export const CcSkeletonItem = installComponent(skeletonItem)
+export default CcSkeletonItem;

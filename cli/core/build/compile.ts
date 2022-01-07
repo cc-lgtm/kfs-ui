@@ -4,8 +4,8 @@ import VueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig, build, InlineConfig } from 'vite'
 import path = require('path')
 
-const entry = `./../../../packages`
-const output = `./../../../lib`
+const entry = path.join(__dirname, '../../../packages');
+const output = path.join(__dirname, '../../../lib')
 
 const baseConfig = defineConfig({
   optimizeDeps: {
@@ -30,9 +30,9 @@ const buildAll = () => {
       rollupOptions,
       lib: {
         entry: path.resolve(entry, 'index.ts'),
-        name: 'kfs-ui',
-        fileName: 'kfs-ui',
-        formats: ['es', 'umd']
+        name: 'index',
+        fileName: 'index',
+        formats: ['umd']
       },
       outDir: output
     }
@@ -48,7 +48,7 @@ const buildSingle = (name: string) => {
         entry: path.resolve(entry, 'index.ts'),
         name: 'index',
         fileName: 'index',
-        formats: ['es', 'umd']
+        formats: ['umd']
       },
       outDir: path.resolve(output, name)
     }

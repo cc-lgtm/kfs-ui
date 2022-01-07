@@ -1,5 +1,5 @@
 import { installComponent } from '../utils/helper'
 import popup from './popup'
 
-export const Popup = installComponent(popup)
-export default Popup;
+export const CcPopup = installComponent(popup)
+export default CcPopup;

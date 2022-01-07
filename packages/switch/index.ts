@@ -1,5 +1,5 @@
 import { installComponent } from '../utils/helper'
 import _switch from './switch'
 
-export const Switch = installComponent(_switch)
-export default Switch;
+export const CcSwitch = installComponent(_switch)
+export default CcSwitch;
