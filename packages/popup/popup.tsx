@@ -46,7 +46,7 @@ const CcPopup = defineComponent({
         )
       } else {
         return (
-          <CcInput leftText="上传信息" className="input" />
+          <CcInput className="input" />
         )
       }
     }

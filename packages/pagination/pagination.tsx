@@ -82,13 +82,6 @@ const CcPagination = defineComponent({
       emit('currentChange', currentPage.value)
     })
 
-    // const renderOmit = (pagerArray: Array<PagerType>) => {
-    //   pagerArray.splice(3, 0, {
-    //     pager: 0
-    //   })
-    //   pagerArray.splice(4, computePager.value - 6)
-    // }
-
     const renderPager = () => {
       const pagerArray: Array<PagerType> = []
       for (let pager = 1; pager <= computePager.value; pager++) {
@@ -97,7 +90,6 @@ const CcPagination = defineComponent({
           currentChange: (current) => currentChange(current)
         })
       }
-      // if (computePager.value > 7) renderOmit(pagerArray) 
       return pagerArray
     }
 
