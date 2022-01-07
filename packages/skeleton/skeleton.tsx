@@ -5,6 +5,7 @@ import {
   reactive
 } from 'vue'
 import CcSkeletonItem from '../skeleton-item/skeletonItem'
+import { useContext } from '../utils/hooks'
 
 type RowsWidthType = string[] | number[]
 
@@ -22,9 +23,14 @@ const CcSkeleton = defineComponent({
     },
     rowsWidth: {
       type: Array as PropType<RowsWidthType>
+    },
+    animated: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props, { slots }) {
+    useContext.getContext('animated', props.animated)
     const styles = (index: number) => {
       const style = {
         '--w': props.rowsWidth![index]

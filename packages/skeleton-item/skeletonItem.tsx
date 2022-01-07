@@ -1,7 +1,9 @@
 import {
   defineComponent,
-  PropType
+  PropType,
+  inject
 } from 'vue'
+import { useContext } from '../utils/hooks'
 
 type VariableType = 'p' | 'text' | 'h' | 'rect' | 'circle' | 'image' | 'button' | 'caption'
 import SkeletonButton from './button/index'
@@ -32,6 +34,8 @@ const CcSkeletonItem = defineComponent({
     }
   },
   setup(props) {
+    const animated = useContext.setContext('animated')
+    console.log(animated)
     const renderSkeletonItem = () => {
       const type = {
         'p': <SkeletonP></SkeletonP>,

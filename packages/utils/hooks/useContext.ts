@@ -1,13 +1,11 @@
 import { provide, inject } from 'vue'
 const useContext = (() => {
   const context = {
-    setContext: (name: string, value: any) => {
+    getContext: (name: string, value: any) => {
       provide(name, value)
-      return context
     },
-    getContext: (name: string, initVal?: any) => {
-      inject(name, initVal)
-      return context
+    setContext: (name: string, initVal?: any) => {
+      return inject(name, initVal)
     }
   }
   return context
