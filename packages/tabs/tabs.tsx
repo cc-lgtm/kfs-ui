@@ -17,7 +17,6 @@ const CcTabs = defineComponent({
   },
   emits: ['change', 'click'],
   setup(props, { slots, emit }) {
-    const [tabs] = useState<HTMLDivElement>()
     const slot_arr = slots.default?.()
     const [activeVal, useActiveVal] = useState<number | string>(props.active)
 
@@ -47,7 +46,7 @@ const CcTabs = defineComponent({
     }
 
     return () => (
-      <div class="cc-tabs" ref={tabs}>
+      <div class="cc-tabs">
         {renderTabs()}
       </div>
     )

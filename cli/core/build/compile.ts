@@ -84,7 +84,7 @@ const buildLib = async () => {
   const components = fs.readdirSync(entry).filter(name => {
     const dir = path.resolve(entry, name)
     const isDir = fs.lstatSync(dir).isDirectory()
-    return isDir && fs.readdirSync(dir).includes('index.ts')
+    return isDir && (fs.readdirSync(dir) as string[]).includes('index.ts')
   })
 
   for(const name of components) {

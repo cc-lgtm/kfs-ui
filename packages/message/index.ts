@@ -4,7 +4,8 @@ import message from './messageFn'
 
 export const CcMessage = {} as {[propname: string]: any}
 export {
-  messageJsx
+  messageJsx,
+  message
 }
 CcMessage['install'] = (app: App) => {
   app.config.globalProperties.$toast = message
