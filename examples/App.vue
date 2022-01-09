@@ -12,7 +12,11 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { message } from '../packages/message/index'
+message({
+  type: 'error',
+  text: 'test'
+})
 </script>
 
 <style lang="scss">

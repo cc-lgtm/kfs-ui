@@ -1,1 +1,0 @@
-const t={key:"v-1d140b13",path:"/guide/pagination.html",title:"Pagination",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1640436726e3,contributors:[{name:"coderC",email:"2448856797@qq.com",commits:2}]},filePathRelative:"guide/pagination.md"};export{t as data};

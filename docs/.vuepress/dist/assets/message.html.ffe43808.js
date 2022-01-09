@@ -1,1 +1,0 @@
-const e={key:"v-704f37c4",path:"/guide/message.html",title:"Message",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1640436726e3,contributors:[{name:"coderC",email:"2448856797@qq.com",commits:2}]},filePathRelative:"guide/message.md"};export{e as data};

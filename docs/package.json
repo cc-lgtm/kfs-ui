@@ -1,0 +1,25 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/cc-lgtm/kfs-ui-docs.git",
+  "author": "coderC <2448856797@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.29"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "deploy-gh": "GH=1 yarn docs:build && bash script/deploy-gh.sh"
+  },
+  "dependencies": {
+    "@cloudbase/cli": "^1.12.0",
+    "@vue/babel-plugin-jsx": "^1.1.1",
+    "@vue/babel-preset-jsx": "^1.2.4",
+    "gh-pages": "^3.2.3",
+    "kfs-ui": "^0.4.1",
+    "sass": "^1.45.1",
+    "vuepress-plugin-demoblock-plus": "^1.5.1"
+  }
+}

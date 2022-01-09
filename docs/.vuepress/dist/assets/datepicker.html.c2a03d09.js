@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as a,e as c,f as r}from"./app.7013f3a7.js";const s={},o={id:"datepicker",tabindex:"-1"},_=c("a",{class:"header-anchor",href:"#datepicker","aria-hidden":"true"},"#",-1),d=r(" DatePicker"),n=[_,d];function i(h,f){return t(),a("h1",o,n)}var k=e(s,[["render",i]]);export{k as default};
