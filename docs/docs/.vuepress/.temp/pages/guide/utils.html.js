@@ -24,16 +24,18 @@ export const data = {
       "slug": "theme",
       "children": []
     }
-  ],
-  "git": {
-    "updatedTime": 1640867268000,
-    "contributors": [
-      {
-        "name": "coderC",
-        "email": "2448856797@qq.com",
-        "commits": 1
-      }
-    ]
-  },
-  "filePathRelative": "guide/utils.md"
+  ]
+}
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
 }

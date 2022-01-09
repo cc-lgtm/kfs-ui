@@ -328,8 +328,8 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_1
       ]),
-      _: 1
-    }, 8, ["onClick"]),
+      _: 1 /* STABLE */
+    }, 8 /* PROPS */, ["onClick"]),
     (_ctx.popupStatus)
       ? (_openBlock(), _createBlock(_component_cc_popup, {
           key: 0,
@@ -337,7 +337,7 @@ function render(_ctx, _cache) {
           title: "提示",
           content: "我是一个提示"
         }))
-      : _createCommentVNode("", true)
+      : _createCommentVNode("v-if", true)
   ]))
 }
   
@@ -381,8 +381,8 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_1
       ]),
-      _: 1
-    }, 8, ["onClick"]),
+      _: 1 /* STABLE */
+    }, 8 /* PROPS */, ["onClick"]),
     (_ctx.popupStatus)
       ? (_openBlock(), _createBlock(_component_cc_popup, {
           key: 0,
@@ -390,7 +390,7 @@ function render(_ctx, _cache) {
           title: "提示",
           content: "我是一个提示"
         }))
-      : _createCommentVNode("", true)
+      : _createCommentVNode("v-if", true)
   ]))
 }
   
@@ -434,8 +434,8 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_1
       ]),
-      _: 1
-    }, 8, ["onClick"]),
+      _: 1 /* STABLE */
+    }, 8 /* PROPS */, ["onClick"]),
     (_ctx.popupStatus)
       ? (_openBlock(), _createBlock(_component_cc_popup, {
           key: 0,
@@ -443,7 +443,7 @@ function render(_ctx, _cache) {
           title: "提示",
           content: "我是一个提示"
         }))
-      : _createCommentVNode("", true)
+      : _createCommentVNode("v-if", true)
   ]))
 }
   

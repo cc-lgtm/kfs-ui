@@ -282,7 +282,7 @@ function render(_ctx, _cache) {
         _createVNode(_component_cc_step),
         _createVNode(_component_cc_step)
       ]),
-      _: 1
+      _: 1 /* STABLE */
     })
   ]))
 }
@@ -325,7 +325,7 @@ function render(_ctx, _cache) {
           description: "这是一条很长很长很长描述"
         })
       ]),
-      _: 1
+      _: 1 /* STABLE */
     })
   ]))
 }

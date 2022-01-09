@@ -231,7 +231,7 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _createVNode(_component_cc_skeleton_item, { type: "text" })
       ]),
-      _: 1
+      _: 1 /* STABLE */
     })
   ]))
 }
@@ -297,7 +297,7 @@ function render(_ctx, _cache) {
         _createVNode(_component_cc_skeleton_item, { type: "h" }),
         _createVNode(_component_cc_skeleton_item, { type: "button" })
       ]),
-      _: 1
+      _: 1 /* STABLE */
     })
   ]))
 }

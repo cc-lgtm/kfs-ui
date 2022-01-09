@@ -180,8 +180,8 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_1
       ]),
-      _: 1
-    }, 8, ["onClick"])
+      _: 1 /* STABLE */
+    }, 8 /* PROPS */, ["onClick"])
   ]))
 }
   

@@ -1,6 +1,6 @@
-import clientAppSetup0 from '/home/littlebird/桌面/vue_docs/docs/node_modules/@vuepress/plugin-active-header-links/lib/client/clientAppSetup.js'
-import clientAppSetup1 from '/home/littlebird/桌面/vue_docs/docs/node_modules/@vuepress/plugin-nprogress/lib/client/clientAppSetup.js'
-import clientAppSetup2 from '/home/littlebird/桌面/vue_docs/docs/node_modules/@vuepress/theme-default/lib/client/clientAppSetup.js'
+import clientAppSetup0 from '/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/node_modules/@vuepress/plugin-active-header-links/lib/client/clientAppSetup.js'
+import clientAppSetup1 from '/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/node_modules/@vuepress/plugin-nprogress/lib/client/clientAppSetup.js'
+import clientAppSetup2 from '/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/node_modules/@vuepress/theme-default/lib/client/clientAppSetup.js'
 
 export const clientAppSetups = [
   clientAppSetup0,

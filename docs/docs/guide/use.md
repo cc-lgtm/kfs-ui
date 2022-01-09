@@ -1,4 +1,6 @@
 ### 自定义主题
+> 内部提供方法`useTheme`和一些主题`css变量`,只需要`useTheme({'--theme-bg-default': '#fff'})`即可以切换主题  
+下面做一个简单的示例
 
 <div id="app">
   <div class="container">
@@ -27,8 +29,46 @@
   </div>
 
   <div class="change">
-    <cc-button @click="chageTheme" :isLoading="Loading">切换</cc-button>
+    <cc-button @click="chageTheme" :isLoading="Loading" type="success">切换</cc-button>
   </div>
+
+  ```vue
+  <script>
+    import { onMounted } from 'vue'
+    import { toArray } from './../helper'
+
+    type ThemesType = {
+      [key: string]: string
+    }
+    const useTheme = (themes: ThemesType) => {
+      onMounted(() => {
+        toArray(themes).forEach(theme => {
+          const key = Object.keys(theme).join('')
+          document.documentElement.style.setProperty(key, theme[key])
+        })
+      })
+    }
+
+    export default useTheme;
+  </script>
+
+  <style lang="scss">
+    :root {
+      --theme-bg-default: #fff;
+      --theme-bg-success: #2ecc71;
+      --theme-bg-error: #e74c3c;
+      --theme-bg-warn: #f39c12;
+      --theme-bg-info: #3498db;
+      --theme-bg-disabled: #d2d6da;
+      --theme-color-default: #7f8c8d;
+      --theme-color-all: #fff;
+      --theme-size-xs: 14px;
+      --theme-size-sm: 16px;
+      --theme-size-md: 18px;
+      --theme-size-lg: 20px;
+    }
+  </style>
+  ```
 </div>
 
 <script setup lang="ts">
@@ -74,12 +114,21 @@ const useTheme = () => {
   document.documentElement.style.setProperty('--app-bg', '#282c34')
   document.documentElement.style.setProperty('--img-bg', '#fff')
   document.documentElement.style.setProperty('--app-color', '#fff')
+  document.documentElement.style.setProperty('--theme-color-default', '#fff')
 }
+const defaultTheme = () => {
+  document.documentElement.style.setProperty('--app-bg', '#fff')
+  document.documentElement.style.setProperty('--img-bg', '#ccc')
+  document.documentElement.style.setProperty('--app-color', '#344954')
+  document.documentElement.style.setProperty('--theme-color-default', '#7f8c8d')
+}
+const crueet = ref(false)
 const chageTheme = () => {
-  Loading.value = true
+  Loading.value = !Loading.value
+  crueet.value = !crueet.value
   setTimeout(() => {
-    useTheme()
-    Loading.value = false
+    Loading.value = !Loading.value
+    crueet.value ? useTheme() : defaultTheme()
   }, 800)
 }
 </script>
