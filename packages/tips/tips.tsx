@@ -1,8 +1,10 @@
 import {
-  defineComponent
+  defineComponent,
+  computed,
+  CSSProperties
 } from 'vue'
 import './tips.scss';
-import { useState, useClass, useStyle } from '../utils/hooks/index'
+import { useState, useClass } from '../utils/hooks/index'
 
 const CcTips = defineComponent({
   name: 'cc-tips',
@@ -30,9 +32,11 @@ const CcTips = defineComponent({
       emit('hoverout', e)
     }
 
-    const styles = useStyle({
-      '--color': props.color,
-      '--opacity': tips.value ? 1 : 0
+    const styles = computed(() => {
+      return {
+        '--color': props.color,
+        '--opacity': tips.value ? 1 : 0
+      } as CSSProperties
     })
     const className = useClass((classes) => {
       props.class && classes.push(props.class)
@@ -41,7 +45,7 @@ const CcTips = defineComponent({
     return () => (
       <div class={className} onMouseover={onHover} onMouseout={onHoverOut}>
         { slots.default?.() }
-        { <div class="hover-tips" style={styles}>{ props.tips }</div> }
+        { <div class="hover-tips" style={styles.value}>{ props.tips }</div> }
       </div>
     )
   }

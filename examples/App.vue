@@ -8,19 +8,17 @@
       <cc-skeleton />
       <cc-skeleton />
     </cc-skeleton>
+    <cc-switch />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { message } from '../packages/message/index'
-message({
+import messageFn from '../packages/message/messageFn'
+messageFn({
   type: 'error',
-  text: 'test'
+  text: 'text'
 })
 </script>
 
 <style lang="scss">
-  * {
-    position: absolute;
-  }
 </style>

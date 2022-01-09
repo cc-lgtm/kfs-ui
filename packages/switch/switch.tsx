@@ -2,11 +2,12 @@ import {
   CSSProperties,
   defineComponent,
   PropType,
-  reactive
+  reactive,
+  computed
 } from 'vue'
 import './switch.scss'
 import { Size } from '../utils/theme/index'
-import { useState, useClass, useStyle } from '../utils/hooks/index'
+import { useState, useClass } from '../utils/hooks/index'
 
 const CcSwitch = defineComponent({
   name: 'cc-switch',
@@ -49,7 +50,9 @@ const CcSwitch = defineComponent({
       '--bg': '#bdc3c7',
       '--w': sizeMap[props.size]
     })
-    const animate = useStyle(styles)
+    const animate = computed(() => {
+      return styles
+    })
 
     const [currentValue, useCurrentValue] = useState(props.inactiveValue)
     const [value, useValue] = useState<boolean>(props.value)
