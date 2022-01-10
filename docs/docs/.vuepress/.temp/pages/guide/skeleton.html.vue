@@ -3,8 +3,8 @@
 <h4 id="默认" tabindex="-1"><a class="header-anchor" href="#默认" aria-hidden="true">#</a> 默认</h4>
 <demo customClass="" sourceCode="&lt;template&gt;
   &lt;div&gt;
-    &lt;cc-skeleton :loading=&quot;true&quot;&gt;
-      &lt;cc-skeleton-item type=&quot;text&quot;&gt;&lt;/cc-skeleton-item&gt;
+    &lt;cc-skeleton :loading=&quot;true&quot; :animated=&quot;true&quot;&gt;
+      &lt;cc-skeleton-item variable=&quot;text&quot;&gt;&lt;/cc-skeleton-item&gt;
     &lt;/cc-skeleton&gt;
   &lt;/div&gt;
 &lt;/template&gt;
@@ -14,8 +14,8 @@
           <div v-pre class="language-vue">
             <pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">loading</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">      &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">type</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;text&quot;</span><span style="color: var(--shiki-color-text)">&gt;&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">loading</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">animated</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">variable</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;text&quot;</span><span style="color: var(--shiki-color-text)">&gt;&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    &lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
@@ -24,7 +24,7 @@
         </template></demo><h4 id="多行" tabindex="-1"><a class="header-anchor" href="#多行" aria-hidden="true">#</a> 多行</h4>
 <demo customClass="" sourceCode="&lt;template&gt;
   &lt;div&gt;
-    &lt;cc-skeleton :loading=&quot;true&quot; :rows=3&gt;
+    &lt;cc-skeleton :loading=&quot;true&quot; :animated=&quot;true&quot; :rows=3&gt;
     &lt;/cc-skeleton&gt;
   &lt;/div&gt;
 &lt;/template&gt;
@@ -34,7 +34,7 @@
           <div v-pre class="language-vue">
             <pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">loading</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">rows</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">3&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">loading</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">animated</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">rows</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">3&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    &lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
@@ -43,7 +43,7 @@
         </template></demo><h4 id="设置长度" tabindex="-1"><a class="header-anchor" href="#设置长度" aria-hidden="true">#</a> 设置长度</h4>
 <demo customClass="" sourceCode="&lt;template&gt;
   &lt;div&gt;
-    &lt;cc-skeleton :loading=&quot;true&quot; :rows=3 :rowsWidth=&quot;['200px','150px','100px']&quot;&gt;
+    &lt;cc-skeleton :loading=&quot;true&quot; :animated=&quot;true&quot; :rows=3 :rowsWidth=&quot;['200px','150px','100px']&quot;&gt;
     &lt;/cc-skeleton&gt;
   &lt;/div&gt;
 &lt;/template&gt;
@@ -53,7 +53,7 @@
           <div v-pre class="language-vue">
             <pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">loading</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">rows</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">3 </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">rowsWidth</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">[</span><span style="color: var(--shiki-token-string-expression)">&#39;200px&#39;</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-token-string-expression)">&#39;150px&#39;</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-token-string-expression)">&#39;100px&#39;</span><span style="color: var(--shiki-color-text)">]</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">loading</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">animated</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">rows</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">3 </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">rowsWidth</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">[</span><span style="color: var(--shiki-token-string-expression)">&#39;200px&#39;</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-token-string-expression)">&#39;150px&#39;</span><span style="color: var(--shiki-token-punctuation)">,</span><span style="color: var(--shiki-token-string-expression)">&#39;100px&#39;</span><span style="color: var(--shiki-color-text)">]</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    &lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
@@ -62,10 +62,10 @@
         </template></demo><h4 id="其他类型" tabindex="-1"><a class="header-anchor" href="#其他类型" aria-hidden="true">#</a> 其他类型</h4>
 <demo customClass="" sourceCode="&lt;template&gt;
   &lt;div&gt;
-    &lt;cc-skeleton :loading=&quot;true&quot;&gt;
-      &lt;cc-skeleton-item type=&quot;rect&quot;&gt;&lt;/cc-skeleton-item&gt;
-      &lt;cc-skeleton-item type=&quot;h&quot;&gt;&lt;/cc-skeleton-item&gt;
-      &lt;cc-skeleton-item type=&quot;button&quot;&gt;&lt;/cc-skeleton-item&gt;
+    &lt;cc-skeleton :loading=&quot;true&quot; :animated=&quot;true&quot;&gt;
+      &lt;cc-skeleton-item variable=&quot;rect&quot;&gt;&lt;/cc-skeleton-item&gt;
+      &lt;cc-skeleton-item variable=&quot;h&quot;&gt;&lt;/cc-skeleton-item&gt;
+      &lt;cc-skeleton-item variable=&quot;button&quot;&gt;&lt;/cc-skeleton-item&gt;
     &lt;/cc-skeleton&gt;
   &lt;/div&gt;
 &lt;/template&gt;
@@ -75,10 +75,10 @@
           <div v-pre class="language-vue">
             <pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">loading</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">      &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">type</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;rect&quot;</span><span style="color: var(--shiki-color-text)">&gt;&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">      &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">type</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;h&quot;</span><span style="color: var(--shiki-color-text)">&gt;&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">      &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">type</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;button&quot;</span><span style="color: var(--shiki-color-text)">&gt;&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">loading</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">animated</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">true</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">variable</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;rect&quot;</span><span style="color: var(--shiki-color-text)">&gt;&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">variable</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;h&quot;</span><span style="color: var(--shiki-color-text)">&gt;&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">variable</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;button&quot;</span><span style="color: var(--shiki-color-text)">&gt;&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton-item</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    &lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-skeleton</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
@@ -227,9 +227,12 @@ function render(_ctx, _cache) {
   const _component_cc_skeleton = _resolveComponent("cc-skeleton")
 
   return (_openBlock(), _createElementBlock("div", null, [
-    _createVNode(_component_cc_skeleton, { loading: true }, {
+    _createVNode(_component_cc_skeleton, {
+      loading: true,
+      animated: true
+    }, {
       default: _withCtx(() => [
-        _createVNode(_component_cc_skeleton_item, { type: "text" })
+        _createVNode(_component_cc_skeleton_item, { variable: "text" })
       ]),
       _: 1 /* STABLE */
     })
@@ -251,6 +254,7 @@ function render(_ctx, _cache) {
   return (_openBlock(), _createElementBlock("div", null, [
     _createVNode(_component_cc_skeleton, {
       loading: true,
+      animated: true,
       rows: 3
     })
   ]))
@@ -271,6 +275,7 @@ function render(_ctx, _cache) {
   return (_openBlock(), _createElementBlock("div", null, [
     _createVNode(_component_cc_skeleton, {
       loading: true,
+      animated: true,
       rows: 3,
       rowsWidth: ['200px','150px','100px']
     })
@@ -291,11 +296,14 @@ function render(_ctx, _cache) {
   const _component_cc_skeleton = _resolveComponent("cc-skeleton")
 
   return (_openBlock(), _createElementBlock("div", null, [
-    _createVNode(_component_cc_skeleton, { loading: true }, {
+    _createVNode(_component_cc_skeleton, {
+      loading: true,
+      animated: true
+    }, {
       default: _withCtx(() => [
-        _createVNode(_component_cc_skeleton_item, { type: "rect" }),
-        _createVNode(_component_cc_skeleton_item, { type: "h" }),
-        _createVNode(_component_cc_skeleton_item, { type: "button" })
+        _createVNode(_component_cc_skeleton_item, { variable: "rect" }),
+        _createVNode(_component_cc_skeleton_item, { variable: "h" }),
+        _createVNode(_component_cc_skeleton_item, { variable: "button" })
       ]),
       _: 1 /* STABLE */
     })

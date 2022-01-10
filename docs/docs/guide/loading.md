@@ -15,7 +15,7 @@
 :::demo
 ```vue
 <template>
-  <div style="display: flex">
+  <div style="display: flex;witdh: 50%">
     <cc-loading type="effect" />
     <cc-loading type="line" />
     <cc-loading type="rect" />

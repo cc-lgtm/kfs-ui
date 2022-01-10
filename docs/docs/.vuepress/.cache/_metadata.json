@@ -1,7 +1,12 @@
 {
-  "hash": "27539ddd",
-  "browserHash": "6a15ac1c",
+  "hash": "05279853",
+  "browserHash": "be65adcb",
   "optimized": {
+    "kfs-ui/lib/index": {
+      "file": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/docs/.vuepress/.cache/kfs-ui_lib_index.js",
+      "src": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/node_modules/kfs-ui/lib/index.js",
+      "needsInterop": true
+    },
     "kfs-ui/lib": {
       "file": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/docs/.vuepress/.cache/kfs-ui_lib.js",
       "src": "/home/littlebird/桌面/vue3-components/vue3-components/v3-components/docs/node_modules/kfs-ui/lib/index.js",

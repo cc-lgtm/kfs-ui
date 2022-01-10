@@ -19,7 +19,7 @@
           </div>
         </template></demo><h4 id="类型" tabindex="-1"><a class="header-anchor" href="#类型" aria-hidden="true">#</a> 类型</h4>
 <demo customClass="" sourceCode="&lt;template&gt;
-  &lt;div style=&quot;display: flex&quot;&gt;
+  &lt;div style=&quot;display: flex;witdh: 50%&quot;&gt;
     &lt;cc-loading type=&quot;effect&quot; /&gt;
     &lt;cc-loading type=&quot;line&quot; /&gt;
     &lt;cc-loading type=&quot;rect&quot; /&gt;
@@ -32,7 +32,7 @@
         <template #highlight>
           <div v-pre class="language-vue">
             <pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">style</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;display: flex&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">style</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;display: flex;witdh: 50%&quot;</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-loading</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">type</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;effect&quot;</span><span style="color: var(--shiki-color-text)"> /&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-loading</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">type</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;line&quot;</span><span style="color: var(--shiki-color-text)"> /&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-loading</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">type</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;rect&quot;</span><span style="color: var(--shiki-color-text)"> /&gt;</span></span>
@@ -142,7 +142,7 @@ function render(_ctx, _cache) {
     
     const { resolveComponent: _resolveComponent, createVNode: _createVNode, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
-const _hoisted_1 = { style: {"display":"flex"} }
+const _hoisted_1 = { style: {"display":"flex","witdh":"50%"} }
 
 function render(_ctx, _cache) {
   const _component_cc_loading = _resolveComponent("cc-loading")

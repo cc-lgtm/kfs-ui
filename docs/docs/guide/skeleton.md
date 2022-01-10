@@ -5,8 +5,8 @@
 ```vue
 <template>
   <div>
-    <cc-skeleton :loading="true">
-      <cc-skeleton-item type="text"></cc-skeleton-item>
+    <cc-skeleton :loading="true" :animated="true">
+      <cc-skeleton-item variable="text"></cc-skeleton-item>
     </cc-skeleton>
   </div>
 </template>
@@ -18,7 +18,7 @@
 ```vue
 <template>
   <div>
-    <cc-skeleton :loading="true" :rows=3>
+    <cc-skeleton :loading="true" :animated="true" :rows=3>
     </cc-skeleton>
   </div>
 </template>
@@ -30,7 +30,7 @@
 ```vue
 <template>
   <div>
-    <cc-skeleton :loading="true" :rows=3 :rowsWidth="['200px','150px','100px']">
+    <cc-skeleton :loading="true" :animated="true" :rows=3 :rowsWidth="['200px','150px','100px']">
     </cc-skeleton>
   </div>
 </template>
@@ -42,10 +42,10 @@
 ```vue
 <template>
   <div>
-    <cc-skeleton :loading="true">
-      <cc-skeleton-item type="rect"></cc-skeleton-item>
-      <cc-skeleton-item type="h"></cc-skeleton-item>
-      <cc-skeleton-item type="button"></cc-skeleton-item>
+    <cc-skeleton :loading="true" :animated="true">
+      <cc-skeleton-item variable="rect"></cc-skeleton-item>
+      <cc-skeleton-item variable="h"></cc-skeleton-item>
+      <cc-skeleton-item variable="button"></cc-skeleton-item>
     </cc-skeleton>
   </div>
 </template>

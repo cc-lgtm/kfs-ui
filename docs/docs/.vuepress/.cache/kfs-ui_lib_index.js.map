@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "sources": ["dep:kfs-ui_lib"],
+  "sources": ["dep:kfs-ui_lib_index"],
   "sourcesContent": ["export default require(\"../../../../node_modules/kfs-ui/lib/index.js\");"],
-  "mappings": ";;;;;;;;;;;AAAA;AAAA;AAAA,IAAO,qBAAQ;",
+  "mappings": ";;;;;;;;;;;AAAA;AAAA;AAAA,IAAO,2BAAQ;",
   "names": []
 }

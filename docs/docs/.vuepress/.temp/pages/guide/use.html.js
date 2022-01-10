@@ -12,7 +12,18 @@ export const data = {
       "slug": "自定义主题",
       "children": []
     }
-  ]
+  ],
+  "git": {
+    "updatedTime": 1641734448000,
+    "contributors": [
+      {
+        "name": "coderC",
+        "email": "2448856797@qq.com",
+        "commits": 2
+      }
+    ]
+  },
+  "filePathRelative": "guide/use.md"
 }
 
 if (import.meta.webpackHot) {

@@ -8,6 +8,17 @@
     <cc-button type="success" @click="openMessage">点我试一试</cc-button>
   </div>
 </template>
+
+<script setup>
+  import { getCurrentInstance } from 'vue'
+  const { proxy } = getCurrentInstance()
+  const openMessage = () => {
+    proxy.$messageFn({
+      type: 'error',
+      text: 'text'
+    })
+  }
+</script>
 ```
 :::
 

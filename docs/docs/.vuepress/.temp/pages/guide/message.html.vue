@@ -6,6 +6,17 @@
     &lt;cc-button type=&quot;success&quot; @click=&quot;openMessage&quot;&gt;点我试一试&lt;/cc-button&gt;
   &lt;/div&gt;
 &lt;/template&gt;
+
+&lt;script setup&gt;
+  import { getCurrentInstance } from 'vue'
+  const { proxy } = getCurrentInstance()
+  const openMessage = () =&gt; {
+    proxy.$messageFn({
+      type: 'error',
+      text: 'text'
+    })
+  }
+&lt;/script&gt;
 "><render-demo-0 />
         
         <template #highlight>
@@ -15,6 +26,17 @@
 <span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-button</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">type</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;success&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">@</span><span style="color: var(--shiki-token-function)">click</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">openMessage</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">&gt;点我试一试&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-button</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">script</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">setup</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">import</span><span style="color: var(--shiki-color-text)"> { getCurrentInstance } </span><span style="color: var(--shiki-token-keyword)">from</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;vue&#39;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> { </span><span style="color: var(--shiki-token-constant)">proxy</span><span style="color: var(--shiki-color-text)"> } </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">getCurrentInstance</span><span style="color: var(--shiki-color-text)">()</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">openMessage</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> () </span><span style="color: var(--shiki-token-keyword)">=&gt;</span><span style="color: var(--shiki-color-text)"> {</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-constant)">proxy</span><span style="color: var(--shiki-token-function)">.$messageFn</span><span style="color: var(--shiki-color-text)">({</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      type</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;error&#39;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      text</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;text&#39;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    })</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  }</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">script</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"></span></code></pre>
           </div>
         </template></demo><h4 id="message属性" tabindex="-1"><a class="header-anchor" href="#message属性" aria-hidden="true">#</a> message属性</h4>
@@ -185,7 +207,26 @@ function render(_ctx, _cache) {
   ]))
 }
   
-    const democomponentExport = {}
+    const { getCurrentInstance } = Vue
+  
+const democomponentExport = {
+  setup(__props, { expose }) {
+  expose();
+
+  const { proxy } = getCurrentInstance()
+  const openMessage = () => {
+    proxy.$messageFn({
+      type: 'error',
+      text: 'text'
+    })
+  }
+
+const __returned__ = { proxy, openMessage, getCurrentInstance }
+Object.defineProperty(__returned__, '__isScriptSetup', { enumerable: false, value: true })
+return __returned__
+}
+
+}
     return {
       render,
       ...democomponentExport
