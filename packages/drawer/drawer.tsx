@@ -4,7 +4,8 @@ import {
   defineComponent,
   onMounted,
   PropType,
-  reactive
+  reactive,
+  ref
 } from 'vue'
 import './drawer.scss'
 import { useState } from '../utils/hooks/index'
@@ -29,12 +30,13 @@ const CcDrawer = defineComponent({
   },  
   emits: ['opened', 'closed'],
   setup(props, { emit, slots }) {
-    const getScorllW = onMounted(() => {
+    const getScorllW = ref<string>('')
+    onMounted(() => {
       const [width, useWidth] = useState<string>(document.body.scrollWidth + 'px')
       window.onresize = () => {
         useWidth(document.body.scrollWidth + 'px')
       }
-      return width.value
+      getScorllW.value = width.value
     })
 
     const positionStyle = () => {
@@ -59,7 +61,7 @@ const CcDrawer = defineComponent({
 
     const styles = computed(() => {
       const style: CSSProperties & {[propname: string]: any} = {
-        '--shadow': getScorllW,
+        '--shadow': getScorllW.value,
         '--w': props.width
       }
       return Object.assign(style, positionStyle())

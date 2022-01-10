@@ -1,5 +1,7 @@
 import './style/var.scss';
 import { App } from 'vue'
+import { useTheme } from './utils/hooks'
+import MessageFn from './message/messageFn'
 import Button from './button/button'
 import Card from './card/card'
 import Input from './input/input'
@@ -40,6 +42,8 @@ const components = [
 ]
 
 const install = (app:App) => {
+  app.config.globalProperties.$useTheme = useTheme;
+  app.config.globalProperties.$messageFn = MessageFn;
   components.map((component: any) => {
     app.component(component.name , component)
   })

@@ -9,12 +9,20 @@
       <cc-skeleton />
     </cc-skeleton>
     <cc-switch />
+    <cc-drawer />
+    <cc-steps :space="100">
+      <cc-step />
+      <cc-step />
+      <cc-step />
+    </cc-steps>
   </div>
 </template>
 
 <script lang="ts" setup>
 import messageFn from '../packages/message/messageFn'
-messageFn({
+import { getCurrentInstance } from 'vue'
+const { proxy } = getCurrentInstance()!
+proxy!.$messageFn({
   type: 'error',
   text: 'text'
 })
