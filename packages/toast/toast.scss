@@ -1,0 +1,28 @@
+.cc-toast {
+  width: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+  background: var(--toast-bg);
+  color: #fff;
+  font-size: var(--theme-size-md);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  // animation: out 1s ease-in-out;
+}
+
+// @keyframes out {
+//   0% {
+//     opacity: 1;
+//   }
+//   50% {
+//     opacity: 0.5;
+//   }
+//   100% {
+//     opacity: 0;
+//   }
+// }

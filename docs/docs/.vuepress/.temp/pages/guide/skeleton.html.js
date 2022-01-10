@@ -5,18 +5,16 @@ export const data = {
   "lang": "zh-CN",
   "frontmatter": {},
   "excerpt": "",
-  "headers": []
-}
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
+  "headers": [],
+  "git": {
+    "updatedTime": 1641781386000,
+    "contributors": [
+      {
+        "name": "coderC",
+        "email": "2448856797@qq.com",
+        "commits": 2
+      }
+    ]
+  },
+  "filePathRelative": "guide/skeleton.md"
 }

@@ -11,6 +11,7 @@ import Tips from './tips/tips'
 import Rating from './rate/rating'
 import Popup from './popup/popup'
 import Message from './message/message'
+import Toast from './toast/toast'
 import Pagination from './pagination/pagination'
 import Skeleton from './skeleton/skeleton'
 import SkeletonItem from './skeleton-item/skeletonItem'
@@ -38,7 +39,8 @@ const components = [
   Switch,
   Link,
   Skeleton,
-  SkeletonItem
+  SkeletonItem,
+  Toast
 ]
 
 const install = (app:App) => {

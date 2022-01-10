@@ -250,22 +250,22 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_2
       ]),
-      _: 1 /* STABLE */
-    }, 8 /* PROPS */, ["onClick"]),
+      _: 1
+    }, 8, ["onClick"]),
     _createVNode(_component_cc_button, { onClick: _ctx.openright }, {
       default: _withCtx(() => [
         _hoisted_3
       ]),
-      _: 1 /* STABLE */
-    }, 8 /* PROPS */, ["onClick"]),
+      _: 1
+    }, 8, ["onClick"]),
     _createVNode(_component_cc_drawer, {
       vModel: false,
       position: _ctx.left
-    }, null, 8 /* PROPS */, ["position"]),
+    }, null, 8, ["position"]),
     _createVNode(_component_cc_drawer, {
       vModel: false,
       position: _ctx.right
-    }, null, 8 /* PROPS */, ["position"])
+    }, null, 8, ["position"])
   ]))
 }
   

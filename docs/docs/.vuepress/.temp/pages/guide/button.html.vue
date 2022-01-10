@@ -369,25 +369,25 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_2
       ]),
-      _: 1 /* STABLE */
+      _: 1
     }),
     _createVNode(_component_cc_button, { type: "success" }, {
       default: _withCtx(() => [
         _hoisted_3
       ]),
-      _: 1 /* STABLE */
+      _: 1
     }),
     _createVNode(_component_cc_button, { type: "warn" }, {
       default: _withCtx(() => [
         _hoisted_4
       ]),
-      _: 1 /* STABLE */
+      _: 1
     }),
     _createVNode(_component_cc_button, { type: "error" }, {
       default: _withCtx(() => [
         _hoisted_5
       ]),
-      _: 1 /* STABLE */
+      _: 1
     })
   ]))
 }
@@ -415,7 +415,7 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_2
       ]),
-      _: 1 /* STABLE */
+      _: 1
     }),
     _createVNode(_component_cc_button, {
       type: "success",
@@ -424,7 +424,7 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_3
       ]),
-      _: 1 /* STABLE */
+      _: 1
     }),
     _createVNode(_component_cc_button, {
       type: "warn",
@@ -433,7 +433,7 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_4
       ]),
-      _: 1 /* STABLE */
+      _: 1
     }),
     _createVNode(_component_cc_button, {
       type: "error",
@@ -442,7 +442,7 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_5
       ]),
-      _: 1 /* STABLE */
+      _: 1
     })
   ]))
 }
@@ -468,7 +468,7 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_2
       ]),
-      _: 1 /* STABLE */
+      _: 1
     }),
     _createVNode(_component_cc_button, {
       isLoading: _ctx.isLoading,
@@ -477,8 +477,8 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_3
       ]),
-      _: 1 /* STABLE */
-    }, 8 /* PROPS */, ["isLoading", "onClick"])
+      _: 1
+    }, 8, ["isLoading", "onClick"])
   ]))
 }
   
@@ -514,19 +514,19 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_2
       ]),
-      _: 1 /* STABLE */
+      _: 1
     }),
     _createVNode(_component_cc_button, { size: "small" }, {
       default: _withCtx(() => [
         _hoisted_3
       ]),
-      _: 1 /* STABLE */
+      _: 1
     }),
     _createVNode(_component_cc_button, { size: "medium" }, {
       default: _withCtx(() => [
         _hoisted_4
       ]),
-      _: 1 /* STABLE */
+      _: 1
     })
   ]))
 }
@@ -553,19 +553,19 @@ function render(_ctx, _cache) {
       default: _withCtx(() => [
         _hoisted_2
       ]),
-      _: 1 /* STABLE */
+      _: 1
     }),
     _createVNode(_component_cc_button, { round: "10" }, {
       default: _withCtx(() => [
         _hoisted_3
       ]),
-      _: 1 /* STABLE */
+      _: 1
     }),
     _createVNode(_component_cc_button, { round: 20 }, {
       default: _withCtx(() => [
         _hoisted_4
       ]),
-      _: 1 /* STABLE */
+      _: 1
     })
   ]))
 }

@@ -147,7 +147,7 @@ function render(_ctx, _cache) {
         _createVNode(_component_cc_tab, { title: "title2" }),
         _createVNode(_component_cc_tab, { title: "title3" })
       ]),
-      _: 1 /* STABLE */
+      _: 1
     })
   ]))
 }
