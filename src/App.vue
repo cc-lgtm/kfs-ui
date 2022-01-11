@@ -1,10 +1,7 @@
 <template>
   <div>
-    <!-- <ul class="infinite-list" v-infinite-scroll="load" style="overflow: auto">
-      <li class="infinite-list-item" v-for="i in count" :key="i">{{i}}</li>
-    </ul> -->
-    <!-- <cc-toast>这是一条toast</cc-toast> -->
- 
+    <cc-button>test</cc-button>
+    <div v-loading></div>
   </div>
 </template>
 
@@ -12,6 +9,7 @@
 import { ref, getCurrentInstance } from 'vue'
 import ToastFn from '../packages/toast/toastFn'
 import MessageFn from '../packages/message/messageFn'
+import vLoading from '../packages/directives/loading'
 
 // const { proxy } = getCurrentInstance()!;
 // console.log(proxy!.Message)
@@ -27,6 +25,7 @@ import MessageFn from '../packages/message/messageFn'
 // })
 
 
+
 ToastFn.success({
   text: '这是一条Toast',
   success() {
@@ -39,6 +38,7 @@ MessageFn.success({
 const count = ref(10)
 const load = () => {
   count.value += 2
+  console.log(11)
 }
 </script>
 
