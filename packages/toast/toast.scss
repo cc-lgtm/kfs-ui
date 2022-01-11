@@ -11,18 +11,16 @@
   letter-spacing: 1px;
   position: absolute;
   right: 15px;
-  bottom: 15px;
-  // animation: out 1s ease-in-out;
+  bottom: 30px;
+  animation: down 1s linear;
 }
 
-// @keyframes out {
-//   0% {
-//     opacity: 1;
-//   }
-//   50% {
-//     opacity: 0.5;
-//   }
-//   100% {
-//     opacity: 0;
-//   }
-// }
+@keyframes down {
+  from {
+    transform: translate3d(0, 15px, 0);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -7,12 +7,11 @@ export default ({ type, text }: {[propname: string]: any}) => {
     div = document.createElement('div')
     div.setAttribute('class', 'cc-message')
     document.body.appendChild(div)
+    const vnode = createVNode(CcMessage, { type, text })
     render(vnode, div)
   })
 
   const timer = ref<number | any>(null)
-
-  const vnode = createVNode(CcMessage, { type, text })
 
   clearTimeout(timer)
   timer.value = setTimeout(() => {

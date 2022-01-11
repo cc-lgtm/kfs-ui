@@ -3,13 +3,20 @@
     <!-- <ul class="infinite-list" v-infinite-scroll="load" style="overflow: auto">
       <li class="infinite-list-item" v-for="i in count" :key="i">{{i}}</li>
     </ul> -->
-    <cc-toast>这是一条toast</cc-toast>
+    <!-- <cc-toast>这是一条toast</cc-toast> -->
  
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import ToastFn from '../packages/toast/toastFn'
+ToastFn.success({
+  text: '这是一条Toast',
+  success() {
+    console.log('执行成功了')
+  }
+})
 const count = ref(10)
 const load = () => {
   count.value += 2

@@ -1,6 +1,7 @@
 import {
   defineComponent,
-  PropType
+  PropType,
+  onMounted
 } from 'vue'
 import './toast.scss'
 import { useStyle } from '../utils/hooks'
@@ -9,21 +10,24 @@ import { Type } from '../utils/theme'
 const CcToast = defineComponent({
   name: 'cc-toast',
   props: {
+    text: String,
     type: {
       type: String as PropType<Type>,
       default: 'success'
-    }
+    },
+    success: Function as PropType<() => void>
   },
-  setup(props, { slots }) {
+  setup(props) {
     const styles = useStyle({
-      '--toast-bg': `var(--theme-bg-${props.type})`
+      '--toast-bg': props.type === 'default' ? '#ccc' : `var(--theme-bg-${props.type})`
     })
+    onMounted(() => props.success!())
 
     return () => (
       <div
         class="cc-toast"
         style={styles}
-      >{slots.default?.()}</div>
+      >{props.text}</div>
     )
   }
 })
