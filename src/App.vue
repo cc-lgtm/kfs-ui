@@ -11,11 +11,15 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import ToastFn from '../packages/toast/toastFn'
+import MessageFn from '../packages/message/messageFn'
 ToastFn.success({
   text: '这是一条Toast',
   success() {
     console.log('执行成功了')
   }
+})
+MessageFn.success({
+  text: '...'
 })
 const count = ref(10)
 const load = () => {

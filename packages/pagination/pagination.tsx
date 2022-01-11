@@ -196,8 +196,7 @@ const CcPagination = defineComponent({
     const onInput = (e: Event) => {
       const value = (e.target as unknown as HTMLInputElement).value
       if (value !== '' && typeof +value !== 'number') {
-        message({
-          type: 'error',
+        message.warn({
           text: '请输入数字'
         })
       }

@@ -13,6 +13,7 @@
   right: 15px;
   bottom: 30px;
   animation: down 1s linear;
+  z-index: 999;
 }
 
 @keyframes down {

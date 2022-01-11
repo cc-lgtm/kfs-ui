@@ -1,20 +1,20 @@
-import { createVNode, render, ref, onMounted } from 'vue'
-import CcMessage from './message'
+import Message from './message'
+import { ToastFnType } from '../toast/toastFn'
+import { createTypeFn } from '../utils/helper'
 
-export default ({ type, text }: {[propname: string]: any}) => {
-  let div: HTMLDivElement;
-  onMounted(() => {
-    div = document.createElement('div')
-    div.setAttribute('class', 'cc-message')
-    document.body.appendChild(div)
-    const vnode = createVNode(CcMessage, { type, text })
-    render(vnode, div)
-  })
-
-  const timer = ref<number | any>(null)
-
-  clearTimeout(timer)
-  timer.value = setTimeout(() => {
-    render(null, div)
-  }, 2000)
+const MessageFn: ToastFnType = {
+  default(opts) {
+    createTypeFn(Message, 'default', opts)
+  },
+  error(opts) {
+    createTypeFn(Message, 'error', opts)
+  },
+  success(opts) {
+    createTypeFn(Message, 'success', opts)
+  },
+  warn(opts) {
+    createTypeFn(Message, 'warn', opts)
+  }
 }
+
+export default MessageFn
