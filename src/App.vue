@@ -9,9 +9,24 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, getCurrentInstance } from 'vue'
 import ToastFn from '../packages/toast/toastFn'
 import MessageFn from '../packages/message/messageFn'
+
+// const { proxy } = getCurrentInstance()!;
+// console.log(proxy!.Message)
+// proxy!.Message.success({
+//   text: '...'
+// })
+
+// proxy!.Toast.success({
+//   text: '这是一条Toast',
+//   success() {
+//     console.log('执行成功了')
+//   }
+// })
+
+
 ToastFn.success({
   text: '这是一条Toast',
   success() {

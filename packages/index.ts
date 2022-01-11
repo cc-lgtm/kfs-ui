@@ -1,7 +1,6 @@
 import './style/var.scss';
 import { App } from 'vue'
-import { useTheme } from './utils/hooks'
-import MessageFn from './message/messageFn'
+import useTheme from './utils/hooks/useTheme'
 import Button from './button/button'
 import Card from './card/card'
 import Input from './input/input'
@@ -10,8 +9,8 @@ import Drawer from './drawer/drawer'
 import Tips from './tips/tips'
 import Rating from './rate/rating'
 import Popup from './popup/popup'
-import Message from './message/message'
-import Toast from './toast/toast'
+import Message from './message'
+import Toast from './toast'
 import Pagination from './pagination/pagination'
 import Skeleton from './skeleton/skeleton'
 import SkeletonItem from './skeleton-item/skeletonItem'
@@ -30,7 +29,6 @@ const components = [
   Tips,
   Rating,
   Popup,
-  Message,
   Pagination,
   Steps,
   Step,
@@ -39,13 +37,13 @@ const components = [
   Switch,
   Link,
   Skeleton,
-  SkeletonItem,
-  Toast
+  SkeletonItem
 ]
 
 const install = (app:App) => {
-  app.config.globalProperties.$useTheme = useTheme;
-  app.config.globalProperties.$messageFn = MessageFn;
+  app.config.globalProperties.Message = Message;
+  app.config.globalProperties.Toast = Toast;
+  app.config.globalProperties.useTheme = useTheme;
   components.map((component: any) => {
     app.component(component.name , component)
   })
@@ -59,7 +57,8 @@ import {CcDrawer} from './drawer'
 import {CcTips} from './tips'
 import {CcRating} from './rate'
 import {CcPopup} from './popup'
-import {CcMessage} from './message'
+import {messageFn} from './message'
+import {toastFn} from './toast'
 import {CcPagination} from './pagination'
 import {CcSkeleton} from './skeleton'
 import {CcSkeletonItem} from './skeleton-item'
@@ -80,7 +79,8 @@ export {
   CcTips,
   CcRating,
   CcPopup,
-  CcMessage,
+  messageFn,
+  toastFn,
   CcPagination,
   CcSkeleton,
   CcSkeletonItem,

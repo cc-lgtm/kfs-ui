@@ -1,14 +1,6 @@
-import { App } from 'vue'
-import messageJsx from './message'
-import message from './messageFn'
+import messageFn from './messageFn'
 
-export const CcMessage = {} as {[propname: string]: any}
 export {
-  messageJsx,
-  message
+  messageFn
 }
-CcMessage['install'] = (app: App) => {
-  app.config.globalProperties.$toast = message
-}
-
-export default CcMessage;
+export default messageFn;
