@@ -1,7 +1,6 @@
 <template>
   <div>
-    <cc-button>test</cc-button>
-    <div v-loading></div>
+    <Tree :data="data" />
   </div>
 </template>
 
@@ -10,6 +9,31 @@ import { ref, getCurrentInstance } from 'vue'
 import ToastFn from '../packages/toast/toastFn'
 import MessageFn from '../packages/message/messageFn'
 import vLoading from '../packages/directives/loading'
+import Tree from '../packages/tree/tree'
+
+const list = [1, 2, 3]
+
+const data = [
+  {
+    label: 'tree1',
+    children: [
+      {
+        label: 'tree1-1'
+      }
+    ]
+  },
+  {
+    label: 'tree2',
+    children: [
+      {
+        label: 'tree2-1'
+      }
+    ]
+  },
+  {
+    label: 'tree3'
+  }
+]
 
 // const { proxy } = getCurrentInstance()!;
 // console.log(proxy!.Message)
