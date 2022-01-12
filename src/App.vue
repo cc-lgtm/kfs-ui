@@ -26,7 +26,12 @@ const data = [
     label: 'tree2',
     children: [
       {
-        label: 'tree2-1'
+        label: 'tree2-1',
+        children: [
+          {
+            label: 'tree2-2'
+          }
+        ]
       }
     ]
   },

@@ -1,7 +1,6 @@
 import { 
   defineComponent,
-  PropType,
-  ref
+  PropType
 } from 'vue'
 import './tree.scss'
 
@@ -19,22 +18,27 @@ const CcTree = defineComponent({
   name: 'cc-tree',
   props,
   setup(props) {
-    const treeRef = ref<HTMLDivElement>()
-
-    const renderTree = (tree: TreeType[]) => {
-      const container: HTMLDivElement = document.createElement('div')
-      return tree.forEach(data => {
-        console.log(data['label'])
-        container.innerHTML += `<div>${data.label}</div>`
-        if (data['children']?.length! > 0) {
-          renderTree(data['children']!)
+    const renderTree = (tree: TreeType[], container: Element) => {
+      tree.forEach((data, index) => {
+        const node = document.createElement('div')
+        node.innerText = data['label']
+        const styles = `
+          margin: 5px;
+          margin-left: ${index * 10} + 'px';
+          padding: 0 10px;
+          color: var(--theme-color-default);
+        }`
+        node.setAttribute('style', styles)
+        container.appendChild(node)
+        if(data.children) {
+          renderTree(data.children, node)
         }
-        treeRef.value?.appendChild(container)
       })
     }
+    renderTree(props.data!, document.querySelector('body')!)
+
     return () => (
-      <div class="cc-tree" ref={treeRef}>
-        {renderTree(props.data!)}
+      <div class="cc-tree">
       </div>
     )
   }
