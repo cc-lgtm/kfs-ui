@@ -5586,10 +5586,10 @@ keyv@^3.0.0:
   dependencies:
     json-buffer "3.0.0"
 
-kfs-ui@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.npmmirror.com/kfs-ui/download/kfs-ui-0.4.2.tgz#ea794d5d5800ad2bb61aea001acecd4063238fab"
-  integrity sha512-zGEYvFNdcFXYHB4DN8BvizpMrD+rsmxQjvxjKqAmlXTgczNHXQMZLUCI7MtWllKpgXAwDfW+TzWJtOWslUpcBA==
+kfs-ui@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.npmmirror.com/kfs-ui/download/kfs-ui-0.4.3.tgz#e6fd8ae91cc7ec4f5b277ac59612e2caad30cc2d"
+  integrity sha512-08v2PJyZhp5txovToLuGAkp924n2wQCl/9Ti5/zF6xyfJhMG5sVyXzrpXcFPj5+Aj6AOtPyzWqgA0VvWmFVvmg==
 
 killable@^1.0.1:
   version "1.0.1"

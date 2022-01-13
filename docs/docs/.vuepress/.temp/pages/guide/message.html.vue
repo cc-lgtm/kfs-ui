@@ -3,7 +3,8 @@
 <h4 id="默认" tabindex="-1"><a class="header-anchor" href="#默认" aria-hidden="true">#</a> 默认</h4>
 <demo customClass="" sourceCode="&lt;template&gt;
   &lt;div&gt;
-    &lt;cc-button type=&quot;success&quot; @click=&quot;openMessage&quot;&gt;点我试一试&lt;/cc-button&gt;
+    &lt;cc-button type=&quot;success&quot; @click=&quot;openMessage&quot;&gt;Message&lt;/cc-button&gt;
+    &lt;cc-button type=&quot;success&quot; @click=&quot;openToast&quot;&gt;Toast&lt;/cc-button&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 
@@ -11,9 +12,16 @@
   import { getCurrentInstance } from 'vue'
   const { proxy } = getCurrentInstance()
   const openMessage = () =&gt; {
-    proxy.$messageFn({
-      type: 'error',
+    proxy.Message.default({
       text: 'text'
+    })
+  }
+  const openToast = () =&gt; {
+    proxy.Toast.default({
+      text: 'text',
+      success() {
+        alert('toast成功了')
+      }
     })
   }
 &lt;/script&gt;
@@ -23,7 +31,8 @@
           <div v-pre class="language-vue">
             <pre class="shiki" style="background-color: var(--shiki-color-background)"><code><span class="line"><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-button</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">type</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;success&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">@</span><span style="color: var(--shiki-token-function)">click</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">openMessage</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">&gt;点我试一试&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-button</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-button</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">type</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;success&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">@</span><span style="color: var(--shiki-token-function)">click</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">openMessage</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">&gt;Message&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-button</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-button</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">type</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;success&quot;</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">@</span><span style="color: var(--shiki-token-function)">click</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">openToast</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">&gt;Toast&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-button</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"></span>
@@ -31,9 +40,16 @@
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">import</span><span style="color: var(--shiki-color-text)"> { getCurrentInstance } </span><span style="color: var(--shiki-token-keyword)">from</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;vue&#39;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> { </span><span style="color: var(--shiki-token-constant)">proxy</span><span style="color: var(--shiki-color-text)"> } </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">getCurrentInstance</span><span style="color: var(--shiki-color-text)">()</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">openMessage</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> () </span><span style="color: var(--shiki-token-keyword)">=&gt;</span><span style="color: var(--shiki-color-text)"> {</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-constant)">proxy</span><span style="color: var(--shiki-token-function)">.$messageFn</span><span style="color: var(--shiki-color-text)">({</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">      type</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;error&#39;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-constant)">proxy</span><span style="color: var(--shiki-token-function)">.</span><span style="color: var(--shiki-token-constant)">Message</span><span style="color: var(--shiki-token-function)">.default</span><span style="color: var(--shiki-color-text)">({</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">      text</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;text&#39;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    })</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  }</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">openToast</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> () </span><span style="color: var(--shiki-token-keyword)">=&gt;</span><span style="color: var(--shiki-color-text)"> {</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">    </span><span style="color: var(--shiki-token-constant)">proxy</span><span style="color: var(--shiki-token-function)">.</span><span style="color: var(--shiki-token-constant)">Toast</span><span style="color: var(--shiki-token-function)">.default</span><span style="color: var(--shiki-color-text)">({</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      text</span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-string-expression)">&#39;text&#39;</span><span style="color: var(--shiki-token-punctuation)">,</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-function)">success</span><span style="color: var(--shiki-color-text)">() {</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">        </span><span style="color: var(--shiki-token-function)">alert</span><span style="color: var(--shiki-color-text)">(</span><span style="color: var(--shiki-token-string-expression)">&#39;toast成功了&#39;</span><span style="color: var(--shiki-color-text)">)</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      }</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    })</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  }</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">script</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
@@ -189,7 +205,8 @@
     
     const { createTextVNode: _createTextVNode, resolveComponent: _resolveComponent, withCtx: _withCtx, createVNode: _createVNode, openBlock: _openBlock, createElementBlock: _createElementBlock } = Vue
 
-const _hoisted_1 = /*#__PURE__*/_createTextVNode("点我试一试")
+const _hoisted_1 = /*#__PURE__*/_createTextVNode("Message")
+const _hoisted_2 = /*#__PURE__*/_createTextVNode("Toast")
 
 function render(_ctx, _cache) {
   const _component_cc_button = _resolveComponent("cc-button")
@@ -201,6 +218,15 @@ function render(_ctx, _cache) {
     }, {
       default: _withCtx(() => [
         _hoisted_1
+      ]),
+      _: 1
+    }, 8, ["onClick"]),
+    _createVNode(_component_cc_button, {
+      type: "success",
+      onClick: _ctx.openToast
+    }, {
+      default: _withCtx(() => [
+        _hoisted_2
       ]),
       _: 1
     }, 8, ["onClick"])
@@ -215,13 +241,20 @@ const democomponentExport = {
 
   const { proxy } = getCurrentInstance()
   const openMessage = () => {
-    proxy.$messageFn({
-      type: 'error',
+    proxy.Message.default({
       text: 'text'
     })
   }
+  const openToast = () => {
+    proxy.Toast.default({
+      text: 'text',
+      success() {
+        alert('toast成功了')
+      }
+    })
+  }
 
-const __returned__ = { proxy, openMessage, getCurrentInstance }
+const __returned__ = { proxy, openMessage, openToast, getCurrentInstance }
 Object.defineProperty(__returned__, '__isScriptSetup', { enumerable: false, value: true })
 return __returned__
 }

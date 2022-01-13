@@ -21,7 +21,6 @@ const CcToast = defineComponent({
     const styles = useStyle({
       '--toast-bg': props.type === 'default' ? '#ccc' : `var(--theme-bg-${props.type})`
     })
-    onMounted(() => props.success!())
 
     return () => (
       <div

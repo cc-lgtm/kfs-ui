@@ -26,14 +26,8 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1641734448000,
-    "contributors": [
-      {
-        "name": "coderC",
-        "email": "2448856797@qq.com",
-        "commits": 2
-      }
-    ]
+    "updatedTime": null,
+    "contributors": []
   },
   "filePathRelative": "guide/utils.md"
 }

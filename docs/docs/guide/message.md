@@ -5,7 +5,8 @@
 ```vue
 <template>
   <div>
-    <cc-button type="success" @click="openMessage">点我试一试</cc-button>
+    <cc-button type="success" @click="openMessage">Message</cc-button>
+    <cc-button type="success" @click="openToast">Toast</cc-button>
   </div>
 </template>
 
@@ -13,9 +14,16 @@
   import { getCurrentInstance } from 'vue'
   const { proxy } = getCurrentInstance()
   const openMessage = () => {
-    proxy.$messageFn({
-      type: 'error',
+    proxy.Message.default({
       text: 'text'
+    })
+  }
+  const openToast = () => {
+    proxy.Toast.default({
+      text: 'text',
+      success() {
+        alert('toast成功了')
+      }
     })
   }
 </script>

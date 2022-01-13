@@ -58,7 +58,7 @@ const data = [
 ToastFn.success({
   text: '这是一条Toast',
   success() {
-    console.log('执行成功了')
+    // alert('我成功了')
   }
 })
 MessageFn.success({
@@ -69,6 +69,42 @@ const load = () => {
   count.value += 2
   console.log(11)
 }
+
+
+const callbackToChain = (
+  fn: (...rely: any) => any
+) => {
+  return (rely: number[], init: number = 0) => {
+    return {
+      callback(callback: (pre: number, cur: number) => number) {
+        return fn(rely, callback, init)
+      }
+    }
+  }
+}
+
+const myreduce = (
+  rely: number[],
+  fn: (pre: number, cur: number) => number,
+  init: number = 0
+  ) => {
+    let result = 0;
+    rely.forEach((_, index) => {
+      if (index - 1 >= 0) {
+       result = fn(rely[index - 1], rely[index]) + init
+      }
+    })
+    return result;
+}
+const test1 = myreduce([1, 2], (pre, cur) => pre + cur)
+const test2 = myreduce([1, 2], (pre, cur) => pre + cur, 2)
+console.log(test1, test2, 'reduce') // 3 5
+
+const reduceChain = callbackToChain(myreduce)
+const test3 = reduceChain([1, 2]).callback((pre, cur) => pre + cur)
+const test4 = reduceChain([1, 2], 2).callback((pre, cur) => pre + cur)
+console.log(test3, test4, 'chain') // 3 5
+
 </script>
 
 <style lang="scss">

@@ -19,6 +19,7 @@ const createTypeFn = (c: Component, type: Type, opts: OptsType) => {
   setTimer(
     setTimeout(() => {
       bindVNode(null, container)
+      opts.success!()
     }, 3000)
   )
 }

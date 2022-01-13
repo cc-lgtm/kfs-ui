@@ -15,7 +15,7 @@
 :::demo 使用`shadow`属性禁用 Card。
 ```vue
 <template>
-  <div style="display: flex; width: 30%; justify-content: space-around;">
+  <div style="display: flex; width: 80%; justify-content: space-around;">
     <cc-card value="一直" icon="" shadow="always"></cc-card>
     <cc-card value="悬停" icon="" shadow="hover"></cc-card>
     <cc-card value="从不" icon="" shadow="never"></cc-card>

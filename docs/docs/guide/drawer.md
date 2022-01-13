@@ -13,12 +13,12 @@
       @click="openright"
     >右</cc-button>
     <cc-drawer
-      :vModel="false"
-      :position="left"
+      :vModel="left"
+      position="left"
     />
     <cc-drawer
-      :vModel="false"
-      :position="right"
+      :vModel="right"
+      position="right"
     />
   </div>
 </template>
@@ -28,10 +28,10 @@ import {ref} from 'vue'
 const left = ref<boolean>(false)
 const right = ref<boolean>(false)
 const openleft = () => {
-  left.value = true
+  left.value = !left.value
 }
 const openright = () => {
-  right.value = true
+  right.value = !right.value
 }
 </script>
 ```

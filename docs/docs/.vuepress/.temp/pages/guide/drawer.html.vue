@@ -11,12 +11,12 @@
       @click=&quot;openright&quot;
     &gt;右&lt;/cc-button&gt;
     &lt;cc-drawer
-      :vModel=&quot;false&quot;
-      :position=&quot;left&quot;
+      :vModel=&quot;left&quot;
+      position=&quot;left&quot;
     /&gt;
     &lt;cc-drawer
-      :vModel=&quot;false&quot;
-      :position=&quot;right&quot;
+      :vModel=&quot;right&quot;
+      position=&quot;right&quot;
     /&gt;
   &lt;/div&gt;
 &lt;/template&gt;
@@ -26,10 +26,10 @@ import {ref} from 'vue'
 const left = ref&lt;boolean&gt;(false)
 const right = ref&lt;boolean&gt;(false)
 const openleft = () =&gt; {
-  left.value = true
+  left.value = !left.value
 }
 const openright = () =&gt; {
-  right.value = true
+  right.value = !right.value
 }
 &lt;/script&gt;
 "><render-demo-0 />
@@ -46,12 +46,12 @@ const openright = () =&gt; {
 <span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-keyword)">@</span><span style="color: var(--shiki-token-function)">click</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">openright</span><span style="color: var(--shiki-color-text)">&quot;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    &gt;右&lt;/</span><span style="color: var(--shiki-token-string-expression)">cc-button</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-drawer</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">vModel</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">false</span><span style="color: var(--shiki-color-text)">&quot;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">position</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">left</span><span style="color: var(--shiki-color-text)">&quot;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">vModel</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">left</span><span style="color: var(--shiki-color-text)">&quot;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-function)">position</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;left&quot;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    /&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    &lt;</span><span style="color: var(--shiki-token-string-expression)">cc-drawer</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">vModel</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-token-constant)">false</span><span style="color: var(--shiki-color-text)">&quot;</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">position</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">right</span><span style="color: var(--shiki-color-text)">&quot;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-keyword)">:</span><span style="color: var(--shiki-token-function)">vModel</span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)">&quot;</span><span style="color: var(--shiki-color-text)">right</span><span style="color: var(--shiki-color-text)">&quot;</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">      </span><span style="color: var(--shiki-token-function)">position</span><span style="color: var(--shiki-color-text)">=</span><span style="color: var(--shiki-token-string-expression)">&quot;right&quot;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">    /&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">  &lt;/</span><span style="color: var(--shiki-token-string-expression)">div</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">template</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
@@ -61,10 +61,10 @@ const openright = () =&gt; {
 <span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">left</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">ref</span><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-constant)">boolean</span><span style="color: var(--shiki-color-text)">&gt;(</span><span style="color: var(--shiki-token-constant)">false</span><span style="color: var(--shiki-color-text)">)</span></span>
 <span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">right</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">ref</span><span style="color: var(--shiki-color-text)">&lt;</span><span style="color: var(--shiki-token-constant)">boolean</span><span style="color: var(--shiki-color-text)">&gt;(</span><span style="color: var(--shiki-token-constant)">false</span><span style="color: var(--shiki-color-text)">)</span></span>
 <span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">openleft</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> () </span><span style="color: var(--shiki-token-keyword)">=&gt;</span><span style="color: var(--shiki-color-text)"> {</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-constant)">left</span><span style="color: var(--shiki-color-text)">.value </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">true</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-constant)">left</span><span style="color: var(--shiki-color-text)">.value </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">!</span><span style="color: var(--shiki-token-constant)">left</span><span style="color: var(--shiki-color-text)">.value</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">}</span></span>
 <span class="line"><span style="color: var(--shiki-token-keyword)">const</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-function)">openright</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> () </span><span style="color: var(--shiki-token-keyword)">=&gt;</span><span style="color: var(--shiki-color-text)"> {</span></span>
-<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-constant)">right</span><span style="color: var(--shiki-color-text)">.value </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-constant)">true</span></span>
+<span class="line"><span style="color: var(--shiki-color-text)">  </span><span style="color: var(--shiki-token-constant)">right</span><span style="color: var(--shiki-color-text)">.value </span><span style="color: var(--shiki-token-keyword)">=</span><span style="color: var(--shiki-color-text)"> </span><span style="color: var(--shiki-token-keyword)">!</span><span style="color: var(--shiki-token-constant)">right</span><span style="color: var(--shiki-color-text)">.value</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">}</span></span>
 <span class="line"><span style="color: var(--shiki-color-text)">&lt;/</span><span style="color: var(--shiki-token-string-expression)">script</span><span style="color: var(--shiki-color-text)">&gt;</span></span>
 <span class="line"></span></code></pre>
@@ -259,13 +259,13 @@ function render(_ctx, _cache) {
       _: 1
     }, 8, ["onClick"]),
     _createVNode(_component_cc_drawer, {
-      vModel: false,
-      position: _ctx.left
-    }, null, 8, ["position"]),
+      vModel: _ctx.left,
+      position: "left"
+    }, null, 8, ["vModel"]),
     _createVNode(_component_cc_drawer, {
-      vModel: false,
-      position: _ctx.right
-    }, null, 8, ["position"])
+      vModel: _ctx.right,
+      position: "right"
+    }, null, 8, ["vModel"])
   ]))
 }
   
@@ -279,10 +279,10 @@ const democomponentExport = /*#__PURE__*/_defineComponent({
 const left = ref<boolean>(false)
 const right = ref<boolean>(false)
 const openleft = () => {
-  left.value = true
+  left.value = !left.value
 }
 const openright = () => {
-  right.value = true
+  right.value = !right.value
 }
 
 const __returned__ = { left, right, openleft, openright, ref }
